@@ -9,14 +9,15 @@
 <style>
 
 :root{
-  --blue:#071f55;
-  --green:#3aaa35;
-  --red:#b51625;
-  --red2:#7f0d18;
-  --gold:#f6ce73;
-  --cream:#fff7e7;
-  --pine:#073b30;
-  --pine2:#021e19;
+  --apotek-blue:#071f5b;
+  --apotek-green:#3aaa35;
+  --christmas-red:#a71925;
+  --dark-red:#72101a;
+  --gold:#e9bd61;
+  --light-gold:#ffe6a5;
+  --cream:#fff9eb;
+  --pine:#053c2d;
+  --dark-pine:#021e18;
 }
 
 *{
@@ -29,40 +30,53 @@ html{
 
 body{
   margin:0;
-  background:#061e36;
+  min-height:100vh;
   color:#fff;
   font-family:Arial,Helvetica,sans-serif;
+  background:#071d39;
   overflow-x:hidden;
 }
 
 
 /* =========================================================
-   VINTERHIMMEL
+   FAST JULEBILDE I BAKGRUNN
+
+   Legg julebildet i samme mappe som index.html.
+   Bildefilen må hete julebakgrunn.png.
 ========================================================= */
 
-.sky{
+.background{
   position:fixed;
   inset:0;
-  z-index:-4;
+  z-index:-10;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(3,15,38,.13) 0%,
+      rgba(3,15,38,.22) 40%,
+      rgba(3,17,31,.76) 100%
+    ),
+    url("julebakgrunn.png");
+
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+
+/* Myk vignett rundt bildet */
+
+.background::after{
+  content:"";
+  position:absolute;
+  inset:0;
 
   background:
     radial-gradient(
-      circle at 85% 8%,
-      #fffad1 0 2px,
-      #e7c997 3px 9px,
-      transparent 10px
-    ),
-    radial-gradient(
-      circle at 70% 15%,
-      #47698b 0,
-      transparent 30%
-    ),
-    linear-gradient(
-      #071d3b 0,
-      #0b3157 38%,
-      #174968 62%,
-      #d9e5e8 63%,
-      #eef4f2 100%
+      circle at center,
+      transparent 35%,
+      rgba(0,8,24,.38) 100%
     );
 }
 
@@ -74,1134 +88,890 @@ body{
 .snow{
   position:fixed;
   inset:0;
-  z-index:20;
+  z-index:50;
   pointer-events:none;
+  opacity:.78;
 
   background-image:
-    radial-gradient(#fff 1.5px,transparent 1.8px),
-    radial-gradient(#fff 2px,transparent 2.3px),
-    radial-gradient(#fff 1px,transparent 1.3px);
+    radial-gradient(#fff 1.2px,transparent 1.7px),
+    radial-gradient(#fff 2px,transparent 2.6px),
+    radial-gradient(#fff 1px,transparent 1.5px);
 
   background-size:
-    50px 50px,
+    45px 45px,
     100px 100px,
-    37px 37px;
+    67px 67px;
 
-  animation:snow 14s linear infinite;
-  opacity:.7;
+  background-position:
+    0 0,
+    20px -30px,
+    40px -10px;
+
+  animation:
+    snowfall 17s linear infinite;
 }
 
-@keyframes snow{
-
+@keyframes snowfall{
   to{
     background-position:
-      0 700px,
-      40px 900px,
-      20px 500px;
+      20px 900px,
+      -30px 1100px,
+      80px 750px;
   }
-
 }
 
 
 /* =========================================================
-   HERO
+   TOPPSEKSJON
 ========================================================= */
 
 .hero{
-
-  min-height:760px;
-
-  position:relative;
-
+  min-height:880px;
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-align:center;
-
-  padding:
-    70px 24px 160px;
-
-  overflow:hidden;
-
+  position:relative;
+  padding:80px 24px 180px;
 }
 
 
-/* MÅNE */
+/* Mørk flate bak teksten */
 
-.moon{
-
-  position:absolute;
-
-  width:120px;
-  height:120px;
-
-  border-radius:50%;
-
-  background:#fff8d8;
-
-  right:10%;
-  top:70px;
-
-  box-shadow:
-    0 0 70px #fff6c9aa;
-
-}
-
-
-/* SNØLANDSKAP */
-
-.forest{
-
-  position:absolute;
-
-  left:-2%;
-  right:-2%;
-  bottom:0;
-
-  height:270px;
+.hero-content{
+  width:min(850px,100%);
+  padding:45px 35px;
 
   background:
     linear-gradient(
-      150deg,
-      transparent 0 38%,
-      #dbe8e7 39% 48%,
-      transparent 49%
-    ),
-    linear-gradient(
-      210deg,
-      transparent 0 39%,
-      #cbdedd 40% 49%,
-      transparent 50%
+      145deg,
+      rgba(4,26,61,.88),
+      rgba(3,30,30,.83)
     );
 
-}
+  border:
+    1px solid rgba(255,224,145,.6);
 
+  border-radius:34px;
 
-/* GRANTRÆR */
+  box-shadow:
+    0 35px 100px rgba(0,0,0,.55),
+    inset 0 0 45px rgba(255,221,128,.05);
 
-.trees{
-
-  position:absolute;
-
-  left:0;
-  right:0;
-  bottom:70px;
-
-  height:300px;
-
-  background:
-    linear-gradient(
-      63deg,
-      transparent 48%,
-      #092b28 49% 52%,
-      transparent 53%
-    )
-    0 0 / 110px 220px repeat-x;
-
-  opacity:.9;
-
-}
-
-
-.hero-card{
-
-  z-index:2;
-  max-width:900px;
-
+  backdrop-filter:blur(10px);
 }
 
 
 /* =========================================================
-   APOTEK 1-INSPIRERT MERKE
+   APOTEK 1-MERKE
 ========================================================= */
 
 .logo{
-
   display:inline-flex;
   align-items:center;
+  gap:15px;
 
-  gap:16px;
+  padding:13px 22px;
 
   background:#fff;
-
-  padding:
-    13px 22px;
-
-  border-radius:20px;
+  border-radius:17px;
 
   box-shadow:
-    0 12px 45px #0007;
-
+    0 12px 35px rgba(0,0,0,.35);
 }
-
 
 .logo-mark{
-
-  width:60px;
-  height:60px;
-
-  border-radius:13px;
-
-  background:var(--green);
-
+  width:56px;
+  height:56px;
+  background:var(--apotek-green);
+  border-radius:12px;
   position:relative;
-
 }
 
-
-.logo-mark:before,
-.logo-mark:after{
-
+.logo-mark::before,
+.logo-mark::after{
   content:"";
-
   position:absolute;
-
   background:#fff;
-
 }
 
-
-.logo-mark:before{
-
+.logo-mark::before{
   width:34px;
-  height:12px;
-
-  left:13px;
-  top:24px;
-
+  height:11px;
+  left:11px;
+  top:22px;
 }
 
-
-.logo-mark:after{
-
+.logo-mark::after{
+  width:11px;
   height:34px;
-  width:12px;
-
-  left:24px;
-  top:13px;
-
+  left:22px;
+  top:11px;
 }
 
-
-.logo-name{
-
+.logo-text{
+  color:var(--apotek-blue);
+  font-size:37px;
   font-weight:900;
-  font-size:39px;
-
   letter-spacing:-2px;
-
-  color:#0a2467;
-
 }
 
-
-.logo-name i{
-
-  font-style:normal;
-  color:var(--green);
-
+.logo-text span{
+  color:var(--apotek-green);
 }
 
 
 /* =========================================================
-   HERO TYPOGRAFI
+   HERO-TEKST
 ========================================================= */
 
 .eyebrow{
-
-  margin:
-    34px 0 8px;
-
+  margin-top:32px;
+  color:var(--light-gold);
   text-transform:uppercase;
-
   letter-spacing:5px;
-
-  color:var(--gold);
-
-  font-weight:800;
-  font-size:13px;
-
+  font-size:12px;
+  font-weight:900;
 }
-
 
 .hero h1{
-
-  font-family:
-    Georgia,serif;
-
-  font-size:
-    clamp(52px,8vw,96px);
-
+  margin:13px 0 0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(50px,8vw,94px);
   line-height:.96;
-
-  margin:0;
-
-  color:white;
+  color:#fff8e8;
 
   text-shadow:
-    0 5px 0 #7c101b,
-    0 0 34px #ffe5a766;
-
+    0 4px 0 var(--dark-red),
+    0 0 38px rgba(255,221,132,.48);
 }
 
-
-.hero p{
-
-  font-family:
-    Georgia,serif;
-
-  font-size:21px;
-
-  line-height:1.6;
-
-  max-width:720px;
-
-  margin:
-    22px auto;
-
-  color:#fff4db;
-
+.hero-description{
+  max-width:680px;
+  margin:25px auto 0;
+  color:#fff3d8;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:20px;
+  line-height:1.65;
 }
 
-
-/* BADGES */
-
-.badges{
-
+.hero-badges{
   display:flex;
-
-  gap:10px;
-
-  justify-content:center;
-
   flex-wrap:wrap;
-
+  justify-content:center;
+  gap:10px;
+  margin-top:25px;
 }
 
-
-.badge{
-
-  background:#fff;
-
-  color:#0a2a60;
-
-  padding:
-    9px 14px;
-
+.hero-badge{
+  padding:9px 14px;
   border-radius:30px;
-
-  font-weight:800;
-
+  background:#fff;
+  color:var(--apotek-blue);
   font-size:12px;
-
+  font-weight:900;
 }
 
-
-.badge.green{
-
-  background:var(--green);
-
+.hero-badge.green{
   color:#fff;
-
+  background:var(--apotek-green);
 }
-
-
-/* STATUS */
 
 .status{
-
   display:inline-block;
-
   margin-top:25px;
-
-  background:#061c3ddd;
+  padding:12px 20px;
 
   border:
-    1px solid #f6ce7388;
-
-  padding:
-    12px 20px;
+    1px solid rgba(255,222,143,.65);
 
   border-radius:30px;
 
-  color:#ffe9ae;
+  background:
+    rgba(1,17,42,.65);
 
-  font-weight:800;
-
+  color:#ffe7aa;
+  font-size:13px;
+  font-weight:900;
 }
 
 
-/* =========================================================
-   APOTEK 1 JULEBIL
-========================================================= */
+/* Scroll-knapp */
 
-.truck{
+.scroll-button{
+  display:inline-block;
+  margin-top:28px;
+  padding:14px 21px;
 
-  position:absolute;
+  background:var(--christmas-red);
+  color:#fff;
 
-  right:-120px;
-  bottom:38px;
+  text-decoration:none;
+  font-weight:900;
 
-  width:520px;
-  height:150px;
-
-  z-index:4;
-
-  animation:
-    truck 10s ease-in-out infinite;
-
-}
-
-
-.truck-box{
-
-  position:absolute;
-
-  left:0;
-  top:12px;
-
-  width:290px;
-  height:100px;
+  border:
+    2px solid var(--gold);
 
   border-radius:12px;
 
-  background:
-    linear-gradient(
-      #ce1c2d,
-      #98111d
-    );
-
   box-shadow:
-    inset 0 0 0 4px #efc5a0,
-    0 12px 20px #0005;
+    0 8px 24px rgba(0,0,0,.28);
 
+  transition:
+    transform .2s ease,
+    filter .2s ease;
 }
 
-
-.truck-box:after{
-
-  content:"✚  APOTEK 1";
-
-  position:absolute;
-
-  inset:0;
-
-  display:grid;
-  place-items:center;
-
-  color:#fff;
-
-  font-weight:900;
-
-  font-size:27px;
-
-}
-
-
-.truck-cab{
-
-  position:absolute;
-
-  left:280px;
-  top:35px;
-
-  width:160px;
-  height:77px;
-
-  background:#ba1827;
-
-  border-radius:
-    42px 16px 12px 10px;
-
-  box-shadow:
-    inset 0 0 0 4px #efc5a0;
-
-}
-
-
-.truck-cab:before{
-
-  content:"";
-
-  position:absolute;
-
-  left:48px;
-  top:7px;
-
-  width:60px;
-  height:32px;
-
-  background:#14283b;
-
-  border-radius:
-    15px 7px;
-
-}
-
-
-.wheel{
-
-  position:absolute;
-
-  top:96px;
-
-  width:54px;
-  height:54px;
-
-  border-radius:50%;
-
-  background:#17202b;
-
-  border:
-    8px solid #090d12;
-
-  box-shadow:
-    inset 0 0 0 5px #9aa5aa;
-
-}
-
-
-.w1{
-  left:55px;
-}
-
-.w2{
-  left:280px;
-}
-
-.w3{
-  left:372px;
-}
-
-
-.headlight{
-
-  position:absolute;
-
-  left:420px;
-  top:77px;
-
-  width:20px;
-  height:13px;
-
-  background:#fffabc;
-
-  box-shadow:
-    0 0 25px 12px #fff2a1;
-
-}
-
-
-@keyframes truck{
-
-  50%{
-    transform:
-      translateX(-35px)
-      translateY(-3px);
-  }
-
+.scroll-button:hover{
+  transform:translateY(-3px);
+  filter:brightness(1.1);
 }
 
 
 /* =========================================================
-   JULEGIRLANDER
+   GRANBAR-SEPARATOR
 ========================================================= */
 
 .garland{
-
-  height:70px;
+  min-height:76px;
+  position:relative;
 
   background:
     linear-gradient(
-      135deg,
-      #062e24,
-      #095240,
-      #07382c
+      145deg,
+      rgba(2,33,25,.98),
+      rgba(8,79,57,.98),
+      rgba(2,38,29,.98)
     );
 
   border-top:
-    5px solid #d8b358;
+    4px solid var(--gold);
 
   border-bottom:
-    5px solid #d8b358;
-
-  position:relative;
+    4px solid var(--gold);
 
   box-shadow:
-    0 10px 25px #0005;
-
+    0 12px 35px rgba(0,0,0,.45);
 }
 
-
-.garland:after{
-
-  content:"●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●";
-
+.garland::after{
+  content:"●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●";
   position:absolute;
-
-  inset:16px 0;
-
+  inset:18px 0;
   text-align:center;
-
-  color:#ffd66c;
-
-  font-size:23px;
+  color:#ffd477;
+  font-size:24px;
+  letter-spacing:5px;
 
   text-shadow:
-    40px 0 #d3202f,
-    80px 0 #46bb45,
-    0 0 12px #ffe58c;
-
+    32px 0 #d51c2e,
+    65px 0 #43bc45,
+    0 0 12px #ffdc85;
 }
 
 
 /* =========================================================
-   KALENDERSEKSJON
+   KOMMENDE DESEMBERAKTIVITETER
 ========================================================= */
 
-.calendar-section{
-
+.events-section{
+  padding:85px 22px;
   background:
     linear-gradient(
-      #082c26ee,
-      #041e1aee
+      180deg,
+      rgba(3,25,55,.94),
+      rgba(3,34,38,.96)
     );
-
-  padding:
-    80px 22px 120px;
-
-  position:relative;
-
 }
 
-
-/* STORE APOTEKKORS I BAKGRUNN */
-
-.calendar-section:before,
-.calendar-section:after{
-
-  content:"✚";
-
-  position:absolute;
-
-  font-size:390px;
-
-  color:#3aaa3509;
-
-  font-weight:900;
-
-}
-
-
-.calendar-section:before{
-
-  left:-60px;
-
-  top:260px;
-
-  transform:
-    rotate(-12deg);
-
-}
-
-
-.calendar-section:after{
-
-  right:-45px;
-
-  bottom:150px;
-
-  transform:
-    rotate(15deg);
-
-}
-
-
-/* OVERSKRIFT */
-
-.section-head{
-
+.section-heading{
+  max-width:850px;
+  margin:0 auto 45px;
   text-align:center;
-
-  max-width:800px;
-
-  margin:
-    0 auto 55px;
-
 }
 
-
-.section-head span{
-
+.section-heading span{
   color:var(--gold);
-
-  letter-spacing:4px;
-
   text-transform:uppercase;
-
-  font-weight:800;
-
+  letter-spacing:4px;
   font-size:12px;
-
+  font-weight:900;
 }
 
-
-.section-head h2{
-
-  font:
-    700 clamp(38px,6vw,65px)
-    Georgia,serif;
-
-  margin:
-    10px 0;
-
-  color:#fff7df;
-
+.section-heading h2{
+  margin:12px 0;
+  color:#fff7e6;
+  font:700 clamp(38px,6vw,64px) Georgia,serif;
 }
 
-
-.section-head p{
-
-  color:#dccfb2;
-
-  font:
-    18px/1.6 Georgia,serif;
-
+.section-heading p{
+  margin:0;
+  color:#e3d8bd;
+  font:18px/1.6 Georgia,serif;
 }
 
-
-/* =========================================================
-   KALENDER GRID
-========================================================= */
-
-.calendar{
-
-  position:relative;
-
-  z-index:2;
-
-  max-width:1280px;
-
+.events{
+  max-width:1150px;
   margin:auto;
 
   display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
 
-  grid-template-columns:
-    repeat(4,1fr);
+.event{
+  position:relative;
+  overflow:hidden;
 
-  gap:28px;
+  min-height:220px;
+  padding:27px;
 
+  border:
+    2px solid rgba(239,199,107,.66);
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(137,16,27,.9),
+      rgba(65,6,18,.9)
+    );
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.32);
+}
+
+.event:nth-child(2){
+  background:
+    linear-gradient(
+      145deg,
+      rgba(6,87,58,.94),
+      rgba(2,43,34,.94)
+    );
+}
+
+.event:nth-child(3){
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,57,119,.94),
+      rgba(4,28,76,.94)
+    );
+}
+
+.event::after{
+  content:"✚";
+  position:absolute;
+  right:-10px;
+  bottom:-35px;
+  color:rgba(255,255,255,.08);
+  font-size:145px;
+  font-weight:900;
+}
+
+.event-date{
+  display:inline-block;
+  padding:7px 11px;
+  border-radius:20px;
+  background:#fff;
+  color:var(--christmas-red);
+  font-weight:900;
+  font-size:12px;
+}
+
+.event h3{
+  margin:20px 0 10px;
+  font:700 27px Georgia,serif;
+  color:#fff5dc;
+}
+
+.event p{
+  position:relative;
+  z-index:2;
+  margin:0;
+  color:#fff1d5;
+  line-height:1.55;
 }
 
 
 /* =========================================================
-   SELVE LUKEN
+   KALENDER
+========================================================= */
+
+.calendar-section{
+  position:relative;
+  padding:90px 24px 130px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,49,37,.94),
+      rgba(1,24,27,.97)
+    );
+}
+
+.calendar-section::before,
+.calendar-section::after{
+  content:"✚";
+  position:absolute;
+  color:rgba(58,170,53,.055);
+  font-size:430px;
+  font-weight:900;
+  pointer-events:none;
+}
+
+.calendar-section::before{
+  left:-85px;
+  top:260px;
+  transform:rotate(-14deg);
+}
+
+.calendar-section::after{
+  right:-65px;
+  bottom:100px;
+  transform:rotate(14deg);
+}
+
+.calendar{
+  position:relative;
+  z-index:2;
+
+  max-width:1320px;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:28px;
+}
+
+
+/* =========================================================
+   LUKE
 ========================================================= */
 
 .door{
-
-  height:300px;
-
-  perspective:1000px;
-
+  height:330px;
   position:relative;
-
+  perspective:1300px;
 }
-
 
 .door-frame{
-
   position:absolute;
-
   inset:0;
-
-  border:
-    6px solid #e3ba5e;
-
-  border-radius:20px;
-
-  background:#250a0b;
-
-  box-shadow:
-    0 20px 35px #0007,
-    inset 0 0 25px #000;
-
   overflow:hidden;
 
+  background:
+    linear-gradient(
+      145deg,
+      #fff9e9,
+      #ead29e
+    );
+
+  border:
+    6px solid var(--gold);
+
+  border-radius:22px;
+
+  box-shadow:
+    0 23px 42px rgba(0,0,0,.52),
+    inset 0 0 35px rgba(93,45,6,.18);
 }
 
-
-/* INNHOLDET SOM LIGGER BAK DØREN */
-
-.inside{
-
+.door-inside{
   position:absolute;
-
   inset:0;
 
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
 
   padding:28px;
-
   text-align:center;
+  color:var(--apotek-blue);
+}
 
-  background:
-    radial-gradient(
-      circle,
-      #fffdf1,
-      #f5e2b5
-    );
+.inside-icon{
+  font-size:63px;
+}
 
-  color:#102956;
+.door-inside strong{
+  margin-top:12px;
+  font:700 22px Georgia,serif;
+  color:var(--christmas-red);
+}
 
+.door-inside small{
+  margin-top:9px;
+  color:#725f3c;
+  line-height:1.45;
 }
 
 
-.inside .gift{
-
-  font-size:58px;
-
-}
-
-
-.inside strong{
-
-  font:
-    700 21px Georgia,serif;
-
-  color:#87151e;
-
-  margin-top:10px;
-
-}
-
-
-/* =========================================================
-   DØRPANELET
-========================================================= */
+/* Selve døren */
 
 .door-panel{
-
   position:absolute;
-
   inset:0;
 
   border:0;
+  border-radius:16px;
 
-  border-radius:15px;
-
-  color:white;
-
+  color:#fff;
   cursor:pointer;
 
-  transform-origin:left;
-
-  transform-style:
-    preserve-3d;
-
-  transition:
-    transform 1.05s cubic-bezier(.2,.72,.17,1),
-    filter .3s;
+  transform-origin:left center;
+  transform-style:preserve-3d;
 
   background:
     linear-gradient(
       145deg,
-      #c11d2e,
-      #7e101a
+      #c11c2c,
+      #76101a
     );
 
   box-shadow:
-    inset 0 0 0 2px #ffd77b66,
-    inset 0 0 40px #5b0716;
+    inset 0 0 0 3px rgba(255,221,132,.37),
+    inset 0 0 45px rgba(56,0,9,.6);
 
+  transition:
+    transform 1.15s cubic-bezier(.18,.72,.18,1),
+    filter .25s ease,
+    box-shadow .25s ease;
 }
 
-
-/* GRØNN */
-
-.door:nth-child(3n+2)
-.door-panel{
-
+.door:nth-child(3n+2) .door-panel{
   background:
     linear-gradient(
       145deg,
-      #126846,
-      #073c31
+      #15734d,
+      #073c30
     );
-
 }
 
-
-/* APOTEK-BLÅ */
-
-.door:nth-child(3n)
-.door-panel{
-
+.door:nth-child(3n) .door-panel{
   background:
     linear-gradient(
       145deg,
-      #123e82,
-      #071d51
+      #174a94,
+      #071f59
     );
-
 }
 
-
-/* GULLKANT */
-
-.door-panel:before{
-
+.door-panel::before{
   content:"";
-
   position:absolute;
-
-  inset:12px;
-
+  inset:15px;
   border:
-    2px solid #f5d47e88;
-
-  border-radius:10px;
-
+    2px solid rgba(255,222,139,.56);
+  border-radius:11px;
 }
 
-
-/* APOTEKKORS PÅ LUKEN */
-
-.door-panel:after{
-
+.door-panel::after{
   content:"✚";
-
   position:absolute;
-
-  right:18px;
-  top:12px;
-
-  color:#fff2;
-
-  font-size:70px;
-
+  right:17px;
+  top:11px;
+  color:rgba(255,255,255,.11);
+  font-size:84px;
   font-weight:900;
-
 }
 
-
-/* NUMMER */
-
-.door-num{
-
-  font:
-    900 72px Georgia,serif;
-
+.door-number{
   display:block;
+  position:relative;
+  z-index:2;
+
+  font:900 82px Georgia,serif;
 
   text-shadow:
-    0 3px 0 #0005;
-
+    0 4px 0 rgba(0,0,0,.32);
 }
 
+.door-label{
+  display:block;
+  position:relative;
+  z-index:2;
 
-/* TYPE */
+  padding:7px 11px;
+  border-radius:20px;
 
-.door-type{
+  background:
+    rgba(0,0,0,.21);
 
-  font-weight:900;
+  color:#ffe8aa;
 
   text-transform:uppercase;
-
   letter-spacing:1.5px;
-
   font-size:11px;
-
-  color:#ffe4a0;
-
+  font-weight:900;
 }
 
-
-/* DØRKNAPP */
-
-.knob{
-
+.door-knob{
   position:absolute;
+  right:19px;
+  top:49%;
 
-  right:17px;
-
-  top:50%;
-
-  width:13px;
-  height:13px;
+  width:15px;
+  height:15px;
 
   border-radius:50%;
 
-  background:#f7d77f;
+  background:#ffe09a;
 
   box-shadow:
-    0 0 8px #fff0b0;
-
+    0 0 12px #fff0bd;
 }
 
 
-/* =========================================================
-   ÅPNE-ANIMASJON
-========================================================= */
+/* Hover */
 
-.door.open
-.door-panel{
+.door:not(.locked):hover .door-panel{
+  filter:brightness(1.1);
 
-  transform:
-    rotateY(-108deg);
-
-  filter:
-    brightness(.78);
-
+  box-shadow:
+    inset 0 0 0 3px rgba(255,227,150,.55),
+    inset 0 0 45px rgba(56,0,9,.45),
+    0 0 28px rgba(255,214,111,.35);
 }
 
 
-/* LÅST */
+/* Døren åpner seg */
 
-.door.locked
-.door-panel{
+.door.open .door-panel{
+  transform:rotateY(-112deg);
+  filter:brightness(.75);
+}
 
-  filter:
-    grayscale(.5)
-    brightness(.58);
 
+/* Låst luke */
+
+.door.locked .door-panel{
   cursor:not-allowed;
+  filter:grayscale(.4) brightness(.56);
+}
 
+.door.locked .door-label::before{
+  content:"🔒 ";
 }
 
 
-/* DAGENS LUKE */
+/* Dagens luke */
 
 .door.today{
-
   filter:
-    drop-shadow(
-      0 0 18px #ffd96d
-    );
-
+    drop-shadow(0 0 22px rgba(255,215,108,.9));
 }
 
-
-.door.today
-.door-frame{
-
+.door.today .door-frame{
   outline:
-    5px solid #ffe17f;
-
+    5px solid #ffe28b;
   outline-offset:5px;
-
 }
 
 
 /* =========================================================
-   MELLOMSEKSJON
+   POPUP
 ========================================================= */
 
-.scene-break{
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:100;
 
-  min-height:440px;
+  display:none;
+  place-items:center;
 
+  padding:25px;
+
+  background:
+    rgba(0,7,22,.88);
+
+  backdrop-filter:blur(8px);
+}
+
+.modal.show{
+  display:grid;
+}
+
+.modal-card{
   position:relative;
 
-  display:flex;
+  width:min(730px,100%);
+  max-height:88vh;
+  overflow:auto;
 
-  align-items:center;
-
-  justify-content:center;
+  padding:
+    45px 38px;
 
   text-align:center;
 
-  padding:
-    80px 22px;
+  color:var(--apotek-blue);
 
   background:
-    linear-gradient(
-      #061d38cc,
-      #09284acc
-    );
-
-}
-
-
-.scene-break:before{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-    radial-gradient(
-      ellipse at bottom,
-      #f9ffff 0 5%,
-      transparent 6%
-    ),
     linear-gradient(
       160deg,
-      transparent 50%,
-      #eaf1f1 51% 63%,
-      transparent 64%
+      #fffdf4,
+      #f3e1b7
     );
 
-  opacity:.7;
+  border:
+    7px solid var(--gold);
 
+  border-radius:30px;
+
+  box-shadow:
+    0 35px 110px rgba(0,0,0,.75);
+}
+
+.modal-card.animate{
+  animation:
+    modalOpen .65s
+    cubic-bezier(.17,.9,.32,1.25);
+}
+
+@keyframes modalOpen{
+  from{
+    opacity:0;
+    transform:
+      scale(.62)
+      translateY(40px)
+      rotate(-2deg);
+  }
+
+  to{
+    opacity:1;
+    transform:
+      scale(1)
+      translateY(0)
+      rotate(0);
+  }
+}
+
+.modal-card::before{
+  content:"✚";
+  display:block;
+  color:var(--apotek-green);
+  font-size:55px;
+  font-weight:900;
+}
+
+.close{
+  position:absolute;
+  right:16px;
+  top:16px;
+
+  width:44px;
+  height:44px;
+
+  border:0;
+  border-radius:50%;
+
+  background:var(--apotek-blue);
+  color:#fff;
+
+  font-size:25px;
+  cursor:pointer;
+}
+
+.modal-type{
+  display:inline-block;
+
+  padding:7px 13px;
+
+  border-radius:20px;
+
+  background:var(--christmas-red);
+  color:#fff;
+
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+  font-size:11px;
+  font-weight:900;
+}
+
+.modal-card h2{
+  margin:16px 0;
+  color:var(--christmas-red);
+  font:700 40px Georgia,serif;
+}
+
+.modal-card p{
+  font:18px/1.65 Georgia,serif;
+}
+
+.quote{
+  padding:24px;
+  border-left:
+    6px solid var(--apotek-green);
+  border-radius:14px;
+
+  background:#fff;
+
+  color:#173668;
+
+  font-size:26px !important;
+  font-style:italic;
+}
+
+.action{
+  display:inline-block;
+  margin-top:8px;
+  padding:14px 21px;
+
+  border-radius:11px;
+
+  background:var(--apotek-green);
+  color:#fff;
+
+  text-decoration:none;
+  font-family:Arial,sans-serif;
+  font-weight:900;
+}
+
+.prize{
+  display:inline-block;
+  margin:8px 0;
+  padding:9px 14px;
+
+  border-radius:20px;
+
+  background:#ffe6a1;
+  color:#72101a;
+
+  font-family:Arial,sans-serif;
+  font-weight:900;
 }
 
 
-.scene-copy{
+/* =========================================================
+   PARTIKLER NÅR LUKEN ÅPNES
+========================================================= */
 
-  z-index:1;
+.spark{
+  position:fixed;
+  z-index:120;
+  pointer-events:none;
 
-  max-width:750px;
+  font-size:31px;
 
+  animation:
+    spark 1.3s ease-out forwards;
 }
 
+@keyframes spark{
+  to{
+    transform:
+      translate(
+        var(--x),
+        var(--y)
+      )
+      rotate(280deg)
+      scale(.15);
 
-.scene-copy h3{
-
-  font:
-    700 clamp(36px,6vw,60px)
-    Georgia,serif;
-
-  color:#fff5d7;
-
-  margin:
-    0 0 15px;
-
-}
-
-
-.scene-copy p{
-
-  font:
-    19px/1.6 Georgia,serif;
-
-  color:#efe5cd;
-
-}
-
-
-.cross-pattern{
-
-  font-size:45px;
-
-  letter-spacing:20px;
-
-  color:#45ad3f;
-
-  text-shadow:
-    0 0 25px #fff;
-
-  opacity:.8;
-
+    opacity:0;
+  }
 }
 
 
@@ -1210,298 +980,20 @@ body{
 ========================================================= */
 
 .footer{
-
-  padding:
-    55px 22px;
-
+  padding:65px 24px;
   text-align:center;
-
-  background:#061a3e;
-
-  color:#d8c89f;
-
+  color:#dccda8;
+  background:#06183d;
 }
-
 
 .footer-logo{
-
-  font-weight:900;
-
-  font-size:28px;
-
   color:#fff;
-
-}
-
-
-.footer-logo b{
-
-  color:var(--green);
-
-}
-
-
-/* =========================================================
-   POP-UP
-========================================================= */
-
-.modal{
-
-  position:fixed;
-
-  inset:0;
-
-  background:#020b17e8;
-
-  z-index:50;
-
-  display:none;
-
-  place-items:center;
-
-  padding:25px;
-
-}
-
-
-.modal.show{
-
-  display:grid;
-
-}
-
-
-.card{
-
-  position:relative;
-
-  width:
-    min(700px,100%);
-
-  max-height:85vh;
-
-  overflow:auto;
-
-  border:
-    7px solid #e0b758;
-
-  border-radius:28px;
-
-  background:
-    linear-gradient(
-      160deg,
-      #fffdf4,
-      #f5e4bf
-    );
-
-  color:#112c60;
-
-  padding:
-    42px 36px;
-
-  text-align:center;
-
-  box-shadow:
-    0 30px 100px #000;
-
-}
-
-
-.card.pop{
-
-  animation:
-    pop .62s
-    cubic-bezier(.18,.89,.32,1.28);
-
-}
-
-
-@keyframes pop{
-
-  from{
-
-    opacity:0;
-
-    transform:
-      scale(.65)
-      translateY(35px)
-      rotate(-2deg);
-
-  }
-
-  to{
-
-    opacity:1;
-
-    transform:
-      scale(1)
-      translateY(0)
-      rotate(0);
-
-  }
-
-}
-
-
-.card:before{
-
-  content:"✚";
-
-  display:block;
-
-  font-size:50px;
-
-  color:var(--green);
-
-  margin-bottom:5px;
-
-}
-
-
-.close{
-
-  position:absolute;
-
-  right:16px;
-  top:16px;
-
-  width:42px;
-  height:42px;
-
-  border:0;
-
-  border-radius:50%;
-
-  background:#0a2a61;
-
-  color:#fff;
-
-  font-size:23px;
-
-  cursor:pointer;
-
-}
-
-
-.type{
-
-  display:inline-block;
-
-  background:#a51625;
-
-  color:white;
-
-  border-radius:30px;
-
-  padding:
-    7px 13px;
-
-  text-transform:uppercase;
-
-  letter-spacing:1.2px;
-
-  font-weight:900;
-
-  font-size:11px;
-
-}
-
-
-.card h2{
-
-  font:
-    700 39px Georgia,serif;
-
-  color:#861520;
-
-  margin:
-    15px 0;
-
-}
-
-
-.card p{
-
-  font:
-    18px/1.6 Georgia,serif;
-
-}
-
-
-.quote{
-
-  font-size:26px !important;
-
-  font-style:italic;
-
-  background:#fff;
-
-  padding:23px;
-
-  border-radius:15px;
-
-  border-left:
-    6px solid var(--green);
-
-}
-
-
-.action{
-
-  display:inline-block;
-
-  padding:
-    13px 20px;
-
-  border-radius:10px;
-
-  background:var(--green);
-
-  color:#fff;
-
-  text-decoration:none;
-
-  font-weight:900;
-
-}
-
-
-/* =========================================================
-   PARTIKLER SOM KOMMER UT AV LUKEN
-========================================================= */
-
-.spark{
-
-  position:fixed;
-
-  z-index:70;
-
-  pointer-events:none;
-
   font-size:30px;
-
-  animation:
-    spark 1.2s ease-out forwards;
-
+  font-weight:900;
 }
 
-
-@keyframes spark{
-
-  to{
-
-    transform:
-      translate(
-        var(--x),
-        var(--y)
-      )
-      rotate(240deg)
-      scale(.2);
-
-    opacity:0;
-
-  }
-
+.footer-logo span{
+  color:var(--apotek-green);
 }
 
 
@@ -1509,232 +1001,254 @@ body{
    RESPONSIVT
 ========================================================= */
 
-@media(max-width:1000px){
-
+@media(max-width:1050px){
   .calendar{
-
-    grid-template-columns:
-      repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
   }
 
-  .truck{
-
-    transform:
-      scale(.8);
-
-    right:-170px;
-
+  .events{
+    grid-template-columns:1fr;
   }
-
 }
 
-
-@media(max-width:720px){
-
+@media(max-width:750px){
   .calendar{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:18px;
-
   }
 
   .door{
-
-    height:250px;
-
-  }
-
-  .truck{
-
-    opacity:.45;
-
-    right:-260px;
-
+    height:270px;
   }
 
   .hero{
-
-    min-height:700px;
-
+    min-height:760px;
   }
 
-  .logo-name{
+  .hero-content{
+    padding:38px 20px;
+  }
 
-    font-size:30px;
-
+  .logo-text{
+    font-size:29px;
   }
 
   .logo-mark{
+    width:48px;
+    height:48px;
+  }
 
-    width:50px;
-    height:50px;
+  .logo-mark::before{
+    width:28px;
+    height:10px;
+    left:10px;
+    top:19px;
+  }
 
+  .logo-mark::after{
+    width:10px;
+    height:28px;
+    left:19px;
+    top:10px;
   }
 
   .calendar-section{
-
-    padding-left:14px;
-    padding-right:14px;
-
+    padding-left:13px;
+    padding-right:13px;
   }
-
 }
 
-
-@media(max-width:430px){
-
+@media(max-width:470px){
   .calendar{
-
     grid-template-columns:1fr;
-
   }
 
   .door{
-
-    height:280px;
-
+    height:295px;
   }
 
+  .hero h1{
+    font-size:49px;
+  }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<div class="sky"></div>
+<div class="background"></div>
 <div class="snow"></div>
 
 
 <!-- ======================================================
-     HERO / TOPP
+     FORSIDE
 ======================================================= -->
-
 
 <header class="hero">
 
-<div class="moon"></div>
+  <div class="hero-content">
 
-<div class="trees"></div>
+    <div class="logo">
 
-<div class="forest"></div>
+      <span class="logo-mark"></span>
 
+      <span class="logo-text">
+        APOTEK<span>1</span>
+      </span>
 
-<div class="hero-card">
+    </div>
 
+    <div class="eyebrow">
+      Kommersiell avdeling inviterer til
+    </div>
 
-<div class="logo">
+    <h1>
+      En dose<br>
+      julestemning
+    </h1>
 
-<span class="logo-mark"></span>
+    <p class="hero-description">
 
-<span class="logo-name">
+      24 små pauser i desember med juleaktiviteter,
+      konkurranser, avstemninger, kolleger,
+      premier og hyggelige overraskelser.
 
-APOTEK<i>1</i>
+    </p>
 
-</span>
+    <div class="hero-badges">
 
-</div>
+      <span class="hero-badge green">
+        ✚ Kunnskap
+      </span>
 
+      <span class="hero-badge">
+        🎄 Jul
+      </span>
 
-<div class="eyebrow">
+      <span class="hero-badge green">
+        ♡ Omsorg
+      </span>
 
-Kommersiell avdeling inviterer til
+      <span class="hero-badge">
+        🎁 Premier
+      </span>
 
-</div>
+    </div>
 
+    <div class="status" id="status">
+      🎅 Kalenderen gjør seg klar …
+    </div>
 
-<h1>
+    <br>
 
-En dose<br>
-julestemning
+    <a class="scroll-button" href="#kalender">
+      Se julekalenderen ↓
+    </a>
 
-</h1>
-
-
-<p>
-
-24 små pauser i desember.
-
-Gullkorn, julequiz,
-overraskelser, konkurranser
-og litt farmasøytisk førjulsmagi.
-
-</p>
-
-
-<div class="badges">
-
-
-<span class="badge green">
-
-✚ Kunnskap
-
-</span>
-
-
-<span class="badge">
-
-🎄 Jul
-
-</span>
-
-
-<span class="badge green">
-
-♡ Omsorg
-
-</span>
-
-
-<span class="badge">
-
-🎁 Overraskelser
-
-</span>
-
-
-</div>
-
-
-<div
-class="status"
-id="status">
-
-🎅 Kalenderen gjør seg klar …
-
-</div>
-
-
-</div>
-
-
-<!-- JULEBIL -->
-
-
-<div class="truck">
-
-<div class="truck-box"></div>
-
-<div class="truck-cab"></div>
-
-<div class="wheel w1"></div>
-
-<div class="wheel w2"></div>
-
-<div class="wheel w3"></div>
-
-<div class="headlight"></div>
-
-</div>
-
+  </div>
 
 </header>
+
+
+<div class="garland"></div>
+
+
+<!-- ======================================================
+     KOMMENDE AKTIVITETER
+======================================================= -->
+
+<section class="events-section">
+
+  <div class="section-heading">
+
+    <span>
+      Allerede på kalenderen
+    </span>
+
+    <h2>
+      Dette skjer i desember
+    </h2>
+
+    <p>
+
+      Kalenderen samler både digitale luker,
+      konkurranser og fysiske aktiviteter
+      i Kommersiell avdeling.
+
+    </p>
+
+  </div>
+
+  <div class="events">
+
+    <article class="event">
+
+      <span class="event-date">
+        10. DESEMBER
+      </span>
+
+      <h3>
+        Felles julelunsj
+      </h3>
+
+      <p>
+
+        Kebab-buffet på Nordstjernen
+        kl. 12.00.
+
+        Mer informasjon kommer
+        i egen møteinnkalling.
+
+      </p>
+
+    </article>
+
+    <article class="event">
+
+      <span class="event-date">
+        13. DESEMBER
+      </span>
+
+      <h3>
+        Santa Lucia
+      </h3>
+
+      <p>
+
+        Vi markerer Luciadagen
+        med lys, julestemning
+        og en liten overraskelse
+        i avdelingen.
+
+      </p>
+
+    </article>
+
+    <article class="event">
+
+      <span class="event-date">
+        DATO KOMMER
+      </span>
+
+      <h3>
+        Julekaker ved EMV
+      </h3>
+
+      <p>
+
+        En luke med «kom og forsyn deg».
+
+        Det blir lett servering
+        av julekaker ved EMV.
+
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
 
 
 <div class="garland"></div>
@@ -1744,1453 +1258,1125 @@ id="status">
      KALENDER
 ======================================================= -->
 
+<section class="calendar-section" id="kalender">
 
-<section class="calendar-section">
+  <div class="section-heading">
 
+    <span>
+      Desember i Kommersiell
+    </span>
 
-<div class="section-head">
+    <h2>
+      24 luker.<br>
+      Mye å glede seg til.
+    </h2>
 
+    <p>
 
-<span>
+      Lukene åpnes automatisk etter dato.
 
-Desember i Kommersiell
+      Tidligere luker kan besøkes igjen,
+      mens kommende luker forblir låst.
 
-</span>
+    </p>
 
+  </div>
 
-<h2>
-
-24 luker.
-24 små overraskelser.
-
-</h2>
-
-
-<p>
-
-Trykk på en åpen luke.
-
-Tidligere luker kan besøkes igjen,
-mens resten må vente på sin dag.
-
-</p>
-
-
-</div>
-
-
-<div
-class="calendar"
-id="calendar">
-</div>
-
+  <div class="calendar" id="calendar"></div>
 
 </section>
-
-
-<!-- ======================================================
-     STEMNINGSSEKSJON
-======================================================= -->
-
-
-<section class="scene-break">
-
-
-<div class="scene-copy">
-
-
-<div class="cross-pattern">
-
-✚ ✚ ✚
-
-</div>
-
-
-<h3>
-
-Vår kunnskap.<br>
-Vår julepause.
-
-</h3>
-
-
-<p>
-
-Midt mellom kampanjer,
-kategorier, møter, marginer,
-produktdata og alle tingene
-som «bare burde være ganske enkle»,
-tar vi oss tid til litt førjulskos sammen.
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-<div class="garland"></div>
 
 
 <!-- ======================================================
      FOOTER
 ======================================================= -->
 
-
 <footer class="footer">
 
+  <div class="footer-logo">
+    ✚ APOTEK<span>1</span>
+  </div>
 
-<div class="footer-logo">
+  <p>
+    Vår kunnskap – din trygghet.<br>
+    Og i desember: litt ekstra julestemning.
+  </p>
 
-✚ APOTEK<b>1</b>
+  <small>
 
-</div>
+    Sosialkomiteen kan teste alle lukene med
+    <strong>?preview=24</strong>
+    bak nettadressen.
 
-
-<p>
-
-Vår kunnskap – din trygghet
-· og i desember:
-litt ekstra julestemning ✨
-
-</p>
-
-
-<small>
-
-Test hele kalenderen ved å legge
-
-<b>?preview=24</b>
-
-bak adressen.
-
-</small>
-
+  </small>
 
 </footer>
 
 
 <!-- ======================================================
-     POPUP
+     POPUP FOR LUKENE
 ======================================================= -->
 
+<div class="modal" id="modal">
 
-<div
-class="modal"
-id="modal">
+  <article class="modal-card" id="modalCard">
 
+    <button class="close" id="close" aria-label="Lukk">
+      ×
+    </button>
 
-<article
-class="card"
-id="card">
+    <span class="modal-type" id="modalType"></span>
 
+    <h2 id="modalTitle"></h2>
 
-<button
-class="close"
-id="close">
+    <div id="modalBody"></div>
 
-×
-
-</button>
-
-
-<span
-class="type"
-id="modalType">
-</span>
-
-
-<h2 id="modalTitle">
-</h2>
-
-
-<div id="modalBody">
-</div>
-
-
-</article>
-
+  </article>
 
 </div>
 
 
 <script>
 
-
 /*
 ============================================================
 
-        REDIGER LUKENE HER
+  REDIGER LUKENE HER
 
-Du trenger stort sett bare å redigere denne delen.
+  type:
+  Kategorinavnet som vises i popupen.
 
-type:
-Den lille kategorien på luka.
+  title:
+  Overskriften når luka åpnes.
 
-title:
-Overskriften når luka åpnes.
+  icon:
+  Symbolet som vises bak den åpne døren.
 
-html:
-Selve innholdet i luka.
+  teaser:
+  Den korte teksten bak døren.
+
+  html:
+  Alt innholdet i den åpne luka.
 
 ============================================================
 */
-
 
 const CALENDAR_CONTENT = {
 
 
-/* LUKE 1 */
-
 1:{
+  type:"Velkommen",
+  title:"Nå er vi i gang! 🎄",
+  icon:"🎄",
+  teaser:"Desember starter her",
+  html:`
 
-type:'Velkommen',
+    <p>
 
-title:'Nå er vi i gang! 🎄',
+      Velkommen til Kommersiells julekalender.
 
-html:`
+      Bak lukene finnes konkurranser,
+      aktiviteter, kolleger, premier
+      og små pustepauser i desember.
 
-<p>
+    </p>
 
-Velkommen til Kommersiells julekalender.
+    <p class="prize">
 
-Bak de neste 24 lukene
-gjemmer det seg gullkorn,
-quiz, kolleger,
-små konkurranser
-og førjulskos.
+      Ny luke hver arbeidsdag
 
-</p>
+    </p>
 
-<p>
-
-<b>Oppskrift:</b>
-
-litt Apotek 1-grønt,
-en dose fag
-og rikelig med jul.
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 2 */
 
 2:{
+  type:"Avstemming",
+  title:"Den store juleduellen",
+  icon:"⚖️",
+  teaser:"Pepperkaker eller kakemenn?",
+  html:`
 
-type:'Tatt ut av kontekst',
+    <p class="quote">
 
-title:'Dagens gullkorn',
+      Pepperkaker eller kakemenn?<br><br>
+      Ribbe eller pinnekjøtt?
 
-html:`
+    </p>
 
-<p class="quote">
+    <p>
 
-«Dette burde egentlig
-være ganske enkelt.»
+      Stem på favorittene dine.
 
-</p>
+      Alle som deltar,
+      blir med i dagens premietrekning.
 
-<p>
+    </p>
 
-Sagt omtrent 14 minutter
-før alt ble veldig komplisert.
+    <a class="action" href="#">
+      Stem her
+    </a>
 
-😅
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 3 */
 
 3:{
+  type:"Konkurranse",
+  title:"Hvor mange lakriskuler?",
+  icon:"⚫",
+  teaser:"Gjett antallet",
+  html:`
 
-type:'Quiz',
+    <p>
 
-title:'Gjett julelåta 🎵',
+      Et glass med lakriskuler
+      står utstilt i avdelingen.
 
-html:`
+      Hvor mange lakriskuler
+      skjuler seg i glasset?
 
-<p class="quote">
+    </p>
 
-🚗 🏠 🎄
+    <p class="prize">
+      Nærmest riktig svar vinner
+    </p>
 
-</p>
+    <a class="action" href="#">
+      Send inn svaret
+    </a>
 
-<p>
-
-<b>Fasit:</b>
-
-Driving Home for Christmas.
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 4 */
 
 4:{
+  type:"Bildekonkurranse",
+  title:"Finn fem feil 🔎",
+  icon:"🖼️",
+  teaser:"To julebilder. Fem forskjeller.",
+  html:`
 
-type:'Konkurranse',
+    <p>
 
-title:'Dagens overraskelse 🎁',
+      To nesten identiske,
+      AI-genererte julebilder
+      fra Kommersiell avdeling.
 
-html:`
+      Men fem detaljer er forskjellige.
 
-<p>
+    </p>
 
-Hvor mange pepperkaker
-tror du ligger i glasset
-hos sosialkomiteen?
+    <p>
 
-</p>
+      Finn alle fem og send inn svaret.
 
-<p>
+    </p>
 
-<a
-class="action"
-href="#">
+    <p class="prize">
+      Alle riktige svar blir med i trekningen
+    </p>
 
-Svar på dagens konkurranse
+    <a class="action" href="#">
+      Åpne konkurransen
+    </a>
 
-</a>
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 5 */
 
 5:{
+  type:"Jule-quote",
+  title:"Dagens jule-quote fra Mette",
+  icon:"💬",
+  teaser:"Noen ord på vei inn i helgen",
+  html:`
 
-type:'Kommersiell ♥',
+    <p class="quote">
 
-title:'Dagens shout-out',
+      «Legg inn dagens jule-quote
+      fra Mette her.»
 
-html:`
+    </p>
 
-<p>
+    <p>
 
-Takk til alle som håndterer
-årets mange
+      Ny quote kan enkelt byttes inn
+      i CALENDAR_CONTENT før publisering.
 
-«kan vi bare …»
+    </p>
 
--forespørsler med både
-faglighet, fart og godt humør.
-
-💚
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 6 */
 
 6:{
+  type:"Rampenisse",
+  title:"Hvem har vært her?",
+  icon:"🧝",
+  teaser:"Et spor fra rampenissen",
+  html:`
 
-type:'Julequiz',
+    <p>
 
-title:'Farmasøytisk julenøtt 💊',
+      Et AI-generert bilde viser
+      en kollega som rampenisse
+      et sted i Kommersiell avdeling.
 
-html:`
+    </p>
 
-<p>
+    <p>
 
-Hva får du hvis du kombinerer
-farmasifag,
-granbar,
-kaffe
-og desember?
+      Klarer du å se hvor rampenissen
+      har gjemt seg?
 
-</p>
+    </p>
 
-<p>
+    <p class="prize">
+      Førstemann som finner riktig sted vinner
+    </p>
 
-<b>
-
-En helt vanlig dag
-i Kommersiell.
-
-</b>
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 7 */
 
 7:{
+  type:"Julekryssord",
+  title:"Kommersiells julekryssord",
+  icon:"✏️",
+  teaser:"Finn det hemmelige løsningsordet",
+  html:`
 
-type:'Fun fact',
+    <p>
 
-title:'Kommersiell trivia',
+      Dagens kryssord inneholder
+      ord og uttrykk fra både julen,
+      apotekverdenen og Kommersiell.
 
-html:`
+    </p>
 
-<p>
+    <p>
 
-Her kan dere legge inn
-et ekte fun fact
-om avdelingen.
+      Send inn løsningsordet
+      for å delta i trekningen.
 
-Gjerne noe overraskende
-fra året som gikk.
+    </p>
 
-</p>
+    <a class="action" href="#">
+      Åpne kryssordet
+    </a>
 
-`
-
+  `
 },
 
-
-/* LUKE 8 */
 
 8:{
+  type:"Gjett prisen",
+  title:"Hva koster premien?",
+  icon:"🎁",
+  teaser:"Den som kommer nærmest vinner",
+  html:`
 
-type:'Hvem sa dette?',
+    <p>
 
-title:'Gjett kollegaen',
+      I dag skal du gjette totalprisen
+      på premien som vises på bildet.
 
-html:`
+    </p>
 
-<p class="quote">
+    <p>
 
-«Vi trenger bare
-å lande prosessen.»
+      Den som gjetter nærmest,
+      uten å gå over,
+      vinner hele premien.
 
-</p>
+    </p>
 
-<p>
+    <a class="action" href="#">
+      Registrer prisgjetningen
+    </a>
 
-Hvem i Kommersiell
-kunne sagt dette?
-
-Legg inn 3–4
-svaralternativer her.
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 9 */
 
 9:{
+  type:"Bildequiz",
+  title:"Hva er på bildet?",
+  icon:"🔍",
+  teaser:"Et ekstremt nærbilde",
+  html:`
 
-type:'Julequiz',
+    <p>
 
-title:'Sant eller usant?',
+      Du får se et ekstremt nærbilde
+      av noe julete eller noe
+      fra dagens premie.
 
-html:`
+    </p>
 
-<p>
+    <p>
 
-En julegave blir 17 % bedre
-hvis den pakkes inn
-med overdrevent mye sløyfe.
+      Klarer du å se hva det er?
 
-</p>
+    </p>
 
-<p>
+    <p class="prize">
+      Alle riktige svar er med i trekningen
+    </p>
 
-<b>Fasit:</b>
-
-Vitenskapelig tvilsomt.
-
-Julemessig helt korrekt.
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 10 */
 
 10:{
+  type:"Felles aktivitet",
+  title:"Kebab-buffet på Nordstjernen",
+  icon:"🥙",
+  teaser:"Felleslunsj kl. 12.00",
+  html:`
 
-type:'Premieluke',
+    <p class="quote">
 
-title:'Finn nissen! 🎅',
+      I dag arrangerer vi felleslunsj
+      med kebab-buffet på Nordstjernen.
 
-html:`
+    </p>
 
-<p>
+    <p>
 
-En liten nisse har gjemt seg
-et sted på siden.
+      Vi møtes kl. 12.00.
 
-Første person som finner den
-og sender screenshot
-til sosialkomiteen
-vinner dagens lille premie.
+      Praktisk informasjon og påmelding
+      formidles i en egen møteinnkalling
+      i forkant.
 
-</p>
+    </p>
 
-`
+    <p class="prize">
+      Dagens premie er lunsj sammen
+    </p>
 
+  `
 },
 
-
-/* LUKE 11 */
 
 11:{
+  type:"Kollegaluke",
+  title:"Hvem skjuler seg bak nissen?",
+  icon:"🎅",
+  teaser:"En kjent kollega i ny drakt",
+  html:`
 
-type:'Året som gikk',
+    <p>
 
-title:'Årets bilde 📸',
+      En person fra avdelingen
+      har fått full nissedrakt
+      ved hjelp av Copilot.
 
-html:`
+    </p>
 
-<p>
+    <p>
 
-Legg inn et morsomt
-eller hyggelig bilde
-fra Kommersiell her.
+      Klarer du å se hvem det er?
 
-Gjerne med en kort bildetekst.
+    </p>
 
-</p>
+    <p class="prize">
+      Riktig svar gir lodd i trekningen
+    </p>
 
-`
-
+  `
 },
 
-
-/* LUKE 12 */
 
 12:{
+  type:"Lykkehjul",
+  title:"Treff 1-tallet! 🎡",
+  icon:"🎡",
+  teaser:"Spinn hjulet",
+  html:`
 
-type:'Gjett kollegaen',
+    <p>
 
-title:'Tre hint 🕵️',
+      Klikk og spinn dagens lykkehjul.
 
-html:`
+    </p>
 
-<p>
+    <p>
 
-☕ Kaffe er en sentral
-del av arbeidsflyten.
+      Første person som lander
+      på tallet 1,
+      vinner dagens premie.
 
-<br><br>
+    </p>
 
-📊 Har sterke meninger
-om Excel.
+    <a class="action" href="#">
+      Spinn lykkehjulet
+    </a>
 
-<br><br>
-
-🎄 Har allerede julemusikk
-på spillelisten.
-
-</p>
-
-<p>
-
-Hvem tror du det er?
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 13 */
 
 13:{
+  type:"Santa Lucia",
+  title:"Santa Lucia 🕯️",
+  icon:"🕯️",
+  teaser:"Lys i desembermørket",
+  html:`
 
-type:'Fredagsquote',
+    <p class="quote">
 
-title:'Ukens siste gullkorn',
+      Sankta Lucia,
+      lysklare hägring …
 
-html:`
+    </p>
 
-<p class="quote">
+    <p>
 
-«Kan vi bare få
-dette inn i PK?»
+      I dag markerer vi Luciadagen
+      med lys, julestemning
+      og noe hyggelig i avdelingen.
 
-</p>
+    </p>
 
-<p>
-
-Et spørsmål
-med uendelig mange
-mulige konsekvenser.
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 14 */
 
 14:{
+  type:"Juleavstemning",
+  title:"Hva hører hjemme på julebordet?",
+  icon:"🍽️",
+  teaser:"Stem på den viktigste retten",
+  html:`
 
-type:'Julenøtt',
+    <p>
 
-title:'Mini-mysteriet 🔎',
+      Ribbe, pinnekjøtt,
+      lutefisk eller noe helt annet?
 
-html:`
+    </p>
 
-<p>
+    <p>
 
-Hvem har flyttet marsipanen
-fra kjøkkenet?
+      Stem på din favoritt
+      og se hva Kommersiell foretrekker.
 
-Legg inn tre spor
-og la avdelingen løse
-dagens betydningsfulle mysterium.
+    </p>
 
-</p>
+    <p class="prize">
+      Alle stemmer gir lodd i trekningen
+    </p>
 
-`
-
+  `
 },
 
-
-/* LUKE 15 */
 
 15:{
+  type:"Året som gikk",
+  title:"Dette fikk vi til",
+  icon:"👏",
+  teaser:"Et øyeblikk vi er stolte av",
+  html:`
 
-type:'Kommersiell ♥',
+    <p>
 
-title:'Dette fikk vi til',
+      Her legger vi inn
+      én konkret leveranse,
+      seier eller milepæl
+      fra Kommersiell i 2026.
 
-html:`
+    </p>
 
-<p>
+    <p class="quote">
 
-Fyll luka med én ting
-avdelingen kan være
-skikkelig stolt av fra 2026.
+      Kort, konkret og med applaus.
 
-Kort,
-konkret
-og med applaus:
+      👏 👏 👏
 
-</p>
+    </p>
 
-<p>
-
-👏 👏 👏
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 16 */
 
 16:{
+  type:"Julequiz",
+  title:"2026 eller oppdiktet?",
+  icon:"🤔",
+  teaser:"To historier er sanne",
+  html:`
 
-type:'Emoji-quiz',
+    <p>
 
-title:'Hva prøver vi å si?',
+      Du får tre små historier
+      fra året som gikk.
 
-html:`
+    </p>
 
-<p class="quote">
+    <p>
 
-💻 + 💊 + 🛒 + 🚀
+      To er sanne.
 
-</p>
+      Én er fri fantasi.
 
-<p>
+      Klarer du å avsløre den?
 
-<b>Forslag:</b>
+    </p>
 
-Omnikanal
-med litt ekstra fart.
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 17 */
 
 17:{
+  type:"Kodeord",
+  title:"Dagens hemmelige kodeord",
+  icon:"🤫",
+  teaser:"Si det til riktig person",
+  html:`
 
-type:'Premieluke',
+    <p>
 
-title:'Kodeordet er …',
+      Dagens kodeord er:
 
-html:`
+    </p>
 
-<p>
+    <p class="quote">
 
-🎁
+      GLØGG
 
-Dagens hemmelige kodeord er
+    </p>
 
-<b>GLØGG</b>.
+    <p>
 
-</p>
+      Si kodeordet til riktig person
+      før kl. 14.00.
 
-<p>
+    </p>
 
-Si det til riktig person
-før kl. 14
-for å bli med
-i trekningen.
+    <p class="prize">
+      Riktig person gir deg et lodd
+    </p>
 
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 18 */
 
 18:{
+  type:"Jule-quote",
+  title:"Dagens jule-quote fra Mette",
+  icon:"💬",
+  teaser:"Et nytt desembergullkorn",
+  html:`
 
-type:'Året som gikk',
+    <p class="quote">
 
-title:'Årets møtefrase',
+      «Legg inn dagens andre
+      jule-quote fra Mette her.»
 
-html:`
+    </p>
 
-<p class="quote">
-
-«La oss ta
-en fot i bakken.»
-
-</p>
-
-<p>
-
-Her kan dere kåre
-den faktiske vinneren
-etter en høyst
-uhøytidelig avstemning.
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 19 */
 
 19:{
+  type:"Kom og forsyn deg",
+  title:"Julekaker ved EMV",
+  icon:"🍪",
+  teaser:"Ta en liten førjulspause",
+  html:`
 
-type:'Hvem sa dette?',
+    <p>
 
-title:'Quote-mysteriet',
+      I dag blir det lett servering
+      av julekaker ved EMV.
 
-html:`
+    </p>
 
-<p class="quote">
+    <p class="quote">
 
-«Det er sikkert bare
-en liten integrasjon.»
+      Kom innom,
+      forsyn deg
+      og ta en liten julepause.
 
-</p>
+    </p>
 
-<p>
-
-Legg inn svaralternativer
-og fasit.
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 20 */
 
 20:{
+  type:"Gjett kollegaen",
+  title:"Tre hint",
+  icon:"🕵️",
+  teaser:"Hvem leter vi etter?",
+  html:`
 
-type:'Julehilsen',
+    <p>
 
-title:'Fire dager igjen ✨',
+      ☕ Kaffe spiller en viktig rolle
+      i arbeidsdagen.
 
-html:`
+      <br><br>
 
-<p>
+      📊 Har sterke meninger om Excel.
 
-En liten påminnelse om at
-god stemning også
-er et leveranseområde.
+      <br><br>
 
-Takk for innsatsen
-så langt i desember.
+      🎄 Har allerede julemusikk
+      på spillelisten.
 
-</p>
+    </p>
 
-`
+    <p>
+      Hvem tror du det er?
+    </p>
 
+  `
 },
 
-
-/* LUKE 21 */
 
 21:{
+  type:"Farmasijul",
+  title:"JUL 24 mg",
+  icon:"💊",
+  teaser:"Les pakningsvedlegget",
+  html:`
 
-type:'Kommersiell trivia',
+    <p class="quote">
 
-title:'2026 eller oppdiktet?',
+      <strong>Indikasjon:</strong><br>
+      Midlertidig behandling
+      av desembermørke.
 
-html:`
+      <br><br>
 
-<p>
+      <strong>Dosering:</strong><br>
+      Administreres daglig
+      frem til julaften.
 
-Legg inn tre små historier
-fra året.
+      <br><br>
 
-To er sanne.
+      <strong>Vanlige bivirkninger:</strong><br>
+      Pepperkakeinntak,
+      spontan allsang
+      og redusert møtekapasitet.
 
-Én er fri fantasi.
+    </p>
 
-Hvilken?
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 22 */
 
 22:{
+  type:"Julemysterium",
+  title:"Hvor er premien?",
+  icon:"🔎",
+  teaser:"Følg sporene",
+  html:`
 
-type:'Året som gikk',
+    <p>
 
-title:'Årets øyeblikk',
+      En premie er gjemt
+      et sted i Kommersiell avdeling.
 
-html:`
+    </p>
 
-<p>
+    <p>
 
-Et bilde.
+      Følg dagens tre spor
+      for å finne riktig sted.
 
-En seier.
+    </p>
 
-En tabbe vi kan le av.
+    <p class="prize">
+      Førstemann frem vinner premien
+    </p>
 
-Eller et øyeblikk
-vi vil huske fra 2026.
-
-</p>
-
-`
-
+  `
 },
 
-
-/* LUKE 23 */
 
 23:{
+  type:"Finale",
+  title:"Den store førjulstrekningen",
+  icon:"🏆",
+  teaser:"Alle loddene teller",
+  html:`
 
-type:'Finale',
+    <p>
 
-title:'Den store førjulstrekningen 🎁',
+      I dag trekker vi en vinner
+      blant alle som har deltatt
+      i kalenderen gjennom desember.
 
-html:`
+    </p>
 
-<p>
+    <p>
 
-Blant alle som har deltatt
-i desember trekker
-sosialkomiteen en vinner.
+      Avstemninger, konkurranser,
+      kryssord og aktiviteter
+      har gitt lodd underveis.
 
-</p>
+    </p>
 
-<p>
+    <p class="prize">
+      Vinneren annonseres i dag
+    </p>
 
-<a
-class="action"
-href="#">
-
-Se dagens konkurranse
-
-</a>
-
-</p>
-
-`
-
+  `
 },
 
 
-/* LUKE 24 */
-
 24:{
+  type:"God jul",
+  title:"God jul, Kommersiell! ❤️",
+  icon:"❤️",
+  teaser:"Takk for i år",
+  html:`
 
-type:'God jul',
+    <p class="quote">
 
-title:'God jul, Kommersiell! ❤️',
+      Takk for kunnskapen,
+      engasjementet,
+      humoren
+      og alt vi har fått til sammen.
 
-html:`
+    </p>
 
-<p class="quote">
+    <p>
 
-Takk for kunnskapen,
-engasjementet,
-humoren
-og alt vi har fått til
-sammen i år.
+      Riktig god jul
+      fra sosialkomiteen!
 
-</p>
+      🎄✨
 
-<p>
+    </p>
 
-Riktig god jul
-fra sosialkomiteen!
-
-🎄✨
-
-</p>
-
-`
-
+  `
 }
-
 
 };
 
 
-/*
-============================================================
+/* =========================================================
+   KALENDERLOGIKK
+========================================================= */
 
-        KALENDERLOGIKK
-
-Herfra trenger du normalt
-ikke endre noe.
-
-============================================================
-*/
-
-
-const qs =
-new URLSearchParams(
-location.search
-);
-
+const parameters =
+  new URLSearchParams(location.search);
 
 const preview =
-Math.max(
-0,
-Math.min(
-24,
-Number(
-qs.get('preview')
-) || 0
-)
-);
+  Math.max(
+    0,
+    Math.min(
+      24,
+      Number(parameters.get("preview")) || 0
+    )
+  );
+
+const today =
+  new Date();
+
+const currentDay =
+  today.getMonth() === 11
+    ? today.getDate()
+    : 0;
+
+const unlockedDay =
+  preview || currentDay;
+
+const calendar =
+  document.getElementById("calendar");
 
 
-const now =
-new Date();
+/* =========================================================
+   BYGG LUKENE
+========================================================= */
 
+for(let day = 1; day <= 24; day++){
 
-const current =
-now.getMonth() === 11
-? now.getDate()
-: 0;
+  const content =
+    CALENDAR_CONTENT[day];
 
+  const isOpen =
+    day <= unlockedDay;
 
-const unlocked =
-preview || current;
+  const door =
+    document.createElement("div");
 
+  door.className =
+    "door " +
+    (!isOpen ? "locked " : "") +
+    (day === currentDay ? "today" : "");
 
-const cal =
-document.getElementById(
-'calendar'
-);
+  door.innerHTML = `
 
+    <div class="door-frame">
 
-/*
-============================================================
-        BYGG ALLE 24 LUKENE
-============================================================
-*/
+      <div class="door-inside">
 
+        <span class="inside-icon">
+          ${content.icon}
+        </span>
 
-for(
-let d = 1;
-d <= 24;
-d++
-){
+        <strong>
+          ${content.title}
+        </strong>
 
-const x =
-CALENDAR_CONTENT[d];
+        <small>
+          ${content.teaser}
+        </small>
 
+      </div>
 
-const open =
-d <= unlocked;
+      <button
+        type="button"
+        class="door-panel"
+        aria-label="${
+          isOpen
+            ? "Åpne luke " + day
+            : "Luke " + day + " er låst"
+        }"
+      >
 
+        <span class="door-number">
+          ${day}
+        </span>
 
-const wrap =
-document.createElement(
-'div'
-);
+        <span class="door-label">
 
+          ${
+            isOpen
+              ? "Åpne luka"
+              : "Ikke ennå"
+          }
 
-wrap.className =
-'door ' +
-(!open ? 'locked ' : '') +
-(d === current
-? 'today'
-: '');
+        </span>
 
+        <span class="door-knob"></span>
 
-wrap.innerHTML = `
+      </button>
 
-<div class="door-frame">
+    </div>
 
+  `;
 
-<div class="inside">
+  if(isOpen){
 
+    door
+      .querySelector(".door-panel")
+      .addEventListener(
+        "click",
+        () => openDoor(day,door)
+      );
 
-<span class="gift">
+  }
 
-${d === 24
-? '❤️'
-: '🎁'}
-
-</span>
-
-
-<strong>
-
-${x.title}
-
-</strong>
-
-
-</div>
-
-
-<button
-
-type="button"
-
-class="door-panel"
-
-aria-label="
-${open
-? 'Åpne'
-: 'Låst'}
-luke ${d}
-">
-
-
-<span class="door-num">
-
-${d}
-
-</span>
-
-
-<span class="door-type">
-
-${open
-? x.type
-: 'Ikke ennå'}
-
-</span>
-
-
-<span class="knob">
-</span>
-
-
-</button>
-
-
-</div>
-
-`;
-
-
-/* KUN ÅPNE TILGJENGELIGE LUKER */
-
-if(open){
-
-wrap
-.querySelector('button')
-.addEventListener(
-'click',
-() => openDoor(
-d,
-wrap
-)
-);
+  calendar.appendChild(door);
 
 }
 
 
-cal.appendChild(
-wrap
-);
-
-}
-
-
-/*
-============================================================
-        STATUS PÅ TOPPEN
-============================================================
-*/
-
+/* =========================================================
+   STATUS PÅ FORSIDEN
+========================================================= */
 
 const status =
-document.getElementById(
-'status'
-);
+  document.getElementById("status");
+
+if(preview){
+
+  status.textContent =
+    `🧪 Testmodus · luke 1–${preview} er åpne`;
+
+}
+else if(currentDay >= 1 && currentDay <= 24){
+
+  status.textContent =
+    `✨ Dagens luke er nummer ${currentDay}`;
+
+}
+else{
+
+  status.textContent =
+    "🎄 Kalenderen åpner 1. desember";
+
+}
 
 
-status.textContent =
-
-preview
-
-?
-
-`🧪 Testmodus · luke 1–${preview} er åpne`
-
-:
-
-current >= 1 &&
-current <= 24
-
-?
-
-`✨ Dagens luke er nummer ${current}`
-
-:
-
-'🎄 Kalenderen åpner 1. desember';
-
-
-/*
-============================================================
-        ÅPNE LUKE
-============================================================
-*/
-
+/* =========================================================
+   ÅPNE LUKE
+========================================================= */
 
 const modal =
-document.getElementById(
-'modal'
-);
+  document.getElementById("modal");
+
+const modalCard =
+  document.getElementById("modalCard");
 
 
-const card =
-document.getElementById(
-'card'
-);
+function openDoor(day,door){
 
+  const content =
+    CALENDAR_CONTENT[day];
 
-function openDoor(
-d,
-door
-){
+  door.classList.add("open");
 
-/*
-Fysisk åpning av døren
-*/
+  createCelebration(door);
 
-door.classList.add(
-'open'
-);
+  setTimeout(() => {
 
+    document.getElementById(
+      "modalType"
+    ).textContent =
+      `Luke ${day} · ${content.type}`;
 
-/*
-Juleeksplosjon
-*/
+    document.getElementById(
+      "modalTitle"
+    ).textContent =
+      content.title;
 
-celebrate(
-door
-);
+    document.getElementById(
+      "modalBody"
+    ).innerHTML =
+      content.html;
 
+    modalCard.classList.remove("animate");
 
-/*
-Vent litt slik at man faktisk
-ser døren åpne seg
-*/
+    void modalCard.offsetWidth;
 
-setTimeout(
-()=>{
+    modalCard.classList.add("animate");
 
+    modal.classList.add("show");
 
-const x =
-CALENDAR_CONTENT[d];
-
-
-document.getElementById(
-'modalType'
-).textContent =
-
-`Luke ${d} · ${x.type}`;
-
-
-document.getElementById(
-'modalTitle'
-).textContent =
-
-x.title;
-
-
-document.getElementById(
-'modalBody'
-).innerHTML =
-
-x.html;
-
-
-/*
-Restart popup-animasjonen
-*/
-
-card.classList.remove(
-'pop'
-);
-
-
-void card.offsetWidth;
-
-
-card.classList.add(
-'pop'
-);
-
-
-modal.classList.add(
-'show'
-);
-
-
-},
-720
-);
+  },850);
 
 }
 
 
-/*
-============================================================
-        JULEPARTIKLER
-============================================================
-*/
+/* =========================================================
+   PARTIKKELEFFEKT
+========================================================= */
 
+function createCelebration(element){
 
-function celebrate(
-el
-){
+  const rectangle =
+    element.getBoundingClientRect();
 
-const r =
-el.getBoundingClientRect();
+  const symbols = [
+    "✦",
+    "❄",
+    "✚",
+    "★",
+    "🎄",
+    "🎁"
+  ];
 
+  for(let index = 0; index < 18; index++){
 
-const icons = [
+    const particle =
+      document.createElement("span");
 
-'✦',
-'❄',
-'✚',
-'★',
-'🎄'
+    particle.className =
+      "spark";
 
-];
+    particle.textContent =
+      symbols[
+        index % symbols.length
+      ];
 
+    particle.style.left =
+      (
+        rectangle.left +
+        rectangle.width / 2
+      ) + "px";
 
-for(
-let i = 0;
-i < 16;
-i++
-){
+    particle.style.top =
+      (
+        rectangle.top +
+        rectangle.height / 2
+      ) + "px";
 
-const s =
-document.createElement(
-'span'
-);
+    particle.style.color =
+      index % 3 === 0
+        ? "#3aaa35"
+        : index % 3 === 1
+        ? "#f6ce73"
+        : "#ffffff";
 
+    particle.style.setProperty(
+      "--x",
+      (
+        Math.random() * 320 -
+        160
+      ) + "px"
+    );
 
-s.className =
-'spark';
+    particle.style.setProperty(
+      "--y",
+      (
+        Math.random() * 280 -
+        190
+      ) + "px"
+    );
 
+    document.body.appendChild(particle);
 
-s.textContent =
-icons[
-i % icons.length
-];
+    setTimeout(
+      () => particle.remove(),
+      1400
+    );
 
-
-s.style.left =
-
-(
-r.left +
-r.width / 2
-) + 'px';
-
-
-s.style.top =
-
-(
-r.top +
-r.height / 2
-) + 'px';
-
-
-s.style.color =
-
-i % 3 === 0
-
-? '#3aaa35'
-
-:
-
-i % 3 === 1
-
-? '#f8d574'
-
-:
-
-'#fff';
-
-
-s.style.setProperty(
-
-'--x',
-
-(
-Math.random() * 280
-- 140
-) + 'px'
-
-);
-
-
-s.style.setProperty(
-
-'--y',
-
-(
-Math.random() * 240
-- 160
-) + 'px'
-
-);
-
-
-document.body.appendChild(
-s
-);
-
-
-setTimeout(
-()=> s.remove(),
-1300
-);
-
-}
+  }
 
 }
 
 
-/*
-============================================================
-        LUKK POPUP
-============================================================
-*/
-
+/* =========================================================
+   LUKK POPUP
+========================================================= */
 
 function closeModal(){
 
-modal.classList.remove(
-'show'
-);
+  modal.classList.remove("show");
 
 }
 
-
-/* X-KNAPP */
-
-
-document.getElementById(
-'close'
-).onclick =
-closeModal;
-
-
-/* KLIKK UTENFOR */
-
+document
+  .getElementById("close")
+  .addEventListener(
+    "click",
+    closeModal
+  );
 
 modal.addEventListener(
-'click',
-e=>{
+  "click",
+  event => {
 
-if(
-e.target === modal
-){
+    if(event.target === modal){
+      closeModal();
+    }
 
-closeModal();
-
-}
-
-}
+  }
 );
-
-
-/* ESC */
-
 
 document.addEventListener(
-'keydown',
-e=>{
+  "keydown",
+  event => {
 
-if(
-e.key === 'Escape'
-){
+    if(event.key === "Escape"){
+      closeModal();
+    }
 
-closeModal();
-
-}
-
-}
+  }
 );
-
 
 </script>
 
-
 </body>
-
 </html>
