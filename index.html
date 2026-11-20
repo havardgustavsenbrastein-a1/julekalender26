@@ -1,0 +1,1994 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Kommersiells julekalender 2026 | Apotek 1</title>
+
+<style>
+:root{
+  --navy:#08285b;
+  --green:#39a935;
+  --cream:#fff7df;
+  --red:#a92127;
+  --gold:#e5b956;
+  --pine:#0c4b35;
+  --snow:#fffdf7;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  color:#fff8e9;
+  font-family:Georgia,'Times New Roman',serif;
+  background:
+    radial-gradient(circle at 20% 10%,#255541 0 1%,transparent 18%),
+    linear-gradient(150deg,#082d25,#071f1b 52%,#0b234c);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* SNØ */
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.45;
+
+  background-image:
+    radial-gradient(#fff 1.3px,transparent 1.5px),
+    radial-gradient(#fff 1px,transparent 1.2px);
+
+  background-size:
+    48px 48px,
+    73px 73px;
+
+  background-position:
+    0 0,
+    20px 27px;
+
+  animation:snow 18s linear infinite;
+}
+
+@keyframes snow{
+  to{
+    background-position:
+      0 700px,
+      20px 500px;
+  }
+}
+
+
+/* JULELYS */
+
+.lights{
+  height:34px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 2%,
+      #193f2e 2% 98%,
+      transparent 98%
+    );
+
+  position:relative;
+}
+
+.lights:after{
+  content:"●　●　●　●　●　●　●　●　●　●　●　●　●　●　●　●　●";
+
+  position:absolute;
+
+  left:0;
+  right:0;
+  top:8px;
+
+  text-align:center;
+
+  letter-spacing:9px;
+
+  color:#ffd96c;
+
+  text-shadow:
+    0 0 10px #ffd96c,
+    40px 2px 9px #d83333,
+    80px 0 10px #60c95c;
+
+  font-size:18px;
+}
+
+
+/* HOVEDINNHOLD */
+
+.wrap{
+  max-width:1180px;
+  margin:auto;
+  padding:10px 22px 60px;
+}
+
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:30px 12px 24px;
+  position:relative;
+}
+
+
+/* APOTEK 1-INSPIRERT LOGO */
+
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+
+  background:#fff;
+
+  border-radius:18px;
+
+  padding:12px 18px;
+
+  box-shadow:
+    0 10px 30px #0005;
+}
+
+
+/* APOTEKKORS */
+
+.cross{
+  width:54px;
+  height:54px;
+
+  border-radius:12px;
+
+  background:var(--green);
+
+  position:relative;
+}
+
+.cross:before,
+.cross:after{
+
+  content:"";
+
+  position:absolute;
+
+  background:white;
+
+  left:13px;
+  right:13px;
+  top:23px;
+
+  height:9px;
+}
+
+.cross:after{
+
+  top:13px;
+  bottom:13px;
+
+  left:23px;
+
+  width:9px;
+  height:auto;
+}
+
+
+.brand b{
+
+  font:
+    900 34px Arial,sans-serif;
+
+  letter-spacing:-2px;
+
+  color:#0b2166;
+}
+
+.brand em{
+
+  color:var(--green);
+
+  font-style:normal;
+}
+
+
+/* OVERSKRIFT */
+
+.kicker{
+
+  text-transform:uppercase;
+
+  letter-spacing:4px;
+
+  color:#e9ce85;
+
+  font:
+    700 13px Arial,sans-serif;
+
+  margin:25px 0 8px;
+}
+
+
+.hero h1{
+
+  font-size:
+    clamp(42px,7vw,76px);
+
+  margin:0;
+
+  color:#fff7e6;
+
+  text-shadow:
+    0 3px #6f171a,
+    0 0 28px #d8ab53;
+}
+
+
+.hero p{
+
+  max-width:720px;
+
+  margin:12px auto 0;
+
+  font-size:19px;
+
+  line-height:1.6;
+
+  color:#f3e7c8;
+}
+
+
+/* STATUS */
+
+.status{
+
+  display:inline-block;
+
+  margin:20px auto 0;
+
+  padding:
+    10px 18px;
+
+  border:
+    1px solid #efd17766;
+
+  border-radius:99px;
+
+  background:#071d18aa;
+
+  font:
+    700 13px Arial,sans-serif;
+}
+
+
+/* SMÅ FARMASI/JULETAGS */
+
+.pharmacy{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+
+  margin-top:16px;
+}
+
+
+.pill{
+
+  font:
+    700 12px Arial,sans-serif;
+
+  padding:
+    7px 11px;
+
+  border-radius:99px;
+
+  background:#fff;
+
+  color:#10265d;
+}
+
+
+.pill.green{
+
+  background:#3cae3a;
+
+  color:#fff;
+}
+
+
+/* ==========================================================
+   JULEKALENDER
+   ========================================================== */
+
+
+.calendar{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(6,1fr);
+
+  gap:14px;
+
+  margin-top:24px;
+}
+
+
+/* LUKE */
+
+.door{
+
+  aspect-ratio:1/.86;
+
+  border:0;
+
+  border-radius:14px;
+
+  position:relative;
+
+  cursor:pointer;
+
+  padding:0;
+
+  color:#fff;
+
+  background:
+    linear-gradient(
+      145deg,
+      #9f2226,
+      #68161d
+    );
+
+  box-shadow:
+    inset 0 0 0 2px #f3d38455,
+    0 9px 18px #0005;
+
+  overflow:hidden;
+
+  transition:
+    .2s transform,
+    .2s filter;
+}
+
+
+/* Grønne luker */
+
+.door:nth-child(3n+2){
+
+  background:
+    linear-gradient(
+      145deg,
+      #146044,
+      #082f26
+    );
+}
+
+
+/* Apotek 1-blå luker */
+
+.door:nth-child(3n){
+
+  background:
+    linear-gradient(
+      145deg,
+      #133b79,
+      #071d4d
+    );
+}
+
+
+/* Dekorasjon */
+
+.door:before{
+
+  content:"✦";
+
+  position:absolute;
+
+  font-size:46px;
+
+  color:#f1d27622;
+
+  right:9px;
+
+  top:4px;
+}
+
+
+.door:hover{
+
+  transform:
+    translateY(-4px)
+    rotate(-.4deg);
+
+  filter:
+    brightness(1.08);
+}
+
+
+.door .num{
+
+  font-size:
+    clamp(30px,4vw,50px);
+
+  font-weight:800;
+
+  display:block;
+
+  text-shadow:
+    0 3px #0004;
+}
+
+
+.door .label{
+
+  font:
+    700 10px Arial,sans-serif;
+
+  letter-spacing:1.4px;
+
+  text-transform:uppercase;
+
+  color:#f8e7ba;
+}
+
+
+/* LÅST LUKE */
+
+.door.locked{
+
+  filter:
+    grayscale(.35)
+    brightness(.6);
+
+  cursor:not-allowed;
+}
+
+
+.door.locked:after{
+
+  content:"🔒";
+
+  position:absolute;
+
+  right:9px;
+
+  bottom:8px;
+}
+
+
+/* DAGENS LUKE */
+
+.door.today{
+
+  outline:
+    4px solid #ffd568;
+
+  outline-offset:3px;
+
+  box-shadow:
+    0 0 30px #ffc54f99;
+}
+
+
+/* FOOTER */
+
+.footer{
+
+  text-align:center;
+
+  color:#d8caa8;
+
+  margin-top:36px;
+
+  font:
+    13px Arial,sans-serif;
+}
+
+
+/* ==========================================================
+   POPUP NÅR MAN ÅPNER LUKE
+   ========================================================== */
+
+
+.modal{
+
+  position:fixed;
+
+  inset:0;
+
+  background:#03110edc;
+
+  display:none;
+
+  place-items:center;
+
+  padding:20px;
+
+  z-index:10;
+}
+
+
+.modal.show{
+
+  display:grid;
+}
+
+
+.card{
+
+  width:
+    min(620px,100%);
+
+  max-height:85vh;
+
+  overflow:auto;
+
+  background:
+    linear-gradient(
+      160deg,
+      #fffdf5,
+      #f8ecd2
+    );
+
+  color:#12295b;
+
+  border:
+    5px solid #d8af51;
+
+  border-radius:24px;
+
+  padding:30px;
+
+  box-shadow:
+    0 26px 90px #000b;
+
+  position:relative;
+
+  text-align:center;
+}
+
+
+/* Apotekkors på kort */
+
+.card:before{
+
+  content:"✚";
+
+  position:absolute;
+
+  color:#3aaa35;
+
+  font-size:35px;
+
+  left:18px;
+
+  top:11px;
+}
+
+
+/* LUKK KNAPP */
+
+.close{
+
+  position:absolute;
+
+  right:14px;
+
+  top:12px;
+
+  width:38px;
+
+  height:38px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:#0c285f;
+
+  color:#fff;
+
+  font-size:20px;
+
+  cursor:pointer;
+}
+
+
+/* TYPE LUKE */
+
+.badge{
+
+  display:inline-block;
+
+  padding:
+    7px 12px;
+
+  background:#a42329;
+
+  color:#fff;
+
+  border-radius:99px;
+
+  font:
+    700 11px Arial,sans-serif;
+
+  text-transform:uppercase;
+
+  letter-spacing:1px;
+}
+
+
+.card h2{
+
+  font-size:34px;
+
+  margin:
+    18px 0 11px;
+
+  color:#7f1c23;
+}
+
+
+.card p{
+
+  font-size:18px;
+
+  line-height:1.55;
+}
+
+
+/* QUOTES */
+
+.quote{
+
+  font-size:25px!important;
+
+  font-style:italic;
+
+  color:#143967;
+
+  padding:20px;
+
+  background:#fff;
+
+  border-radius:14px;
+
+  border-left:
+    5px solid #38a935;
+}
+
+
+/* KNAPPER */
+
+.action{
+
+  display:inline-block;
+
+  background:#36a536;
+
+  color:#fff;
+
+  padding:
+    12px 18px;
+
+  border-radius:9px;
+
+  text-decoration:none;
+
+  font:
+    700 14px Arial,sans-serif;
+}
+
+
+.editnote{
+
+  margin-top:20px;
+
+  padding-top:15px;
+
+  border-top:
+    1px dashed #bda870;
+
+  color:#756946;
+
+  font:
+    12px Arial,sans-serif;
+}
+
+
+/* ==========================================================
+   MOBIL / TABLET
+   ========================================================== */
+
+
+@media(max-width:850px){
+
+  .calendar{
+
+    grid-template-columns:
+      repeat(4,1fr);
+
+  }
+
+}
+
+
+@media(max-width:520px){
+
+  .calendar{
+
+    grid-template-columns:
+      repeat(3,1fr);
+
+    gap:9px;
+
+  }
+
+
+  .wrap{
+
+    padding-left:12px;
+
+    padding-right:12px;
+
+  }
+
+
+  .hero h1{
+
+    font-size:42px;
+
+  }
+
+
+  .brand b{
+
+    font-size:27px;
+
+  }
+
+
+  .cross{
+
+    width:45px;
+
+    height:45px;
+
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="lights"></div>
+
+
+<main class="wrap">
+
+<section class="hero">
+
+  <div class="brand">
+
+    <span
+      class="cross"
+      aria-hidden="true">
+    </span>
+
+    <b>
+      APOTEK<em>1</em>
+    </b>
+
+  </div>
+
+
+  <div class="kicker">
+
+    Kommersiell avdeling inviterer til
+
+  </div>
+
+
+  <h1>
+
+    Julekalenderen 2026
+
+  </h1>
+
+
+  <p>
+
+    Et lite daglig avbrekk med fag,
+    tull, varme, overraskelser og
+    akkurat passe mye konkurranse.
+
+    Én ny luke hver dag frem til jul.
+
+  </p>
+
+
+  <div class="pharmacy">
+
+    <span class="pill green">
+      ✚ Kunnskap
+    </span>
+
+    <span class="pill">
+      🎄 Julestemning
+    </span>
+
+    <span class="pill green">
+      ♡ Omsorg
+    </span>
+
+    <span class="pill">
+      🎁 Overraskelser
+    </span>
+
+  </div>
+
+
+  <div
+    class="status"
+    id="status">
+
+    🎅 Kalenderen gjør seg klar …
+
+  </div>
+
+</section>
+
+
+<section
+  class="calendar"
+  id="calendar"
+  aria-label="Julekalender med 24 luker">
+</section>
+
+
+<div class="footer">
+
+  Vår kunnskap – din trygghet
+  · og i desember:
+  litt ekstra julestemning ✨
+
+  <br>
+
+  <small>
+
+    Tips til sosialkomiteen:
+    legg til
+    <b>?preview=24</b>
+    i adressen for å teste
+    alle lukene.
+
+  </small>
+
+</div>
+
+</main>
+
+
+<!-- POPUP -->
+
+
+<div
+  class="modal"
+  id="modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modalTitle">
+
+
+  <article class="card">
+
+
+    <button
+      class="close"
+      id="close"
+      aria-label="Lukk">
+
+      ×
+
+    </button>
+
+
+    <span
+      class="badge"
+      id="modalType">
+    </span>
+
+
+    <h2 id="modalTitle">
+    </h2>
+
+
+    <div id="modalBody">
+    </div>
+
+
+    <div class="editnote">
+
+      🎄 Innholdet i denne luka
+      kan endres i
+      <b>CALENDAR_CONTENT</b>
+      nederst i index.html.
+
+    </div>
+
+
+  </article>
+
+</div>
+
+
+<script>
+
+
+/*
+============================================================
+
+   HER REDIGERER DU LUKENE
+
+   For hver luke kan du enkelt endre:
+
+   type  = hvilken type luke det er
+   title = overskriften
+   html  = innholdet
+
+   Du trenger ikke endre resten av nettsiden.
+
+============================================================
+*/
+
+
+const CALENDAR_CONTENT = {
+
+
+/* =========================
+   LUKE 1
+========================= */
+
+1:{
+
+type:'Velkommen',
+
+title:'Nå er vi i gang! 🎄',
+
+html:`
+
+<p>
+
+Velkommen til Kommersiells julekalender.
+
+Bak de neste 24 lukene gjemmer det seg
+gullkorn, quiz, kolleger,
+små konkurranser og førjulskos.
+
+</p>
+
+<p>
+
+<b>Oppskrift:</b>
+
+litt Apotek 1-grønt,
+en dose fag
+og rikelig med jul.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 2
+========================= */
+
+2:{
+
+type:'Tatt ut av kontekst',
+
+title:'Dagens gullkorn',
+
+html:`
+
+<p class="quote">
+
+«Dette burde egentlig være
+ganske enkelt.»
+
+</p>
+
+<p>
+
+Sagt omtrent 14 minutter
+før alt ble veldig komplisert. 😅
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 3
+========================= */
+
+3:{
+
+type:'Quiz',
+
+title:'Gjett julelåta 🎵',
+
+html:`
+
+<p class="quote">
+
+🚗 🏠 🎄
+
+</p>
+
+<p>
+
+<b>Fasit:</b>
+
+Driving Home for Christmas.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 4
+========================= */
+
+4:{
+
+type:'Konkurranse',
+
+title:'Dagens overraskelse 🎁',
+
+html:`
+
+<p>
+
+Hvor mange pepperkaker
+tror du ligger i glasset
+hos sosialkomiteen?
+
+</p>
+
+<p>
+
+<a
+class="action"
+href="#">
+
+Svar på dagens konkurranse
+
+</a>
+
+</p>
+
+<p>
+
+<small>
+
+Bytt lenken med dagens
+Microsoft Forms-lenke.
+
+</small>
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 5
+========================= */
+
+5:{
+
+type:'Kommersiell ♥',
+
+title:'Dagens shout-out',
+
+html:`
+
+<p>
+
+Takk til alle som håndterer årets
+mange «kan vi bare …»-forespørsler
+med både faglighet, fart
+og godt humør. 💚
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 6
+========================= */
+
+6:{
+
+type:'Julequiz',
+
+title:'Farmasøytisk julenøtt 💊',
+
+html:`
+
+<p>
+
+Hva får du hvis du kombinerer
+farmasifag, granbar,
+kaffe og desember?
+
+</p>
+
+<p>
+
+<b>
+
+En helt vanlig dag
+i Kommersiell.
+
+</b>
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 7
+========================= */
+
+7:{
+
+type:'Fun fact',
+
+title:'Kommersiell trivia',
+
+html:`
+
+<p>
+
+Her kan dere legge inn
+et ekte fun fact om avdelingen.
+
+Gjerne noe overraskende
+fra året som gikk.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 8
+========================= */
+
+8:{
+
+type:'Hvem sa dette?',
+
+title:'Gjett kollegaen',
+
+html:`
+
+<p class="quote">
+
+«Vi trenger bare
+å lande prosessen.»
+
+</p>
+
+<p>
+
+Hvem i Kommersiell
+kunne sagt dette?
+
+Legg inn 3–4 svaralternativer her.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 9
+========================= */
+
+9:{
+
+type:'Julequiz',
+
+title:'Sant eller usant?',
+
+html:`
+
+<p>
+
+En julegave blir 17 % bedre
+hvis den pakkes inn med
+overdrevent mye sløyfe.
+
+</p>
+
+<p>
+
+<b>Fasit:</b>
+
+Vitenskapelig tvilsomt.
+
+Julemessig helt korrekt.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 10
+========================= */
+
+10:{
+
+type:'Premieluke',
+
+title:'Finn nissen! 🎅',
+
+html:`
+
+<p>
+
+En liten nisse har gjemt seg
+et sted på siden.
+
+Første person som finner den
+og sender screenshot til
+sosialkomiteen vinner
+dagens lille premie.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 11
+========================= */
+
+11:{
+
+type:'Året som gikk',
+
+title:'Årets bilde 📸',
+
+html:`
+
+<p>
+
+Legg inn et morsomt eller hyggelig
+bilde fra Kommersiell her,
+med en kort bildetekst.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 12
+========================= */
+
+12:{
+
+type:'Gjett kollegaen',
+
+title:'Tre hint 🕵️',
+
+html:`
+
+<p>
+
+☕ Kaffe er en sentral del
+av arbeidsflyten.
+
+<br>
+
+📊 Har sterke meninger
+om Excel.
+
+<br>
+
+🎄 Har allerede julemusikk
+på spillelisten.
+
+</p>
+
+<p>
+
+Hvem tror du det er?
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 13
+========================= */
+
+13:{
+
+type:'Fredagsquote',
+
+title:'Ukens siste gullkorn',
+
+html:`
+
+<p class="quote">
+
+«Kan vi bare få
+dette inn i PK?»
+
+</p>
+
+<p>
+
+Et spørsmål med uendelig mange
+mulige konsekvenser.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 14
+========================= */
+
+14:{
+
+type:'Julenøtt',
+
+title:'Mini-mysteriet 🔎',
+
+html:`
+
+<p>
+
+Hvem har flyttet marsipanen
+fra kjøkkenet?
+
+Legg inn tre spor
+og la avdelingen løse
+dagens betydningsfulle mysterium.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 15
+========================= */
+
+15:{
+
+type:'Kommersiell ♥',
+
+title:'Dette fikk vi til',
+
+html:`
+
+<p>
+
+Fyll luka med én ting
+avdelingen kan være
+skikkelig stolt av fra 2026.
+
+Kort, konkret og med applaus:
+
+👏👏👏
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 16
+========================= */
+
+16:{
+
+type:'Emoji-quiz',
+
+title:'Hva prøver vi å si?',
+
+html:`
+
+<p class="quote">
+
+💻 + 💊 + 🛒 + 🚀
+
+</p>
+
+<p>
+
+<b>Forslag:</b>
+
+Omnikanal med litt ekstra fart.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 17
+========================= */
+
+17:{
+
+type:'Premieluke',
+
+title:'Kodeordet er …',
+
+html:`
+
+<p>
+
+🎁 Dagens hemmelige kodeord er
+
+<b>GLØGG</b>.
+
+</p>
+
+<p>
+
+Si det til riktig person
+før kl. 14 for å bli med
+i trekningen.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 18
+========================= */
+
+18:{
+
+type:'Året som gikk',
+
+title:'Årets møtefrase',
+
+html:`
+
+<p class="quote">
+
+«La oss ta
+en fot i bakken.»
+
+</p>
+
+<p>
+
+Her kan dere kåre den faktiske
+vinneren etter en høyst
+uhøytidelig avstemning.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 19
+========================= */
+
+19:{
+
+type:'Hvem sa dette?',
+
+title:'Quote-mysteriet',
+
+html:`
+
+<p class="quote">
+
+«Det er sikkert bare
+en liten integrasjon.»
+
+</p>
+
+<p>
+
+Legg inn svaralternativer
+og fasit.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 20
+========================= */
+
+20:{
+
+type:'Julehilsen',
+
+title:'Fire dager igjen ✨',
+
+html:`
+
+<p>
+
+En liten påminnelse om
+at god stemning også
+er et leveranseområde.
+
+Takk for innsatsen så langt
+i desember.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 21
+========================= */
+
+21:{
+
+type:'Kommersiell trivia',
+
+title:'2026 eller oppdiktet?',
+
+html:`
+
+<p>
+
+Legg inn tre små historier
+fra året.
+
+To er sanne.
+
+Én er fri fantasi.
+
+Hvilken?
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 22
+========================= */
+
+22:{
+
+type:'Året som gikk',
+
+title:'Årets øyeblikk',
+
+html:`
+
+<p>
+
+Et bilde,
+en seier,
+en tabbe vi kan le av,
+eller et øyeblikk
+vi vil huske fra 2026.
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 23
+========================= */
+
+23:{
+
+type:'Finale',
+
+title:'Den store førjulstrekningen 🎁',
+
+html:`
+
+<p>
+
+Blant alle som har deltatt
+i desember trekker
+sosialkomiteen en vinner.
+
+</p>
+
+<p>
+
+<a
+class="action"
+href="#">
+
+Se dagens konkurranse
+
+</a>
+
+</p>
+
+`
+
+},
+
+
+/* =========================
+   LUKE 24
+========================= */
+
+24:{
+
+type:'God jul',
+
+title:'God jul, Kommersiell! ❤️',
+
+html:`
+
+<p class="quote">
+
+Takk for kunnskapen,
+engasjementet,
+humoren
+og alt vi har fått til
+sammen i år.
+
+</p>
+
+<p>
+
+Riktig god jul
+fra sosialkomiteen!
+
+🎄✨
+
+</p>
+
+`
+
+}
+
+
+};
+
+
+/*
+============================================================
+   HERFRA TRENGER DU NORMALT IKKE ENDRE NOE
+============================================================
+*/
+
+
+const qs =
+  new URLSearchParams(
+    location.search
+  );
+
+
+const preview =
+  Math.max(
+    0,
+    Math.min(
+      24,
+      Number(
+        qs.get('preview')
+      ) || 0
+    )
+  );
+
+
+const now =
+  new Date();
+
+
+const current =
+  (
+    now.getMonth() === 11
+      ? now.getDate()
+      : 0
+  );
+
+
+const unlocked =
+  preview || current;
+
+
+const cal =
+  document.getElementById(
+    'calendar'
+  );
+
+
+/* BYGG DE 24 LUKENE */
+
+
+for(
+  let d = 1;
+  d <= 24;
+  d++
+){
+
+  const item =
+    CALENDAR_CONTENT[d];
+
+
+  const open =
+    d <= unlocked;
+
+
+  const b =
+    document.createElement(
+      'button'
+    );
+
+
+  b.type =
+    'button';
+
+
+  b.className =
+    'door ' +
+    (!open ? 'locked ' : '') +
+    (d === current ? 'today' : '');
+
+
+  b.setAttribute(
+    'aria-label',
+    open
+      ? `Åpne luke ${d}`
+      : `Luke ${d} er låst`
+  );
+
+
+  b.innerHTML = `
+
+    <span class="num">
+      ${d}
+    </span>
+
+    <span class="label">
+
+      ${
+        open
+          ? item.type
+          : 'Ikke ennå'
+      }
+
+    </span>
+
+  `;
+
+
+  if(open){
+
+    b.addEventListener(
+      'click',
+      () => showDoor(d)
+    );
+
+  }
+
+
+  cal.appendChild(b);
+
+}
+
+
+/* STATUSMELDING */
+
+
+const status =
+  document.getElementById(
+    'status'
+  );
+
+
+if(preview){
+
+  status.textContent =
+    `🧪 Testmodus: luke 1–${preview} er åpne`;
+
+}
+
+else if(
+  current >= 1 &&
+  current <= 24
+){
+
+  status.textContent =
+    `✨ Dagens luke er nummer ${current}`;
+
+}
+
+else{
+
+  status.textContent =
+    '🎄 Kalenderen åpner 1. desember';
+
+}
+
+
+/* POPUP */
+
+
+const modal =
+  document.getElementById(
+    'modal'
+  );
+
+
+function showDoor(d){
+
+  const x =
+    CALENDAR_CONTENT[d];
+
+
+  document.getElementById(
+    'modalType'
+  ).textContent =
+    `Luke ${d} · ${x.type}`;
+
+
+  document.getElementById(
+    'modalTitle'
+  ).textContent =
+    x.title;
+
+
+  document.getElementById(
+    'modalBody'
+  ).innerHTML =
+    x.html;
+
+
+  modal.classList.add(
+    'show'
+  );
+
+}
+
+
+function closeModal(){
+
+  modal.classList.remove(
+    'show'
+  );
+
+}
+
+
+/* LUKK MED X */
+
+
+document.getElementById(
+  'close'
+).onclick =
+  closeModal;
+
+
+/* LUKK VED KLIKK UTENFOR */
+
+
+modal.addEventListener(
+  'click',
+  e => {
+
+    if(
+      e.target === modal
+    ){
+
+      closeModal();
+
+    }
+
+  }
+);
+
+
+/* LUKK MED ESC */
+
+
+document.addEventListener(
+  'keydown',
+  e => {
+
+    if(
+      e.key === 'Escape'
+    ){
+
+      closeModal();
+
+    }
+
+  }
+);
+
+
+</script>
+
+</body>
+</html>
