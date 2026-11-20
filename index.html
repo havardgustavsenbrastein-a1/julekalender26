@@ -2,22 +2,21 @@
 <html lang="no">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Kommersiells julekalender 2026 | Apotek 1</title>
 
 <style>
-
 :root{
-  --apotek-blue:#071f5b;
-  --apotek-green:#3aaa35;
-  --christmas-red:#a71925;
-  --dark-red:#72101a;
-  --gold:#e9bd61;
-  --light-gold:#ffe6a5;
+  --blue:#071f5b;
+  --green:#3aaa35;
+  --red:#a71926;
+  --dark-red:#6f0c17;
+  --gold:#edc56c;
+  --light-gold:#ffe7a6;
   --cream:#fff9eb;
-  --pine:#053c2d;
-  --dark-pine:#021e18;
+  --pine:#043727;
+  --shadow:rgba(0,0,0,.55);
 }
 
 *{
@@ -30,56 +29,16 @@ html{
 
 body{
   margin:0;
-  min-height:100vh;
   color:#fff;
   font-family:Arial,Helvetica,sans-serif;
-  background:#071d39;
+  background:#061932;
   overflow-x:hidden;
 }
 
-
-/* =========================================================
-   FAST JULEBILDE I BAKGRUNN
-
-   Legg julebildet i samme mappe som index.html.
-   Bildefilen må hete julebakgrunn.png.
-========================================================= */
-
-.background{
-  position:fixed;
-  inset:0;
-  z-index:-10;
-
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(3,15,38,.13) 0%,
-      rgba(3,15,38,.22) 40%,
-      rgba(3,17,31,.76) 100%
-    ),
-    url("julebakgrunn.png");
-
-  background-position:center center;
-  background-size:cover;
-  background-repeat:no-repeat;
+button,
+a{
+  font:inherit;
 }
-
-
-/* Myk vignett rundt bildet */
-
-.background::after{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-    radial-gradient(
-      circle at center,
-      transparent 35%,
-      rgba(0,8,24,.38) 100%
-    );
-}
-
 
 /* =========================================================
    ANIMERT SNØ
@@ -88,104 +47,132 @@ body{
 .snow{
   position:fixed;
   inset:0;
-  z-index:50;
   pointer-events:none;
-  opacity:.78;
+  z-index:100;
+  opacity:.65;
 
   background-image:
-    radial-gradient(#fff 1.2px,transparent 1.7px),
-    radial-gradient(#fff 2px,transparent 2.6px),
-    radial-gradient(#fff 1px,transparent 1.5px);
+    radial-gradient(#fff 1px,transparent 1.5px),
+    radial-gradient(#fff 2px,transparent 2.5px),
+    radial-gradient(#fff 1.3px,transparent 1.8px);
 
   background-size:
-    45px 45px,
-    100px 100px,
-    67px 67px;
+    42px 42px,
+    95px 95px,
+    68px 68px;
 
-  background-position:
-    0 0,
-    20px -30px,
-    40px -10px;
-
-  animation:
-    snowfall 17s linear infinite;
+  animation:snowfall 17s linear infinite;
 }
 
 @keyframes snowfall{
   to{
     background-position:
-      20px 900px,
-      -30px 1100px,
-      80px 750px;
+      30px 850px,
+      -40px 1100px,
+      70px 760px;
   }
 }
 
+/* =========================================================
+   FELLES BILDESEKSJONER
+========================================================= */
+
+.image-section{
+  position:relative;
+  min-height:100vh;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  isolation:isolate;
+}
+
+.image-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(1,10,28,.15),
+      rgba(1,10,28,.24) 45%,
+      rgba(1,12,27,.58)
+    );
+}
+
+.image-section::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  box-shadow:
+    inset 0 0 150px rgba(0,0,0,.4);
+  pointer-events:none;
+}
 
 /* =========================================================
-   TOPPSEKSJON
+   FORSIDE
 ========================================================= */
 
 .hero{
-  min-height:880px;
+  background-image:url("julebakgrunn.png");
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  position:relative;
-  padding:80px 24px 180px;
+  min-height:100vh;
+  padding:70px 24px;
 }
 
+.hero::before{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2,13,34,.08),
+      rgba(2,13,34,.15) 45%,
+      rgba(2,13,34,.38)
+    );
+}
 
-/* Mørk flate bak teksten */
-
-.hero-content{
-  width:min(850px,100%);
-  padding:45px 35px;
+.hero-card{
+  width:min(820px,100%);
+  text-align:center;
+  padding:38px 32px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(4,26,61,.88),
-      rgba(3,30,30,.83)
+      rgba(5,28,64,.76),
+      rgba(5,42,36,.70)
     );
 
-  border:
-    1px solid rgba(255,224,145,.6);
-
-  border-radius:34px;
+  border:1px solid rgba(255,225,152,.65);
+  border-radius:30px;
+  backdrop-filter:blur(8px);
 
   box-shadow:
-    0 35px 100px rgba(0,0,0,.55),
-    inset 0 0 45px rgba(255,221,128,.05);
-
-  backdrop-filter:blur(10px);
+    0 35px 90px rgba(0,0,0,.45),
+    inset 0 0 35px rgba(255,227,160,.05);
 }
-
-
-/* =========================================================
-   APOTEK 1-MERKE
-========================================================= */
 
 .logo{
   display:inline-flex;
   align-items:center;
-  gap:15px;
+  gap:14px;
 
-  padding:13px 22px;
-
+  padding:12px 20px;
   background:#fff;
   border-radius:17px;
 
   box-shadow:
-    0 12px 35px rgba(0,0,0,.35);
+    0 10px 32px rgba(0,0,0,.32);
 }
 
 .logo-mark{
-  width:56px;
-  height:56px;
-  background:var(--apotek-green);
-  border-radius:12px;
+  width:54px;
+  height:54px;
   position:relative;
+  border-radius:11px;
+  background:var(--green);
 }
 
 .logo-mark::before,
@@ -196,362 +183,384 @@ body{
 }
 
 .logo-mark::before{
-  width:34px;
+  width:32px;
   height:11px;
   left:11px;
-  top:22px;
+  top:21px;
 }
 
 .logo-mark::after{
   width:11px;
-  height:34px;
-  left:22px;
+  height:32px;
+  left:21px;
   top:11px;
 }
 
 .logo-text{
-  color:var(--apotek-blue);
-  font-size:37px;
+  color:var(--blue);
+  font-size:36px;
   font-weight:900;
   letter-spacing:-2px;
 }
 
 .logo-text span{
-  color:var(--apotek-green);
+  color:var(--green);
 }
 
-
-/* =========================================================
-   HERO-TEKST
-========================================================= */
-
 .eyebrow{
-  margin-top:32px;
+  margin-top:29px;
   color:var(--light-gold);
-  text-transform:uppercase;
-  letter-spacing:5px;
   font-size:12px;
   font-weight:900;
+  letter-spacing:4px;
+  text-transform:uppercase;
 }
 
 .hero h1{
-  margin:13px 0 0;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(50px,8vw,94px);
-  line-height:.96;
-  color:#fff8e8;
+  margin:12px 0 0;
+  color:#fff8e7;
+  font:700 clamp(50px,8vw,91px)/.98 Georgia,serif;
 
   text-shadow:
     0 4px 0 var(--dark-red),
-    0 0 38px rgba(255,221,132,.48);
+    0 0 35px rgba(255,223,139,.4);
 }
 
 .hero-description{
-  max-width:680px;
-  margin:25px auto 0;
-  color:#fff3d8;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:20px;
-  line-height:1.65;
+  max-width:670px;
+  margin:23px auto 0;
+  color:#fff1d4;
+  font:20px/1.6 Georgia,serif;
 }
 
-.hero-badges{
+.hero-tags{
   display:flex;
-  flex-wrap:wrap;
   justify-content:center;
-  gap:10px;
-  margin-top:25px;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:23px;
 }
 
-.hero-badge{
-  padding:9px 14px;
+.hero-tag{
+  padding:9px 13px;
   border-radius:30px;
+  color:var(--blue);
   background:#fff;
-  color:var(--apotek-blue);
-  font-size:12px;
+  font-size:11px;
   font-weight:900;
 }
 
-.hero-badge.green{
+.hero-tag.green{
   color:#fff;
-  background:var(--apotek-green);
+  background:var(--green);
 }
 
 .status{
   display:inline-block;
-  margin-top:25px;
-  padding:12px 20px;
+  margin-top:22px;
+  padding:11px 18px;
 
-  border:
-    1px solid rgba(255,222,143,.65);
-
+  border:1px solid rgba(255,225,151,.65);
   border-radius:30px;
 
-  background:
-    rgba(1,17,42,.65);
+  background:rgba(1,18,45,.65);
+  color:#ffe8ae;
 
-  color:#ffe7aa;
   font-size:13px;
   font-weight:900;
 }
 
-
-/* Scroll-knapp */
-
-.scroll-button{
+.primary-button{
   display:inline-block;
-  margin-top:28px;
-  padding:14px 21px;
+  margin-top:22px;
+  padding:13px 20px;
 
-  background:var(--christmas-red);
+  border:2px solid var(--gold);
+  border-radius:11px;
+
+  background:var(--red);
   color:#fff;
 
   text-decoration:none;
   font-weight:900;
 
-  border:
-    2px solid var(--gold);
-
-  border-radius:12px;
-
   box-shadow:
-    0 8px 24px rgba(0,0,0,.28);
+    0 8px 25px rgba(0,0,0,.32);
 
   transition:
     transform .2s ease,
     filter .2s ease;
 }
 
-.scroll-button:hover{
+.primary-button:hover{
   transform:translateY(-3px);
   filter:brightness(1.1);
 }
 
-
 /* =========================================================
-   GRANBAR-SEPARATOR
+   OVERGANGER
 ========================================================= */
 
 .garland{
-  min-height:76px;
+  min-height:72px;
   position:relative;
+  z-index:5;
 
   background:
     linear-gradient(
       145deg,
-      rgba(2,33,25,.98),
-      rgba(8,79,57,.98),
-      rgba(2,38,29,.98)
+      #03271e,
+      #07523c,
+      #032b21
     );
 
-  border-top:
-    4px solid var(--gold);
-
-  border-bottom:
-    4px solid var(--gold);
+  border-top:4px solid var(--gold);
+  border-bottom:4px solid var(--gold);
 
   box-shadow:
-    0 12px 35px rgba(0,0,0,.45);
+    0 10px 30px rgba(0,0,0,.42);
 }
 
 .garland::after{
   content:"●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●";
   position:absolute;
-  inset:18px 0;
+  inset:16px 0;
   text-align:center;
-  color:#ffd477;
-  font-size:24px;
+
+  color:#ffd573;
+  font-size:23px;
   letter-spacing:5px;
 
   text-shadow:
-    32px 0 #d51c2e,
-    65px 0 #43bc45,
-    0 0 12px #ffdc85;
+    35px 0 #d21e2f,
+    70px 0 #45b946,
+    0 0 12px #ffe599;
 }
-
 
 /* =========================================================
-   KOMMENDE DESEMBERAKTIVITETER
+   OVERSKRIFTER
 ========================================================= */
 
-.events-section{
-  padding:85px 22px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(3,25,55,.94),
-      rgba(3,34,38,.96)
-    );
-}
-
 .section-heading{
-  max-width:850px;
+  width:min(850px,100%);
   margin:0 auto 45px;
   text-align:center;
 }
 
-.section-heading span{
-  color:var(--gold);
-  text-transform:uppercase;
-  letter-spacing:4px;
+.section-heading .overline{
+  color:var(--light-gold);
   font-size:12px;
   font-weight:900;
+  letter-spacing:4px;
+  text-transform:uppercase;
 }
 
 .section-heading h2{
-  margin:12px 0;
-  color:#fff7e6;
-  font:700 clamp(38px,6vw,64px) Georgia,serif;
+  margin:11px 0;
+  color:#fff8e8;
+  font:700 clamp(38px,6vw,64px)/1.05 Georgia,serif;
+
+  text-shadow:
+    0 3px 18px rgba(0,0,0,.55);
 }
 
 .section-heading p{
   margin:0;
-  color:#e3d8bd;
+  color:#fff0d0;
   font:18px/1.6 Georgia,serif;
+  text-shadow:
+    0 2px 12px rgba(0,0,0,.8);
+}
+
+/* =========================================================
+   DETTE SKJER I DESEMBER
+========================================================= */
+
+.events-section{
+  background-image:
+    url("images/Juleinteriør og aktiviteter.png");
+
+  min-height:100vh;
+  padding:90px 22px;
+}
+
+.events-section::before{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7,18,31,.14),
+      rgba(7,18,31,.28) 42%,
+      rgba(7,18,31,.55)
+    );
 }
 
 .events{
-  max-width:1150px;
+  width:min(1200px,100%);
   margin:auto;
 
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:22px;
 }
 
-.event{
+.event-card{
   position:relative;
+  min-height:245px;
   overflow:hidden;
 
-  min-height:220px;
   padding:27px;
 
-  border:
-    2px solid rgba(239,199,107,.66);
-
-  border-radius:22px;
+  border:1px solid rgba(255,226,152,.68);
+  border-radius:23px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(137,16,27,.9),
-      rgba(65,6,18,.9)
+      rgba(88,10,19,.89),
+      rgba(42,4,11,.83)
     );
+
+  backdrop-filter:blur(8px);
 
   box-shadow:
-    0 18px 45px rgba(0,0,0,.32);
+    0 20px 45px rgba(0,0,0,.42),
+    inset 0 0 30px rgba(255,232,171,.05);
 }
 
-.event:nth-child(2){
+.event-card:nth-child(2){
   background:
     linear-gradient(
       145deg,
-      rgba(6,87,58,.94),
-      rgba(2,43,34,.94)
+      rgba(4,73,50,.91),
+      rgba(2,37,29,.86)
     );
 }
 
-.event:nth-child(3){
+.event-card:nth-child(3){
   background:
     linear-gradient(
       145deg,
-      rgba(15,57,119,.94),
-      rgba(4,28,76,.94)
+      rgba(13,52,111,.91),
+      rgba(4,25,68,.86)
     );
 }
 
-.event::after{
+.event-card:nth-child(4){
+  background:
+    linear-gradient(
+      145deg,
+      rgba(128,55,9,.91),
+      rgba(59,24,3,.86)
+    );
+}
+
+.event-card::after{
   content:"✚";
   position:absolute;
-  right:-10px;
-  bottom:-35px;
-  color:rgba(255,255,255,.08);
-  font-size:145px;
+  right:-8px;
+  bottom:-41px;
+
+  color:rgba(255,255,255,.075);
+  font-size:150px;
   font-weight:900;
 }
 
 .event-date{
   display:inline-block;
   padding:7px 11px;
+
   border-radius:20px;
+
   background:#fff;
-  color:var(--christmas-red);
+  color:var(--red);
+
+  font-size:11px;
   font-weight:900;
-  font-size:12px;
+  letter-spacing:.6px;
 }
 
-.event h3{
-  margin:20px 0 10px;
-  font:700 27px Georgia,serif;
-  color:#fff5dc;
+.event-icon{
+  display:block;
+  margin-top:17px;
+  font-size:35px;
 }
 
-.event p{
+.event-card h3{
   position:relative;
   z-index:2;
+
+  margin:9px 0;
+  color:#fff6df;
+  font:700 28px Georgia,serif;
+}
+
+.event-card p{
+  position:relative;
+  z-index:2;
+
   margin:0;
-  color:#fff1d5;
+  color:#f8e9cb;
   line-height:1.55;
 }
 
+.event-note{
+  display:inline-block;
+  position:relative;
+  z-index:2;
+
+  margin-top:15px;
+  padding:7px 11px;
+
+  border-radius:20px;
+
+  background:rgba(255,255,255,.12);
+  color:#fff0c9;
+
+  font-size:12px;
+  font-weight:800;
+}
 
 /* =========================================================
-   KALENDER
+   KALENDERSEKSJON
 ========================================================= */
 
 .calendar-section{
-  position:relative;
-  padding:90px 24px 130px;
+  background-image:
+    url("images/Kalenderfasade.png");
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(3,49,37,.94),
-      rgba(1,24,27,.97)
-    );
-}
-
-.calendar-section::before,
-.calendar-section::after{
-  content:"✚";
-  position:absolute;
-  color:rgba(58,170,53,.055);
-  font-size:430px;
-  font-weight:900;
-  pointer-events:none;
+  min-height:100vh;
+  padding:90px 20px 125px;
+  background-position:center top;
 }
 
 .calendar-section::before{
-  left:-85px;
-  top:260px;
-  transform:rotate(-14deg);
-}
-
-.calendar-section::after{
-  right:-65px;
-  bottom:100px;
-  transform:rotate(14deg);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(1,12,32,.18),
+      rgba(1,23,35,.46) 30%,
+      rgba(1,21,29,.74)
+    );
 }
 
 .calendar{
   position:relative;
   z-index:2;
 
-  max-width:1320px;
+  width:min(1280px,100%);
   margin:auto;
 
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:28px;
+  gap:24px;
 }
 
-
 /* =========================================================
-   LUKE
+   JULELUKENE
 ========================================================= */
 
 .door{
-  height:330px;
+  height:315px;
   position:relative;
   perspective:1300px;
 }
@@ -561,21 +570,19 @@ body{
   inset:0;
   overflow:hidden;
 
+  border:6px solid var(--gold);
+  border-radius:21px;
+
   background:
     linear-gradient(
       145deg,
-      #fff9e9,
-      #ead29e
+      #fff9e8,
+      #ebd49f
     );
 
-  border:
-    6px solid var(--gold);
-
-  border-radius:22px;
-
   box-shadow:
-    0 23px 42px rgba(0,0,0,.52),
-    inset 0 0 35px rgba(93,45,6,.18);
+    0 22px 42px rgba(0,0,0,.56),
+    inset 0 0 32px rgba(103,55,11,.22);
 }
 
 .door-inside{
@@ -587,36 +594,33 @@ body{
   align-items:center;
   justify-content:center;
 
-  padding:28px;
+  padding:25px;
   text-align:center;
-  color:var(--apotek-blue);
+  color:var(--blue);
 }
 
 .inside-icon{
-  font-size:63px;
+  font-size:61px;
 }
 
 .door-inside strong{
-  margin-top:12px;
-  font:700 22px Georgia,serif;
-  color:var(--christmas-red);
+  margin-top:11px;
+  color:var(--red);
+  font:700 21px Georgia,serif;
 }
 
 .door-inside small{
-  margin-top:9px;
-  color:#725f3c;
-  line-height:1.45;
+  margin-top:8px;
+  color:#715e3a;
+  line-height:1.4;
 }
-
-
-/* Selve døren */
 
 .door-panel{
   position:absolute;
   inset:0;
 
   border:0;
-  border-radius:16px;
+  border-radius:15px;
 
   color:#fff;
   cursor:pointer;
@@ -627,16 +631,16 @@ body{
   background:
     linear-gradient(
       145deg,
-      #c11c2c,
-      #76101a
+      #bc192a,
+      #77101a
     );
 
   box-shadow:
-    inset 0 0 0 3px rgba(255,221,132,.37),
-    inset 0 0 45px rgba(56,0,9,.6);
+    inset 0 0 0 3px rgba(255,222,138,.35),
+    inset 0 0 45px rgba(51,0,9,.55);
 
   transition:
-    transform 1.15s cubic-bezier(.18,.72,.18,1),
+    transform 1.1s cubic-bezier(.18,.72,.18,1),
     filter .25s ease,
     box-shadow .25s ease;
 }
@@ -645,8 +649,8 @@ body{
   background:
     linear-gradient(
       145deg,
-      #15734d,
-      #073c30
+      #14704b,
+      #073a2e
     );
 }
 
@@ -654,27 +658,28 @@ body{
   background:
     linear-gradient(
       145deg,
-      #174a94,
-      #071f59
+      #17498d,
+      #071f57
     );
 }
 
 .door-panel::before{
   content:"";
   position:absolute;
-  inset:15px;
-  border:
-    2px solid rgba(255,222,139,.56);
+  inset:14px;
+
+  border:2px solid rgba(255,225,147,.62);
   border-radius:11px;
 }
 
 .door-panel::after{
   content:"✚";
   position:absolute;
-  right:17px;
-  top:11px;
+  right:16px;
+  top:9px;
+
   color:rgba(255,255,255,.11);
-  font-size:84px;
+  font-size:80px;
   font-weight:900;
 }
 
@@ -683,34 +688,34 @@ body{
   position:relative;
   z-index:2;
 
-  font:900 82px Georgia,serif;
+  color:#fff8e9;
+  font:900 80px Georgia,serif;
 
   text-shadow:
     0 4px 0 rgba(0,0,0,.32);
 }
 
 .door-label{
-  display:block;
+  display:inline-block;
   position:relative;
   z-index:2;
 
-  padding:7px 11px;
+  padding:7px 12px;
+
   border-radius:20px;
 
-  background:
-    rgba(0,0,0,.21);
+  background:rgba(0,0,0,.22);
+  color:#ffe7a6;
 
-  color:#ffe8aa;
-
-  text-transform:uppercase;
-  letter-spacing:1.5px;
   font-size:11px;
   font-weight:900;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
 }
 
 .door-knob{
   position:absolute;
-  right:19px;
+  right:18px;
   top:49%;
 
   width:15px;
@@ -718,58 +723,184 @@ body{
 
   border-radius:50%;
 
-  background:#ffe09a;
+  background:#ffe099;
 
   box-shadow:
-    0 0 12px #fff0bd;
+    0 0 12px #fff0bc;
 }
-
-
-/* Hover */
 
 .door:not(.locked):hover .door-panel{
   filter:brightness(1.1);
 
   box-shadow:
-    inset 0 0 0 3px rgba(255,227,150,.55),
-    inset 0 0 45px rgba(56,0,9,.45),
-    0 0 28px rgba(255,214,111,.35);
+    inset 0 0 0 3px rgba(255,226,147,.55),
+    inset 0 0 45px rgba(51,0,9,.42),
+    0 0 28px rgba(255,218,121,.42);
 }
-
-
-/* Døren åpner seg */
 
 .door.open .door-panel{
   transform:rotateY(-112deg);
   filter:brightness(.75);
 }
 
-
-/* Låst luke */
-
 .door.locked .door-panel{
   cursor:not-allowed;
-  filter:grayscale(.4) brightness(.56);
+  filter:grayscale(.42) brightness(.57);
 }
 
 .door.locked .door-label::before{
   content:"🔒 ";
 }
 
-
-/* Dagens luke */
-
 .door.today{
   filter:
-    drop-shadow(0 0 22px rgba(255,215,108,.9));
+    drop-shadow(0 0 24px rgba(255,217,112,.95));
 }
 
 .door.today .door-frame{
-  outline:
-    5px solid #ffe28b;
+  outline:5px solid #ffe289;
   outline-offset:5px;
 }
 
+/* =========================================================
+   PREMIER OG KONKURRANSER
+========================================================= */
+
+.prize-section{
+  background-image:
+    url("images/Juleverksted og gaver.png");
+
+  min-height:760px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:90px 24px;
+}
+
+.prize-section::before{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(1,14,30,.50),
+      rgba(1,14,30,.15) 40%,
+      rgba(1,14,30,.50)
+    );
+}
+
+.prize-card{
+  width:min(760px,100%);
+  padding:36px;
+
+  text-align:center;
+
+  border:1px solid rgba(255,227,151,.75);
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(5,40,33,.87),
+      rgba(72,8,17,.83)
+    );
+
+  backdrop-filter:blur(8px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.52);
+}
+
+.prize-card .icon{
+  font-size:53px;
+}
+
+.prize-card h2{
+  margin:12px 0;
+  color:#fff8e8;
+  font:700 clamp(36px,6vw,58px) Georgia,serif;
+}
+
+.prize-card p{
+  max-width:620px;
+  margin:0 auto;
+  color:#fff0d2;
+  font:18px/1.65 Georgia,serif;
+}
+
+.prize-points{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.prize-point{
+  padding:15px 12px;
+
+  border:1px solid rgba(255,227,151,.4);
+  border-radius:15px;
+
+  background:rgba(0,0,0,.22);
+  color:#fff0ce;
+
+  font-size:13px;
+  font-weight:800;
+}
+
+/* =========================================================
+   JULEKVELD / AVSLUTNING
+========================================================= */
+
+.final-section{
+  background-image:
+    url("images/Julekveld og finale.png");
+
+  min-height:100vh;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+
+  padding:80px 24px;
+}
+
+.final-section::before{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(1,12,35,.04),
+      rgba(1,12,35,.14) 50%,
+      rgba(1,12,35,.67)
+    );
+}
+
+.final-card{
+  width:min(720px,100%);
+  padding:33px;
+
+  text-align:center;
+
+  border:1px solid rgba(255,228,156,.7);
+  border-radius:27px;
+
+  background:
+    rgba(3,25,57,.76);
+
+  backdrop-filter:blur(8px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5);
+}
+
+.final-card h2{
+  margin:0;
+  color:#fff7e5;
+  font:700 clamp(39px,7vw,67px) Georgia,serif;
+}
+
+.final-card p{
+  color:#fff0d3;
+  font:18px/1.6 Georgia,serif;
+}
 
 /* =========================================================
    POPUP
@@ -778,16 +909,14 @@ body{
 .modal{
   position:fixed;
   inset:0;
-  z-index:100;
+  z-index:200;
 
   display:none;
   place-items:center;
 
-  padding:25px;
+  padding:24px;
 
-  background:
-    rgba(0,7,22,.88);
-
+  background:rgba(0,7,22,.88);
   backdrop-filter:blur(8px);
 }
 
@@ -798,28 +927,24 @@ body{
 .modal-card{
   position:relative;
 
-  width:min(730px,100%);
+  width:min(720px,100%);
   max-height:88vh;
   overflow:auto;
 
-  padding:
-    45px 38px;
+  padding:43px 36px;
 
   text-align:center;
-
-  color:var(--apotek-blue);
+  color:var(--blue);
 
   background:
     linear-gradient(
       160deg,
       #fffdf4,
-      #f3e1b7
+      #f3dfb4
     );
 
-  border:
-    7px solid var(--gold);
-
-  border-radius:30px;
+  border:7px solid var(--gold);
+  border-radius:29px;
 
   box-shadow:
     0 35px 110px rgba(0,0,0,.75);
@@ -835,7 +960,7 @@ body{
   from{
     opacity:0;
     transform:
-      scale(.62)
+      scale(.65)
       translateY(40px)
       rotate(-2deg);
   }
@@ -852,26 +977,26 @@ body{
 .modal-card::before{
   content:"✚";
   display:block;
-  color:var(--apotek-green);
-  font-size:55px;
+  color:var(--green);
+  font-size:53px;
   font-weight:900;
 }
 
 .close{
   position:absolute;
-  right:16px;
-  top:16px;
+  right:15px;
+  top:15px;
 
-  width:44px;
-  height:44px;
+  width:43px;
+  height:43px;
 
   border:0;
   border-radius:50%;
 
-  background:var(--apotek-blue);
+  background:var(--blue);
   color:#fff;
 
-  font-size:25px;
+  font-size:24px;
   cursor:pointer;
 }
 
@@ -882,47 +1007,47 @@ body{
 
   border-radius:20px;
 
-  background:var(--christmas-red);
+  background:var(--red);
   color:#fff;
 
-  text-transform:uppercase;
-  letter-spacing:1.4px;
   font-size:11px;
   font-weight:900;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
 }
 
 .modal-card h2{
-  margin:16px 0;
-  color:var(--christmas-red);
-  font:700 40px Georgia,serif;
+  margin:15px 0;
+  color:var(--red);
+  font:700 39px Georgia,serif;
 }
 
 .modal-card p{
-  font:18px/1.65 Georgia,serif;
+  font:18px/1.62 Georgia,serif;
 }
 
 .quote{
-  padding:24px;
-  border-left:
-    6px solid var(--apotek-green);
+  padding:23px;
+
+  border-left:6px solid var(--green);
   border-radius:14px;
 
   background:#fff;
-
   color:#173668;
 
-  font-size:26px !important;
+  font-size:25px !important;
   font-style:italic;
 }
 
 .action{
   display:inline-block;
+
   margin-top:8px;
-  padding:14px 21px;
+  padding:13px 20px;
 
-  border-radius:11px;
+  border-radius:10px;
 
-  background:var(--apotek-green);
+  background:var(--green);
   color:#fff;
 
   text-decoration:none;
@@ -930,37 +1055,38 @@ body{
   font-weight:900;
 }
 
-.prize{
+.prize-label{
   display:inline-block;
-  margin:8px 0;
+
+  margin-top:8px;
   padding:9px 14px;
 
   border-radius:20px;
 
-  background:#ffe6a1;
-  color:#72101a;
+  background:#ffe59e;
+  color:#74101a;
 
   font-family:Arial,sans-serif;
+  font-size:13px;
   font-weight:900;
 }
 
-
 /* =========================================================
-   PARTIKLER NÅR LUKEN ÅPNES
+   PARTIKLER
 ========================================================= */
 
 .spark{
   position:fixed;
-  z-index:120;
+  z-index:250;
   pointer-events:none;
 
-  font-size:31px;
+  font-size:30px;
 
   animation:
-    spark 1.3s ease-out forwards;
+    sparkle 1.3s ease-out forwards;
 }
 
-@keyframes spark{
+@keyframes sparkle{
   to{
     transform:
       translate(
@@ -974,31 +1100,8 @@ body{
   }
 }
 
-
 /* =========================================================
-   FOOTER
-========================================================= */
-
-.footer{
-  padding:65px 24px;
-  text-align:center;
-  color:#dccda8;
-  background:#06183d;
-}
-
-.footer-logo{
-  color:#fff;
-  font-size:30px;
-  font-weight:900;
-}
-
-.footer-logo span{
-  color:var(--apotek-green);
-}
-
-
-/* =========================================================
-   RESPONSIVT
+   MOBIL
 ========================================================= */
 
 @media(max-width:1050px){
@@ -1011,50 +1114,50 @@ body{
   }
 }
 
-@media(max-width:750px){
+@media(max-width:760px){
   .calendar{
     grid-template-columns:repeat(2,1fr);
-    gap:18px;
+    gap:17px;
   }
 
   .door{
-    height:270px;
+    height:265px;
   }
 
-  .hero{
-    min-height:760px;
-  }
-
-  .hero-content{
-    padding:38px 20px;
+  .hero-card{
+    padding:34px 18px;
   }
 
   .logo-text{
-    font-size:29px;
+    font-size:28px;
   }
 
   .logo-mark{
-    width:48px;
-    height:48px;
+    width:47px;
+    height:47px;
   }
 
   .logo-mark::before{
-    width:28px;
-    height:10px;
+    width:27px;
+    height:9px;
     left:10px;
     top:19px;
   }
 
   .logo-mark::after{
-    width:10px;
-    height:28px;
+    width:9px;
+    height:27px;
     left:19px;
     top:10px;
   }
 
+  .prize-points{
+    grid-template-columns:1fr;
+  }
+
   .calendar-section{
-    padding-left:13px;
-    padding-right:13px;
+    padding-left:12px;
+    padding-right:12px;
   }
 }
 
@@ -1064,11 +1167,11 @@ body{
   }
 
   .door{
-    height:295px;
+    height:290px;
   }
 
   .hero h1{
-    font-size:49px;
+    font-size:48px;
   }
 }
 
@@ -1077,17 +1180,15 @@ body{
 
 <body>
 
-<div class="background"></div>
 <div class="snow"></div>
-
 
 <!-- ======================================================
      FORSIDE
 ======================================================= -->
 
-<header class="hero">
+<header class="hero image-section">
 
-  <div class="hero-content">
+  <div class="hero-card">
 
     <div class="logo">
 
@@ -1110,27 +1211,27 @@ body{
 
     <p class="hero-description">
 
-      24 små pauser i desember med juleaktiviteter,
-      konkurranser, avstemninger, kolleger,
-      premier og hyggelige overraskelser.
+      24 små pauser i desember med konkurranser,
+      juleaktiviteter, kolleger, premier
+      og hyggelige overraskelser.
 
     </p>
 
-    <div class="hero-badges">
+    <div class="hero-tags">
 
-      <span class="hero-badge green">
+      <span class="hero-tag green">
         ✚ Kunnskap
       </span>
 
-      <span class="hero-badge">
+      <span class="hero-tag">
         🎄 Jul
       </span>
 
-      <span class="hero-badge green">
+      <span class="hero-tag green">
         ♡ Omsorg
       </span>
 
-      <span class="hero-badge">
+      <span class="hero-tag">
         🎁 Premier
       </span>
 
@@ -1142,28 +1243,29 @@ body{
 
     <br>
 
-    <a class="scroll-button" href="#kalender">
-      Se julekalenderen ↓
+    <a href="#aktiviteter" class="primary-button">
+      Se hva som skjer ↓
     </a>
 
   </div>
 
 </header>
 
-
 <div class="garland"></div>
 
-
 <!-- ======================================================
-     KOMMENDE AKTIVITETER
+     DETTE SKJER I DESEMBER
 ======================================================= -->
 
-<section class="events-section">
+<section
+  class="events-section image-section"
+  id="aktiviteter"
+>
 
   <div class="section-heading">
 
-    <span>
-      Allerede på kalenderen
+    <span class="overline">
+      Sett av datoene
     </span>
 
     <h2>
@@ -1182,10 +1284,75 @@ body{
 
   <div class="events">
 
-    <article class="event">
+    <article class="event-card">
+
+      <span class="event-date">
+        3. DESEMBER
+      </span>
+
+      <span class="event-icon">
+        🥂
+      </span>
+
+      <h3>
+        Julebordsvors
+      </h3>
+
+      <p>
+
+        Vi starter julebordskvelden sammen
+        med vors for Kommersiell avdeling.
+
+        Tid, sted og praktisk informasjon
+        følger i egen møteinnkalling.
+
+      </p>
+
+      <span class="event-note">
+        Følg med i kalenderen
+      </span>
+
+    </article>
+
+    <article class="event-card">
+
+      <span class="event-date">
+        3. DESEMBER
+      </span>
+
+      <span class="event-icon">
+        🎉
+      </span>
+
+      <h3>
+        Julebord
+      </h3>
+
+      <p>
+
+        Kommersiell avdeling samles
+        til årets julebord.
+
+        Informasjon om program,
+        oppmøte og sted ligger
+        i julebordinvitasjonen.
+
+      </p>
+
+      <span class="event-note">
+        Årets store julefeiring
+      </span>
+
+    </article>
+
+    <article class="event-card">
 
       <span class="event-date">
         10. DESEMBER
+      </span>
+
+      <span class="event-icon">
+        🥙
       </span>
 
       <h3>
@@ -1194,20 +1361,29 @@ body{
 
       <p>
 
-        Kebab-buffet på Nordstjernen
-        kl. 12.00.
+        Felleslunsj med kebabbuffet
+        på Nordstjernen kl. 12.00.
 
-        Mer informasjon kommer
-        i egen møteinnkalling.
+        Praktisk informasjon
+        formidles i egen møteinnkalling
+        i forkant.
 
       </p>
 
+      <span class="event-note">
+        Nordstjernen · kl. 12.00
+      </span>
+
     </article>
 
-    <article class="event">
+    <article class="event-card">
 
       <span class="event-date">
         13. DESEMBER
+      </span>
+
+      <span class="event-icon">
+        🕯️
       </span>
 
       <h3>
@@ -1218,17 +1394,25 @@ body{
 
         Vi markerer Luciadagen
         med lys, julestemning
-        og en liten overraskelse
+        og en hyggelig overraskelse
         i avdelingen.
 
       </p>
 
+      <span class="event-note">
+        Lys i desembermørket
+      </span>
+
     </article>
 
-    <article class="event">
+    <article class="event-card">
 
       <span class="event-date">
         DATO KOMMER
+      </span>
+
+      <span class="event-icon">
+        🍪
       </span>
 
       <h3>
@@ -1237,12 +1421,16 @@ body{
 
       <p>
 
-        En luke med «kom og forsyn deg».
-
-        Det blir lett servering
-        av julekaker ved EMV.
+        Kom innom EMV,
+        forsyn deg med julekaker
+        og ta en liten førjulspause
+        sammen med kollegene.
 
       </p>
+
+      <span class="event-note">
+        Kom og forsyn deg
+      </span>
 
     </article>
 
@@ -1250,19 +1438,20 @@ body{
 
 </section>
 
-
 <div class="garland"></div>
 
-
 <!-- ======================================================
-     KALENDER
+     JULEKALENDER
 ======================================================= -->
 
-<section class="calendar-section" id="kalender">
+<section
+  class="calendar-section image-section"
+  id="kalender"
+>
 
   <div class="section-heading">
 
-    <span>
+    <span class="overline">
       Desember i Kommersiell
     </span>
 
@@ -1273,10 +1462,10 @@ body{
 
     <p>
 
-      Lukene åpnes automatisk etter dato.
+      Åpne dagens luke.
 
       Tidligere luker kan besøkes igjen,
-      mens kommende luker forblir låst.
+      mens de kommende forblir låst.
 
     </p>
 
@@ -1286,46 +1475,106 @@ body{
 
 </section>
 
+<div class="garland"></div>
 
 <!-- ======================================================
-     FOOTER
+     PREMIER
 ======================================================= -->
 
-<footer class="footer">
+<section class="prize-section image-section">
 
-  <div class="footer-logo">
-    ✚ APOTEK<span>1</span>
+  <div class="prize-card">
+
+    <div class="icon">
+      🎁
+    </div>
+
+    <h2>
+      Det lønner seg å delta
+    </h2>
+
+    <p>
+
+      Gjennom desember deler vi ut premier
+      i avstemninger, bildekonkurranser,
+      julekryssord, prisgjetting,
+      lykkehjul og små overraskelser.
+
+    </p>
+
+    <div class="prize-points">
+
+      <div class="prize-point">
+        🏆 Dagens vinnere
+      </div>
+
+      <div class="prize-point">
+        🎟️ Lodd for deltakelse
+      </div>
+
+      <div class="prize-point">
+        🎄 Stor førjulstrekning
+      </div>
+
+    </div>
+
   </div>
 
-  <p>
-    Vår kunnskap – din trygghet.<br>
-    Og i desember: litt ekstra julestemning.
-  </p>
+</section>
 
-  <small>
-
-    Sosialkomiteen kan teste alle lukene med
-    <strong>?preview=24</strong>
-    bak nettadressen.
-
-  </small>
-
-</footer>
-
+<div class="garland"></div>
 
 <!-- ======================================================
-     POPUP FOR LUKENE
+     AVSLUTNING
+======================================================= -->
+
+<section class="final-section image-section">
+
+  <div class="final-card">
+
+    <h2>
+      Vi teller ned sammen
+    </h2>
+
+    <p>
+
+      Fra første luke til julebord,
+      Lucia, felleslunsj,
+      konkurranser og julekaker.
+
+      Riktig god førjulstid
+      fra sosialkomiteen.
+
+    </p>
+
+    <a href="#kalender" class="primary-button">
+      Tilbake til kalenderen ↑
+    </a>
+
+  </div>
+
+</section>
+
+<!-- ======================================================
+     POPUP
 ======================================================= -->
 
 <div class="modal" id="modal">
 
   <article class="modal-card" id="modalCard">
 
-    <button class="close" id="close" aria-label="Lukk">
+    <button
+      class="close"
+      id="close"
+      aria-label="Lukk"
+    >
       ×
     </button>
 
-    <span class="modal-type" id="modalType"></span>
+    <span
+      class="modal-type"
+      id="modalType"
+    ></span>
 
     <h2 id="modalTitle"></h2>
 
@@ -1335,7 +1584,6 @@ body{
 
 </div>
 
-
 <script>
 
 /*
@@ -1344,25 +1592,24 @@ body{
   REDIGER LUKENE HER
 
   type:
-  Kategorinavnet som vises i popupen.
+  Kategori for luka.
 
   title:
   Overskriften når luka åpnes.
 
   icon:
-  Symbolet som vises bak den åpne døren.
+  Symbolet bak den åpne døren.
 
   teaser:
-  Den korte teksten bak døren.
+  Kort tekst bak døren.
 
   html:
-  Alt innholdet i den åpne luka.
+  Alt innholdet i popupen.
 
 ============================================================
 */
 
 const CALENDAR_CONTENT = {
-
 
 1:{
   type:"Velkommen",
@@ -1370,236 +1617,157 @@ const CALENDAR_CONTENT = {
   icon:"🎄",
   teaser:"Desember starter her",
   html:`
-
     <p>
-
       Velkommen til Kommersiells julekalender.
-
       Bak lukene finnes konkurranser,
-      aktiviteter, kolleger, premier
-      og små pustepauser i desember.
-
+      aktiviteter, premier og små pauser
+      i førjulstiden.
     </p>
-
-    <p class="prize">
-
-      Ny luke hver arbeidsdag
-
+    <p class="prize-label">
+      Ny luke hver dag
     </p>
-
   `
 },
-
 
 2:{
   type:"Avstemming",
   title:"Den store juleduellen",
   icon:"⚖️",
-  teaser:"Pepperkaker eller kakemenn?",
+  teaser:"Hva velger Kommersiell?",
   html:`
-
     <p class="quote">
-
-      Pepperkaker eller kakemenn?<br><br>
+      Pepperkaker eller kakemenn?
+      <br><br>
       Ribbe eller pinnekjøtt?
-
     </p>
-
     <p>
-
       Stem på favorittene dine.
-
       Alle som deltar,
       blir med i dagens premietrekning.
-
     </p>
-
     <a class="action" href="#">
       Stem her
     </a>
-
   `
 },
-
 
 3:{
-  type:"Konkurranse",
-  title:"Hvor mange lakriskuler?",
-  icon:"⚫",
-  teaser:"Gjett antallet",
+  type:"Julebord",
+  title:"I dag er det julebord! 🎉",
+  icon:"🥂",
+  teaser:"Vors og julebord",
   html:`
-
+    <p class="quote">
+      I dag samles Kommersiell avdeling
+      til julebordsvors og julebord.
+    </p>
     <p>
-
-      Et glass med lakriskuler
-      står utstilt i avdelingen.
-
-      Hvor mange lakriskuler
-      skjuler seg i glasset?
-
+      Se møteinnkallingen for oppmøtested,
+      klokkeslett og praktisk informasjon.
     </p>
-
-    <p class="prize">
-      Nærmest riktig svar vinner
+    <p class="prize-label">
+      God julebordskveld!
     </p>
-
-    <a class="action" href="#">
-      Send inn svaret
-    </a>
-
   `
 },
-
 
 4:{
   type:"Bildekonkurranse",
   title:"Finn fem feil 🔎",
   icon:"🖼️",
-  teaser:"To julebilder. Fem forskjeller.",
+  teaser:"To bilder. Fem forskjeller.",
   html:`
-
     <p>
-
       To nesten identiske,
       AI-genererte julebilder
       fra Kommersiell avdeling.
-
-      Men fem detaljer er forskjellige.
-
     </p>
-
     <p>
-
-      Finn alle fem og send inn svaret.
-
+      Finn alle fem forskjellene
+      og send inn svaret.
     </p>
-
-    <p class="prize">
-      Alle riktige svar blir med i trekningen
+    <p class="prize-label">
+      Alle riktige svar er med i trekningen
     </p>
-
     <a class="action" href="#">
       Åpne konkurransen
     </a>
-
   `
 },
-
 
 5:{
   type:"Jule-quote",
   title:"Dagens jule-quote fra Mette",
   icon:"💬",
-  teaser:"Noen ord på vei inn i helgen",
+  teaser:"Et desembergullkorn",
   html:`
-
     <p class="quote">
-
       «Legg inn dagens jule-quote
       fra Mette her.»
-
     </p>
-
-    <p>
-
-      Ny quote kan enkelt byttes inn
-      i CALENDAR_CONTENT før publisering.
-
-    </p>
-
   `
 },
-
 
 6:{
   type:"Rampenisse",
-  title:"Hvem har vært her?",
+  title:"Finn rampenissen",
   icon:"🧝",
-  teaser:"Et spor fra rampenissen",
+  teaser:"Hvor har rampenissen gjemt seg?",
   html:`
-
     <p>
-
       Et AI-generert bilde viser
-      en kollega som rampenisse
-      et sted i Kommersiell avdeling.
-
+      Øyvind som rampenisse,
+      gjemt et sted i Kommersiell avdeling.
     </p>
-
     <p>
-
-      Klarer du å se hvor rampenissen
-      har gjemt seg?
-
+      Klarer du å finne rampenissen?
     </p>
-
-    <p class="prize">
+    <p class="prize-label">
       Førstemann som finner riktig sted vinner
     </p>
-
   `
 },
-
 
 7:{
   type:"Julekryssord",
   title:"Kommersiells julekryssord",
   icon:"✏️",
-  teaser:"Finn det hemmelige løsningsordet",
+  teaser:"Finn løsningsordet",
   html:`
-
     <p>
-
       Dagens kryssord inneholder
-      ord og uttrykk fra både julen,
+      ord og uttrykk fra julen,
       apotekverdenen og Kommersiell.
-
     </p>
-
     <p>
-
       Send inn løsningsordet
       for å delta i trekningen.
-
     </p>
-
     <a class="action" href="#">
       Åpne kryssordet
     </a>
-
   `
 },
-
 
 8:{
   type:"Gjett prisen",
   title:"Hva koster premien?",
   icon:"🎁",
-  teaser:"Den som kommer nærmest vinner",
+  teaser:"Den nærmeste vinner",
   html:`
-
     <p>
-
-      I dag skal du gjette totalprisen
-      på premien som vises på bildet.
-
+      Gjett totalprisen
+      på dagens premie.
     </p>
-
     <p>
-
-      Den som gjetter nærmest,
-      uten å gå over,
+      Den som kommer nærmest,
       vinner hele premien.
-
     </p>
-
     <a class="action" href="#">
-      Registrer prisgjetningen
+      Registrer gjetningen
     </a>
-
   `
 },
-
 
 9:{
   type:"Bildequiz",
@@ -1607,28 +1775,19 @@ const CALENDAR_CONTENT = {
   icon:"🔍",
   teaser:"Et ekstremt nærbilde",
   html:`
-
     <p>
-
       Du får se et ekstremt nærbilde
-      av noe julete eller noe
-      fra dagens premie.
-
+      av noe julete
+      eller noe fra dagens premie.
     </p>
-
     <p>
-
       Klarer du å se hva det er?
-
     </p>
-
-    <p class="prize">
+    <p class="prize-label">
       Alle riktige svar er med i trekningen
     </p>
-
   `
 },
-
 
 10:{
   type:"Felles aktivitet",
@@ -1636,31 +1795,20 @@ const CALENDAR_CONTENT = {
   icon:"🥙",
   teaser:"Felleslunsj kl. 12.00",
   html:`
-
     <p class="quote">
-
       I dag arrangerer vi felleslunsj
-      med kebab-buffet på Nordstjernen.
-
+      med kebabbuffet på Nordstjernen.
     </p>
-
     <p>
-
       Vi møtes kl. 12.00.
-
-      Praktisk informasjon og påmelding
-      formidles i en egen møteinnkalling
-      i forkant.
-
+      Se møteinnkallingen
+      for praktisk informasjon.
     </p>
-
-    <p class="prize">
-      Dagens premie er lunsj sammen
+    <p class="prize-label">
+      Vi sees til lunsj
     </p>
-
   `
 },
-
 
 11:{
   type:"Kollegaluke",
@@ -1668,57 +1816,39 @@ const CALENDAR_CONTENT = {
   icon:"🎅",
   teaser:"En kjent kollega i ny drakt",
   html:`
-
     <p>
-
-      En person fra avdelingen
+      En kollega fra avdelingen
       har fått full nissedrakt
       ved hjelp av Copilot.
-
     </p>
-
     <p>
-
       Klarer du å se hvem det er?
-
     </p>
-
-    <p class="prize">
+    <p class="prize-label">
       Riktig svar gir lodd i trekningen
     </p>
-
   `
 },
-
 
 12:{
   type:"Lykkehjul",
   title:"Treff 1-tallet! 🎡",
   icon:"🎡",
-  teaser:"Spinn hjulet",
+  teaser:"Spinn dagens lykkehjul",
   html:`
-
     <p>
-
-      Klikk og spinn dagens lykkehjul.
-
+      Spinn dagens lykkehjul.
     </p>
-
     <p>
-
       Første person som lander
       på tallet 1,
       vinner dagens premie.
-
     </p>
-
     <a class="action" href="#">
       Spinn lykkehjulet
     </a>
-
   `
 },
-
 
 13:{
   type:"Santa Lucia",
@@ -1726,54 +1856,37 @@ const CALENDAR_CONTENT = {
   icon:"🕯️",
   teaser:"Lys i desembermørket",
   html:`
-
     <p class="quote">
-
       Sankta Lucia,
       lysklare hägring …
-
     </p>
-
     <p>
-
       I dag markerer vi Luciadagen
       med lys, julestemning
       og noe hyggelig i avdelingen.
-
     </p>
-
   `
 },
-
 
 14:{
-  type:"Juleavstemning",
+  type:"Avstemming",
   title:"Hva hører hjemme på julebordet?",
   icon:"🍽️",
-  teaser:"Stem på den viktigste retten",
+  teaser:"Stem på favoritten",
   html:`
-
     <p>
-
       Ribbe, pinnekjøtt,
       lutefisk eller noe helt annet?
-
     </p>
-
     <p>
-
       Stem på din favoritt
       og se hva Kommersiell foretrekker.
-
     </p>
-
-    <p class="prize">
+    <p class="prize-label">
       Alle stemmer gir lodd i trekningen
     </p>
-
   `
 },
-
 
 15:{
   type:"Året som gikk",
@@ -1781,27 +1894,19 @@ const CALENDAR_CONTENT = {
   icon:"👏",
   teaser:"Et øyeblikk vi er stolte av",
   html:`
-
     <p>
-
       Her legger vi inn
-      én konkret leveranse,
-      seier eller milepæl
-      fra Kommersiell i 2026.
-
+      én konkret seier,
+      leveranse eller milepæl
+      fra året som gikk.
     </p>
-
     <p class="quote">
-
       Kort, konkret og med applaus.
-
+      <br><br>
       👏 👏 👏
-
     </p>
-
   `
 },
-
 
 16:{
   type:"Julequiz",
@@ -1809,27 +1914,17 @@ const CALENDAR_CONTENT = {
   icon:"🤔",
   teaser:"To historier er sanne",
   html:`
-
     <p>
-
-      Du får tre små historier
+      Du får tre historier
       fra året som gikk.
-
     </p>
-
     <p>
-
       To er sanne.
-
       Én er fri fantasi.
-
       Klarer du å avsløre den?
-
     </p>
-
   `
 },
-
 
 17:{
   type:"Kodeord",
@@ -1837,33 +1932,21 @@ const CALENDAR_CONTENT = {
   icon:"🤫",
   teaser:"Si det til riktig person",
   html:`
-
     <p>
-
       Dagens kodeord er:
-
     </p>
-
     <p class="quote">
-
       GLØGG
-
     </p>
-
     <p>
-
       Si kodeordet til riktig person
       før kl. 14.00.
-
     </p>
-
-    <p class="prize">
+    <p class="prize-label">
       Riktig person gir deg et lodd
     </p>
-
   `
 },
-
 
 18:{
   type:"Jule-quote",
@@ -1871,17 +1954,12 @@ const CALENDAR_CONTENT = {
   icon:"💬",
   teaser:"Et nytt desembergullkorn",
   html:`
-
     <p class="quote">
-
       «Legg inn dagens andre
       jule-quote fra Mette her.»
-
     </p>
-
   `
 },
-
 
 19:{
   type:"Kom og forsyn deg",
@@ -1889,25 +1967,17 @@ const CALENDAR_CONTENT = {
   icon:"🍪",
   teaser:"Ta en liten førjulspause",
   html:`
-
     <p>
-
       I dag blir det lett servering
       av julekaker ved EMV.
-
     </p>
-
     <p class="quote">
-
       Kom innom,
       forsyn deg
       og ta en liten julepause.
-
     </p>
-
   `
 },
-
 
 20:{
   type:"Gjett kollegaen",
@@ -1915,30 +1985,20 @@ const CALENDAR_CONTENT = {
   icon:"🕵️",
   teaser:"Hvem leter vi etter?",
   html:`
-
     <p>
-
-      ☕ Kaffe spiller en viktig rolle
-      i arbeidsdagen.
-
+      ☕ Kaffe er en sentral del
+      av arbeidsflyten.
       <br><br>
-
       📊 Har sterke meninger om Excel.
-
       <br><br>
-
       🎄 Har allerede julemusikk
       på spillelisten.
-
     </p>
-
     <p>
       Hvem tror du det er?
     </p>
-
   `
 },
-
 
 21:{
   type:"Farmasijul",
@@ -1946,31 +2006,20 @@ const CALENDAR_CONTENT = {
   icon:"💊",
   teaser:"Les pakningsvedlegget",
   html:`
-
     <p class="quote">
-
       <strong>Indikasjon:</strong><br>
-      Midlertidig behandling
-      av desembermørke.
-
+      Midlertidig behandling av desembermørke.
       <br><br>
-
       <strong>Dosering:</strong><br>
-      Administreres daglig
-      frem til julaften.
-
+      Administreres daglig frem til julaften.
       <br><br>
-
       <strong>Vanlige bivirkninger:</strong><br>
       Pepperkakeinntak,
       spontan allsang
       og redusert møtekapasitet.
-
     </p>
-
   `
 },
-
 
 22:{
   type:"Julemysterium",
@@ -1978,28 +2027,19 @@ const CALENDAR_CONTENT = {
   icon:"🔎",
   teaser:"Følg sporene",
   html:`
-
     <p>
-
       En premie er gjemt
       et sted i Kommersiell avdeling.
-
     </p>
-
     <p>
-
       Følg dagens tre spor
       for å finne riktig sted.
-
     </p>
-
-    <p class="prize">
+    <p class="prize-label">
       Førstemann frem vinner premien
     </p>
-
   `
 },
-
 
 23:{
   type:"Finale",
@@ -2007,30 +2047,21 @@ const CALENDAR_CONTENT = {
   icon:"🏆",
   teaser:"Alle loddene teller",
   html:`
-
     <p>
-
       I dag trekker vi en vinner
       blant alle som har deltatt
-      i kalenderen gjennom desember.
-
+      gjennom desember.
     </p>
-
     <p>
-
       Avstemninger, konkurranser,
       kryssord og aktiviteter
       har gitt lodd underveis.
-
     </p>
-
-    <p class="prize">
+    <p class="prize-label">
       Vinneren annonseres i dag
     </p>
-
   `
 },
-
 
 24:{
   type:"God jul",
@@ -2038,33 +2069,24 @@ const CALENDAR_CONTENT = {
   icon:"❤️",
   teaser:"Takk for i år",
   html:`
-
     <p class="quote">
-
       Takk for kunnskapen,
       engasjementet,
       humoren
       og alt vi har fått til sammen.
-
     </p>
-
     <p>
-
       Riktig god jul
       fra sosialkomiteen!
-
       🎄✨
-
     </p>
-
   `
 }
 
 };
 
-
 /* =========================================================
-   KALENDERLOGIKK
+   DATO OG TESTMODUS
 ========================================================= */
 
 const parameters =
@@ -2092,7 +2114,6 @@ const unlockedDay =
 
 const calendar =
   document.getElementById("calendar");
-
 
 /* =========================================================
    BYGG LUKENE
@@ -2149,13 +2170,11 @@ for(let day = 1; day <= 24; day++){
         </span>
 
         <span class="door-label">
-
           ${
             isOpen
               ? "Åpne luka"
               : "Ikke ennå"
           }
-
         </span>
 
         <span class="door-knob"></span>
@@ -2181,9 +2200,8 @@ for(let day = 1; day <= 24; day++){
 
 }
 
-
 /* =========================================================
-   STATUS PÅ FORSIDEN
+   STATUS
 ========================================================= */
 
 const status =
@@ -2208,7 +2226,6 @@ else{
 
 }
 
-
 /* =========================================================
    ÅPNE LUKE
 ========================================================= */
@@ -2218,7 +2235,6 @@ const modal =
 
 const modalCard =
   document.getElementById("modalCard");
-
 
 function openDoor(day,door){
 
@@ -2254,10 +2270,9 @@ function openDoor(day,door){
 
     modal.classList.add("show");
 
-  },850);
+  },800);
 
 }
-
 
 /* =========================================================
    PARTIKKELEFFEKT
@@ -2286,9 +2301,7 @@ function createCelebration(element){
       "spark";
 
     particle.textContent =
-      symbols[
-        index % symbols.length
-      ];
+      symbols[index % symbols.length];
 
     particle.style.left =
       (
@@ -2306,7 +2319,7 @@ function createCelebration(element){
       index % 3 === 0
         ? "#3aaa35"
         : index % 3 === 1
-        ? "#f6ce73"
+        ? "#f4c96d"
         : "#ffffff";
 
     particle.style.setProperty(
@@ -2336,15 +2349,12 @@ function createCelebration(element){
 
 }
 
-
 /* =========================================================
    LUKK POPUP
 ========================================================= */
 
 function closeModal(){
-
   modal.classList.remove("show");
-
 }
 
 document
