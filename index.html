@@ -7,242 +7,403 @@
 <title>Kommersiells julekalender 2026 | Apotek 1</title>
 
 <style>
+
 :root{
-  --navy:#08285b;
-  --green:#39a935;
-  --cream:#fff7df;
-  --red:#a92127;
-  --gold:#e5b956;
-  --pine:#0c4b35;
-  --snow:#fffdf7;
+  --blue:#071f55;
+  --green:#3aaa35;
+  --red:#b51625;
+  --red2:#7f0d18;
+  --gold:#f6ce73;
+  --cream:#fff7e7;
+  --pine:#073b30;
+  --pine2:#021e19;
 }
 
 *{
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
-  color:#fff8e9;
-  font-family:Georgia,'Times New Roman',serif;
-  background:
-    radial-gradient(circle at 20% 10%,#255541 0 1%,transparent 18%),
-    linear-gradient(150deg,#082d25,#071f1b 52%,#0b234c);
-  min-height:100vh;
+  background:#061e36;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
   overflow-x:hidden;
 }
 
-/* SNØ */
 
-body:before{
-  content:"";
+/* =========================================================
+   VINTERHIMMEL
+========================================================= */
+
+.sky{
   position:fixed;
   inset:0;
+  z-index:-4;
+
+  background:
+    radial-gradient(
+      circle at 85% 8%,
+      #fffad1 0 2px,
+      #e7c997 3px 9px,
+      transparent 10px
+    ),
+    radial-gradient(
+      circle at 70% 15%,
+      #47698b 0,
+      transparent 30%
+    ),
+    linear-gradient(
+      #071d3b 0,
+      #0b3157 38%,
+      #174968 62%,
+      #d9e5e8 63%,
+      #eef4f2 100%
+    );
+}
+
+
+/* =========================================================
+   ANIMERT SNØ
+========================================================= */
+
+.snow{
+  position:fixed;
+  inset:0;
+  z-index:20;
   pointer-events:none;
-  opacity:.45;
 
   background-image:
-    radial-gradient(#fff 1.3px,transparent 1.5px),
-    radial-gradient(#fff 1px,transparent 1.2px);
+    radial-gradient(#fff 1.5px,transparent 1.8px),
+    radial-gradient(#fff 2px,transparent 2.3px),
+    radial-gradient(#fff 1px,transparent 1.3px);
 
   background-size:
-    48px 48px,
-    73px 73px;
+    50px 50px,
+    100px 100px,
+    37px 37px;
 
-  background-position:
-    0 0,
-    20px 27px;
-
-  animation:snow 18s linear infinite;
+  animation:snow 14s linear infinite;
+  opacity:.7;
 }
 
 @keyframes snow{
+
   to{
     background-position:
       0 700px,
+      40px 900px,
       20px 500px;
   }
+
 }
 
 
-/* JULELYS */
+/* =========================================================
+   HERO
+========================================================= */
 
-.lights{
-  height:34px;
+.hero{
+
+  min-height:760px;
+
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:
+    70px 24px 160px;
+
+  overflow:hidden;
+
+}
+
+
+/* MÅNE */
+
+.moon{
+
+  position:absolute;
+
+  width:120px;
+  height:120px;
+
+  border-radius:50%;
+
+  background:#fff8d8;
+
+  right:10%;
+  top:70px;
+
+  box-shadow:
+    0 0 70px #fff6c9aa;
+
+}
+
+
+/* SNØLANDSKAP */
+
+.forest{
+
+  position:absolute;
+
+  left:-2%;
+  right:-2%;
+  bottom:0;
+
+  height:270px;
 
   background:
     linear-gradient(
-      90deg,
-      transparent 0 2%,
-      #193f2e 2% 98%,
-      transparent 98%
+      150deg,
+      transparent 0 38%,
+      #dbe8e7 39% 48%,
+      transparent 49%
+    ),
+    linear-gradient(
+      210deg,
+      transparent 0 39%,
+      #cbdedd 40% 49%,
+      transparent 50%
     );
 
-  position:relative;
 }
 
-.lights:after{
-  content:"●　●　●　●　●　●　●　●　●　●　●　●　●　●　●　●　●";
+
+/* GRANTRÆR */
+
+.trees{
 
   position:absolute;
 
   left:0;
   right:0;
-  top:8px;
+  bottom:70px;
 
-  text-align:center;
+  height:300px;
 
-  letter-spacing:9px;
+  background:
+    linear-gradient(
+      63deg,
+      transparent 48%,
+      #092b28 49% 52%,
+      transparent 53%
+    )
+    0 0 / 110px 220px repeat-x;
 
-  color:#ffd96c;
+  opacity:.9;
 
-  text-shadow:
-    0 0 10px #ffd96c,
-    40px 2px 9px #d83333,
-    80px 0 10px #60c95c;
-
-  font-size:18px;
 }
 
 
-/* HOVEDINNHOLD */
+.hero-card{
 
-.wrap{
-  max-width:1180px;
-  margin:auto;
-  padding:10px 22px 60px;
+  z-index:2;
+  max-width:900px;
+
 }
 
 
-/* HERO */
+/* =========================================================
+   APOTEK 1-INSPIRERT MERKE
+========================================================= */
 
-.hero{
-  text-align:center;
-  padding:30px 12px 24px;
-  position:relative;
-}
+.logo{
 
-
-/* APOTEK 1-INSPIRERT LOGO */
-
-.brand{
   display:inline-flex;
   align-items:center;
-  gap:14px;
+
+  gap:16px;
 
   background:#fff;
 
-  border-radius:18px;
+  padding:
+    13px 22px;
 
-  padding:12px 18px;
+  border-radius:20px;
 
   box-shadow:
-    0 10px 30px #0005;
+    0 12px 45px #0007;
+
 }
 
 
-/* APOTEKKORS */
+.logo-mark{
 
-.cross{
-  width:54px;
-  height:54px;
+  width:60px;
+  height:60px;
 
-  border-radius:12px;
+  border-radius:13px;
 
   background:var(--green);
 
   position:relative;
+
 }
 
-.cross:before,
-.cross:after{
+
+.logo-mark:before,
+.logo-mark:after{
 
   content:"";
 
   position:absolute;
 
-  background:white;
+  background:#fff;
+
+}
+
+
+.logo-mark:before{
+
+  width:34px;
+  height:12px;
 
   left:13px;
-  right:13px;
-  top:23px;
+  top:24px;
 
-  height:9px;
 }
 
-.cross:after{
 
+.logo-mark:after{
+
+  height:34px;
+  width:12px;
+
+  left:24px;
   top:13px;
-  bottom:13px;
 
-  left:23px;
-
-  width:9px;
-  height:auto;
 }
 
 
-.brand b{
+.logo-name{
 
-  font:
-    900 34px Arial,sans-serif;
+  font-weight:900;
+  font-size:39px;
 
   letter-spacing:-2px;
 
-  color:#0b2166;
+  color:#0a2467;
+
 }
 
-.brand em{
 
-  color:var(--green);
+.logo-name i{
 
   font-style:normal;
+  color:var(--green);
+
 }
 
 
-/* OVERSKRIFT */
+/* =========================================================
+   HERO TYPOGRAFI
+========================================================= */
 
-.kicker{
+.eyebrow{
+
+  margin:
+    34px 0 8px;
 
   text-transform:uppercase;
 
-  letter-spacing:4px;
+  letter-spacing:5px;
 
-  color:#e9ce85;
+  color:var(--gold);
 
-  font:
-    700 13px Arial,sans-serif;
+  font-weight:800;
+  font-size:13px;
 
-  margin:25px 0 8px;
 }
 
 
 .hero h1{
 
+  font-family:
+    Georgia,serif;
+
   font-size:
-    clamp(42px,7vw,76px);
+    clamp(52px,8vw,96px);
+
+  line-height:.96;
 
   margin:0;
 
-  color:#fff7e6;
+  color:white;
 
   text-shadow:
-    0 3px #6f171a,
-    0 0 28px #d8ab53;
+    0 5px 0 #7c101b,
+    0 0 34px #ffe5a766;
+
 }
 
 
 .hero p{
 
-  max-width:720px;
+  font-family:
+    Georgia,serif;
 
-  margin:12px auto 0;
-
-  font-size:19px;
+  font-size:21px;
 
   line-height:1.6;
 
-  color:#f3e7c8;
+  max-width:720px;
+
+  margin:
+    22px auto;
+
+  color:#fff4db;
+
+}
+
+
+/* BADGES */
+
+.badges{
+
+  display:flex;
+
+  gap:10px;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+}
+
+
+.badge{
+
+  background:#fff;
+
+  color:#0a2a60;
+
+  padding:
+    9px 14px;
+
+  border-radius:30px;
+
+  font-weight:800;
+
+  font-size:12px;
+
+}
+
+
+.badge.green{
+
+  background:var(--green);
+
+  color:#fff;
+
 }
 
 
@@ -252,221 +413,667 @@ body:before{
 
   display:inline-block;
 
-  margin:20px auto 0;
+  margin-top:25px;
 
-  padding:
-    10px 18px;
+  background:#061c3ddd;
 
   border:
-    1px solid #efd17766;
-
-  border-radius:99px;
-
-  background:#071d18aa;
-
-  font:
-    700 13px Arial,sans-serif;
-}
-
-
-/* SMÅ FARMASI/JULETAGS */
-
-.pharmacy{
-
-  display:flex;
-
-  justify-content:center;
-
-  gap:10px;
-
-  flex-wrap:wrap;
-
-  margin-top:16px;
-}
-
-
-.pill{
-
-  font:
-    700 12px Arial,sans-serif;
+    1px solid #f6ce7388;
 
   padding:
-    7px 11px;
+    12px 20px;
 
-  border-radius:99px;
+  border-radius:30px;
 
-  background:#fff;
+  color:#ffe9ae;
 
-  color:#10265d;
+  font-weight:800;
+
 }
 
 
-.pill.green{
+/* =========================================================
+   APOTEK 1 JULEBIL
+========================================================= */
 
-  background:#3cae3a;
+.truck{
+
+  position:absolute;
+
+  right:-120px;
+  bottom:38px;
+
+  width:520px;
+  height:150px;
+
+  z-index:4;
+
+  animation:
+    truck 10s ease-in-out infinite;
+
+}
+
+
+.truck-box{
+
+  position:absolute;
+
+  left:0;
+  top:12px;
+
+  width:290px;
+  height:100px;
+
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      #ce1c2d,
+      #98111d
+    );
+
+  box-shadow:
+    inset 0 0 0 4px #efc5a0,
+    0 12px 20px #0005;
+
+}
+
+
+.truck-box:after{
+
+  content:"✚  APOTEK 1";
+
+  position:absolute;
+
+  inset:0;
+
+  display:grid;
+  place-items:center;
 
   color:#fff;
+
+  font-weight:900;
+
+  font-size:27px;
+
 }
 
 
-/* ==========================================================
-   JULEKALENDER
-   ========================================================== */
+.truck-cab{
 
+  position:absolute;
+
+  left:280px;
+  top:35px;
+
+  width:160px;
+  height:77px;
+
+  background:#ba1827;
+
+  border-radius:
+    42px 16px 12px 10px;
+
+  box-shadow:
+    inset 0 0 0 4px #efc5a0;
+
+}
+
+
+.truck-cab:before{
+
+  content:"";
+
+  position:absolute;
+
+  left:48px;
+  top:7px;
+
+  width:60px;
+  height:32px;
+
+  background:#14283b;
+
+  border-radius:
+    15px 7px;
+
+}
+
+
+.wheel{
+
+  position:absolute;
+
+  top:96px;
+
+  width:54px;
+  height:54px;
+
+  border-radius:50%;
+
+  background:#17202b;
+
+  border:
+    8px solid #090d12;
+
+  box-shadow:
+    inset 0 0 0 5px #9aa5aa;
+
+}
+
+
+.w1{
+  left:55px;
+}
+
+.w2{
+  left:280px;
+}
+
+.w3{
+  left:372px;
+}
+
+
+.headlight{
+
+  position:absolute;
+
+  left:420px;
+  top:77px;
+
+  width:20px;
+  height:13px;
+
+  background:#fffabc;
+
+  box-shadow:
+    0 0 25px 12px #fff2a1;
+
+}
+
+
+@keyframes truck{
+
+  50%{
+    transform:
+      translateX(-35px)
+      translateY(-3px);
+  }
+
+}
+
+
+/* =========================================================
+   JULEGIRLANDER
+========================================================= */
+
+.garland{
+
+  height:70px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #062e24,
+      #095240,
+      #07382c
+    );
+
+  border-top:
+    5px solid #d8b358;
+
+  border-bottom:
+    5px solid #d8b358;
+
+  position:relative;
+
+  box-shadow:
+    0 10px 25px #0005;
+
+}
+
+
+.garland:after{
+
+  content:"●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●  ✦  ●";
+
+  position:absolute;
+
+  inset:16px 0;
+
+  text-align:center;
+
+  color:#ffd66c;
+
+  font-size:23px;
+
+  text-shadow:
+    40px 0 #d3202f,
+    80px 0 #46bb45,
+    0 0 12px #ffe58c;
+
+}
+
+
+/* =========================================================
+   KALENDERSEKSJON
+========================================================= */
+
+.calendar-section{
+
+  background:
+    linear-gradient(
+      #082c26ee,
+      #041e1aee
+    );
+
+  padding:
+    80px 22px 120px;
+
+  position:relative;
+
+}
+
+
+/* STORE APOTEKKORS I BAKGRUNN */
+
+.calendar-section:before,
+.calendar-section:after{
+
+  content:"✚";
+
+  position:absolute;
+
+  font-size:390px;
+
+  color:#3aaa3509;
+
+  font-weight:900;
+
+}
+
+
+.calendar-section:before{
+
+  left:-60px;
+
+  top:260px;
+
+  transform:
+    rotate(-12deg);
+
+}
+
+
+.calendar-section:after{
+
+  right:-45px;
+
+  bottom:150px;
+
+  transform:
+    rotate(15deg);
+
+}
+
+
+/* OVERSKRIFT */
+
+.section-head{
+
+  text-align:center;
+
+  max-width:800px;
+
+  margin:
+    0 auto 55px;
+
+}
+
+
+.section-head span{
+
+  color:var(--gold);
+
+  letter-spacing:4px;
+
+  text-transform:uppercase;
+
+  font-weight:800;
+
+  font-size:12px;
+
+}
+
+
+.section-head h2{
+
+  font:
+    700 clamp(38px,6vw,65px)
+    Georgia,serif;
+
+  margin:
+    10px 0;
+
+  color:#fff7df;
+
+}
+
+
+.section-head p{
+
+  color:#dccfb2;
+
+  font:
+    18px/1.6 Georgia,serif;
+
+}
+
+
+/* =========================================================
+   KALENDER GRID
+========================================================= */
 
 .calendar{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:1280px;
+
+  margin:auto;
 
   display:grid;
 
   grid-template-columns:
-    repeat(6,1fr);
+    repeat(4,1fr);
 
-  gap:14px;
+  gap:28px;
 
-  margin-top:24px;
 }
 
 
-/* LUKE */
+/* =========================================================
+   SELVE LUKEN
+========================================================= */
 
 .door{
 
-  aspect-ratio:1/.86;
+  height:300px;
 
-  border:0;
-
-  border-radius:14px;
+  perspective:1000px;
 
   position:relative;
 
-  cursor:pointer;
-
-  padding:0;
-
-  color:#fff;
-
-  background:
-    linear-gradient(
-      145deg,
-      #9f2226,
-      #68161d
-    );
-
-  box-shadow:
-    inset 0 0 0 2px #f3d38455,
-    0 9px 18px #0005;
-
-  overflow:hidden;
-
-  transition:
-    .2s transform,
-    .2s filter;
 }
 
 
-/* Grønne luker */
-
-.door:nth-child(3n+2){
-
-  background:
-    linear-gradient(
-      145deg,
-      #146044,
-      #082f26
-    );
-}
-
-
-/* Apotek 1-blå luker */
-
-.door:nth-child(3n){
-
-  background:
-    linear-gradient(
-      145deg,
-      #133b79,
-      #071d4d
-    );
-}
-
-
-/* Dekorasjon */
-
-.door:before{
-
-  content:"✦";
+.door-frame{
 
   position:absolute;
 
-  font-size:46px;
+  inset:0;
 
-  color:#f1d27622;
+  border:
+    6px solid #e3ba5e;
 
-  right:9px;
+  border-radius:20px;
 
-  top:4px;
+  background:#250a0b;
+
+  box-shadow:
+    0 20px 35px #0007,
+    inset 0 0 25px #000;
+
+  overflow:hidden;
+
 }
 
 
-.door:hover{
+/* INNHOLDET SOM LIGGER BAK DØREN */
 
-  transform:
-    translateY(-4px)
-    rotate(-.4deg);
+.inside{
 
-  filter:
-    brightness(1.08);
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:28px;
+
+  text-align:center;
+
+  background:
+    radial-gradient(
+      circle,
+      #fffdf1,
+      #f5e2b5
+    );
+
+  color:#102956;
+
 }
 
 
-.door .num{
+.inside .gift{
 
-  font-size:
-    clamp(30px,4vw,50px);
+  font-size:58px;
 
-  font-weight:800;
+}
+
+
+.inside strong{
+
+  font:
+    700 21px Georgia,serif;
+
+  color:#87151e;
+
+  margin-top:10px;
+
+}
+
+
+/* =========================================================
+   DØRPANELET
+========================================================= */
+
+.door-panel{
+
+  position:absolute;
+
+  inset:0;
+
+  border:0;
+
+  border-radius:15px;
+
+  color:white;
+
+  cursor:pointer;
+
+  transform-origin:left;
+
+  transform-style:
+    preserve-3d;
+
+  transition:
+    transform 1.05s cubic-bezier(.2,.72,.17,1),
+    filter .3s;
+
+  background:
+    linear-gradient(
+      145deg,
+      #c11d2e,
+      #7e101a
+    );
+
+  box-shadow:
+    inset 0 0 0 2px #ffd77b66,
+    inset 0 0 40px #5b0716;
+
+}
+
+
+/* GRØNN */
+
+.door:nth-child(3n+2)
+.door-panel{
+
+  background:
+    linear-gradient(
+      145deg,
+      #126846,
+      #073c31
+    );
+
+}
+
+
+/* APOTEK-BLÅ */
+
+.door:nth-child(3n)
+.door-panel{
+
+  background:
+    linear-gradient(
+      145deg,
+      #123e82,
+      #071d51
+    );
+
+}
+
+
+/* GULLKANT */
+
+.door-panel:before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:12px;
+
+  border:
+    2px solid #f5d47e88;
+
+  border-radius:10px;
+
+}
+
+
+/* APOTEKKORS PÅ LUKEN */
+
+.door-panel:after{
+
+  content:"✚";
+
+  position:absolute;
+
+  right:18px;
+  top:12px;
+
+  color:#fff2;
+
+  font-size:70px;
+
+  font-weight:900;
+
+}
+
+
+/* NUMMER */
+
+.door-num{
+
+  font:
+    900 72px Georgia,serif;
 
   display:block;
 
   text-shadow:
-    0 3px #0004;
+    0 3px 0 #0005;
+
 }
 
 
-.door .label{
+/* TYPE */
 
-  font:
-    700 10px Arial,sans-serif;
+.door-type{
 
-  letter-spacing:1.4px;
+  font-weight:900;
 
   text-transform:uppercase;
 
-  color:#f8e7ba;
+  letter-spacing:1.5px;
+
+  font-size:11px;
+
+  color:#ffe4a0;
+
 }
 
 
-/* LÅST LUKE */
+/* DØRKNAPP */
 
-.door.locked{
-
-  filter:
-    grayscale(.35)
-    brightness(.6);
-
-  cursor:not-allowed;
-}
-
-
-.door.locked:after{
-
-  content:"🔒";
+.knob{
 
   position:absolute;
 
-  right:9px;
+  right:17px;
 
-  bottom:8px;
+  top:50%;
+
+  width:13px;
+  height:13px;
+
+  border-radius:50%;
+
+  background:#f7d77f;
+
+  box-shadow:
+    0 0 8px #fff0b0;
+
+}
+
+
+/* =========================================================
+   ÅPNE-ANIMASJON
+========================================================= */
+
+.door.open
+.door-panel{
+
+  transform:
+    rotateY(-108deg);
+
+  filter:
+    brightness(.78);
+
+}
+
+
+/* LÅST */
+
+.door.locked
+.door-panel{
+
+  filter:
+    grayscale(.5)
+    brightness(.58);
+
+  cursor:not-allowed;
+
 }
 
 
@@ -474,35 +1081,169 @@ body:before{
 
 .door.today{
 
-  outline:
-    4px solid #ffd568;
+  filter:
+    drop-shadow(
+      0 0 18px #ffd96d
+    );
 
-  outline-offset:3px;
-
-  box-shadow:
-    0 0 30px #ffc54f99;
 }
 
 
-/* FOOTER */
+.door.today
+.door-frame{
 
-.footer{
+  outline:
+    5px solid #ffe17f;
+
+  outline-offset:5px;
+
+}
+
+
+/* =========================================================
+   MELLOMSEKSJON
+========================================================= */
+
+.scene-break{
+
+  min-height:440px;
+
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
 
   text-align:center;
 
-  color:#d8caa8;
+  padding:
+    80px 22px;
 
-  margin-top:36px;
+  background:
+    linear-gradient(
+      #061d38cc,
+      #09284acc
+    );
 
-  font:
-    13px Arial,sans-serif;
 }
 
 
-/* ==========================================================
-   POPUP NÅR MAN ÅPNER LUKE
-   ========================================================== */
+.scene-break:before{
 
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    radial-gradient(
+      ellipse at bottom,
+      #f9ffff 0 5%,
+      transparent 6%
+    ),
+    linear-gradient(
+      160deg,
+      transparent 50%,
+      #eaf1f1 51% 63%,
+      transparent 64%
+    );
+
+  opacity:.7;
+
+}
+
+
+.scene-copy{
+
+  z-index:1;
+
+  max-width:750px;
+
+}
+
+
+.scene-copy h3{
+
+  font:
+    700 clamp(36px,6vw,60px)
+    Georgia,serif;
+
+  color:#fff5d7;
+
+  margin:
+    0 0 15px;
+
+}
+
+
+.scene-copy p{
+
+  font:
+    19px/1.6 Georgia,serif;
+
+  color:#efe5cd;
+
+}
+
+
+.cross-pattern{
+
+  font-size:45px;
+
+  letter-spacing:20px;
+
+  color:#45ad3f;
+
+  text-shadow:
+    0 0 25px #fff;
+
+  opacity:.8;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+  padding:
+    55px 22px;
+
+  text-align:center;
+
+  background:#061a3e;
+
+  color:#d8c89f;
+
+}
+
+
+.footer-logo{
+
+  font-weight:900;
+
+  font-size:28px;
+
+  color:#fff;
+
+}
+
+
+.footer-logo b{
+
+  color:var(--green);
+
+}
+
+
+/* =========================================================
+   POP-UP
+========================================================= */
 
 .modal{
 
@@ -510,431 +1251,667 @@ body:before{
 
   inset:0;
 
-  background:#03110edc;
+  background:#020b17e8;
+
+  z-index:50;
 
   display:none;
 
   place-items:center;
 
-  padding:20px;
+  padding:25px;
 
-  z-index:10;
 }
 
 
 .modal.show{
 
   display:grid;
+
 }
 
 
 .card{
 
+  position:relative;
+
   width:
-    min(620px,100%);
+    min(700px,100%);
 
   max-height:85vh;
 
   overflow:auto;
 
+  border:
+    7px solid #e0b758;
+
+  border-radius:28px;
+
   background:
     linear-gradient(
       160deg,
-      #fffdf5,
-      #f8ecd2
+      #fffdf4,
+      #f5e4bf
     );
 
-  color:#12295b;
+  color:#112c60;
 
-  border:
-    5px solid #d8af51;
-
-  border-radius:24px;
-
-  padding:30px;
-
-  box-shadow:
-    0 26px 90px #000b;
-
-  position:relative;
+  padding:
+    42px 36px;
 
   text-align:center;
+
+  box-shadow:
+    0 30px 100px #000;
+
 }
 
 
-/* Apotekkors på kort */
+.card.pop{
 
-.card:before{
+  animation:
+    pop .62s
+    cubic-bezier(.18,.89,.32,1.28);
 
-  content:"✚";
-
-  position:absolute;
-
-  color:#3aaa35;
-
-  font-size:35px;
-
-  left:18px;
-
-  top:11px;
 }
 
 
-/* LUKK KNAPP */
+@keyframes pop{
 
-.close{
+  from{
 
-  position:absolute;
+    opacity:0;
 
-  right:14px;
+    transform:
+      scale(.65)
+      translateY(35px)
+      rotate(-2deg);
 
-  top:12px;
+  }
 
-  width:38px;
+  to{
 
-  height:38px;
+    opacity:1;
 
-  border:0;
-
-  border-radius:50%;
-
-  background:#0c285f;
-
-  color:#fff;
-
-  font-size:20px;
-
-  cursor:pointer;
-}
-
-
-/* TYPE LUKE */
-
-.badge{
-
-  display:inline-block;
-
-  padding:
-    7px 12px;
-
-  background:#a42329;
-
-  color:#fff;
-
-  border-radius:99px;
-
-  font:
-    700 11px Arial,sans-serif;
-
-  text-transform:uppercase;
-
-  letter-spacing:1px;
-}
-
-
-.card h2{
-
-  font-size:34px;
-
-  margin:
-    18px 0 11px;
-
-  color:#7f1c23;
-}
-
-
-.card p{
-
-  font-size:18px;
-
-  line-height:1.55;
-}
-
-
-/* QUOTES */
-
-.quote{
-
-  font-size:25px!important;
-
-  font-style:italic;
-
-  color:#143967;
-
-  padding:20px;
-
-  background:#fff;
-
-  border-radius:14px;
-
-  border-left:
-    5px solid #38a935;
-}
-
-
-/* KNAPPER */
-
-.action{
-
-  display:inline-block;
-
-  background:#36a536;
-
-  color:#fff;
-
-  padding:
-    12px 18px;
-
-  border-radius:9px;
-
-  text-decoration:none;
-
-  font:
-    700 14px Arial,sans-serif;
-}
-
-
-.editnote{
-
-  margin-top:20px;
-
-  padding-top:15px;
-
-  border-top:
-    1px dashed #bda870;
-
-  color:#756946;
-
-  font:
-    12px Arial,sans-serif;
-}
-
-
-/* ==========================================================
-   MOBIL / TABLET
-   ========================================================== */
-
-
-@media(max-width:850px){
-
-  .calendar{
-
-    grid-template-columns:
-      repeat(4,1fr);
+    transform:
+      scale(1)
+      translateY(0)
+      rotate(0);
 
   }
 
 }
 
 
-@media(max-width:520px){
+.card:before{
+
+  content:"✚";
+
+  display:block;
+
+  font-size:50px;
+
+  color:var(--green);
+
+  margin-bottom:5px;
+
+}
+
+
+.close{
+
+  position:absolute;
+
+  right:16px;
+  top:16px;
+
+  width:42px;
+  height:42px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:#0a2a61;
+
+  color:#fff;
+
+  font-size:23px;
+
+  cursor:pointer;
+
+}
+
+
+.type{
+
+  display:inline-block;
+
+  background:#a51625;
+
+  color:white;
+
+  border-radius:30px;
+
+  padding:
+    7px 13px;
+
+  text-transform:uppercase;
+
+  letter-spacing:1.2px;
+
+  font-weight:900;
+
+  font-size:11px;
+
+}
+
+
+.card h2{
+
+  font:
+    700 39px Georgia,serif;
+
+  color:#861520;
+
+  margin:
+    15px 0;
+
+}
+
+
+.card p{
+
+  font:
+    18px/1.6 Georgia,serif;
+
+}
+
+
+.quote{
+
+  font-size:26px !important;
+
+  font-style:italic;
+
+  background:#fff;
+
+  padding:23px;
+
+  border-radius:15px;
+
+  border-left:
+    6px solid var(--green);
+
+}
+
+
+.action{
+
+  display:inline-block;
+
+  padding:
+    13px 20px;
+
+  border-radius:10px;
+
+  background:var(--green);
+
+  color:#fff;
+
+  text-decoration:none;
+
+  font-weight:900;
+
+}
+
+
+/* =========================================================
+   PARTIKLER SOM KOMMER UT AV LUKEN
+========================================================= */
+
+.spark{
+
+  position:fixed;
+
+  z-index:70;
+
+  pointer-events:none;
+
+  font-size:30px;
+
+  animation:
+    spark 1.2s ease-out forwards;
+
+}
+
+
+@keyframes spark{
+
+  to{
+
+    transform:
+      translate(
+        var(--x),
+        var(--y)
+      )
+      rotate(240deg)
+      scale(.2);
+
+    opacity:0;
+
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVT
+========================================================= */
+
+@media(max-width:1000px){
 
   .calendar{
 
     grid-template-columns:
       repeat(3,1fr);
 
-    gap:9px;
+  }
+
+  .truck{
+
+    transform:
+      scale(.8);
+
+    right:-170px;
 
   }
 
-
-  .wrap{
-
-    padding-left:12px;
-
-    padding-right:12px;
-
-  }
+}
 
 
-  .hero h1{
+@media(max-width:720px){
 
-    font-size:42px;
+  .calendar{
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+    gap:18px;
 
   }
 
+  .door{
 
-  .brand b{
-
-    font-size:27px;
+    height:250px;
 
   }
 
+  .truck{
 
-  .cross{
+    opacity:.45;
 
-    width:45px;
+    right:-260px;
 
-    height:45px;
+  }
+
+  .hero{
+
+    min-height:700px;
+
+  }
+
+  .logo-name{
+
+    font-size:30px;
+
+  }
+
+  .logo-mark{
+
+    width:50px;
+    height:50px;
+
+  }
+
+  .calendar-section{
+
+    padding-left:14px;
+    padding-right:14px;
+
+  }
+
+}
+
+
+@media(max-width:430px){
+
+  .calendar{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .door{
+
+    height:280px;
 
   }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
-<div class="lights"></div>
+
+<div class="sky"></div>
+<div class="snow"></div>
 
 
-<main class="wrap">
-
-<section class="hero">
-
-  <div class="brand">
-
-    <span
-      class="cross"
-      aria-hidden="true">
-    </span>
-
-    <b>
-      APOTEK<em>1</em>
-    </b>
-
-  </div>
+<!-- ======================================================
+     HERO / TOPP
+======================================================= -->
 
 
-  <div class="kicker">
+<header class="hero">
 
-    Kommersiell avdeling inviterer til
+<div class="moon"></div>
 
-  </div>
+<div class="trees"></div>
 
-
-  <h1>
-
-    Julekalenderen 2026
-
-  </h1>
+<div class="forest"></div>
 
 
-  <p>
-
-    Et lite daglig avbrekk med fag,
-    tull, varme, overraskelser og
-    akkurat passe mye konkurranse.
-
-    Én ny luke hver dag frem til jul.
-
-  </p>
+<div class="hero-card">
 
 
-  <div class="pharmacy">
+<div class="logo">
 
-    <span class="pill green">
-      ✚ Kunnskap
-    </span>
+<span class="logo-mark"></span>
 
-    <span class="pill">
-      🎄 Julestemning
-    </span>
+<span class="logo-name">
 
-    <span class="pill green">
-      ♡ Omsorg
-    </span>
+APOTEK<i>1</i>
 
-    <span class="pill">
-      🎁 Overraskelser
-    </span>
-
-  </div>
-
-
-  <div
-    class="status"
-    id="status">
-
-    🎅 Kalenderen gjør seg klar …
-
-  </div>
-
-</section>
-
-
-<section
-  class="calendar"
-  id="calendar"
-  aria-label="Julekalender med 24 luker">
-</section>
-
-
-<div class="footer">
-
-  Vår kunnskap – din trygghet
-  · og i desember:
-  litt ekstra julestemning ✨
-
-  <br>
-
-  <small>
-
-    Tips til sosialkomiteen:
-    legg til
-    <b>?preview=24</b>
-    i adressen for å teste
-    alle lukene.
-
-  </small>
+</span>
 
 </div>
 
-</main>
+
+<div class="eyebrow">
+
+Kommersiell avdeling inviterer til
+
+</div>
 
 
-<!-- POPUP -->
+<h1>
+
+En dose<br>
+julestemning
+
+</h1>
+
+
+<p>
+
+24 små pauser i desember.
+
+Gullkorn, julequiz,
+overraskelser, konkurranser
+og litt farmasøytisk førjulsmagi.
+
+</p>
+
+
+<div class="badges">
+
+
+<span class="badge green">
+
+✚ Kunnskap
+
+</span>
+
+
+<span class="badge">
+
+🎄 Jul
+
+</span>
+
+
+<span class="badge green">
+
+♡ Omsorg
+
+</span>
+
+
+<span class="badge">
+
+🎁 Overraskelser
+
+</span>
+
+
+</div>
 
 
 <div
-  class="modal"
-  id="modal"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="modalTitle">
+class="status"
+id="status">
+
+🎅 Kalenderen gjør seg klar …
+
+</div>
 
 
-  <article class="card">
+</div>
 
 
-    <button
-      class="close"
-      id="close"
-      aria-label="Lukk">
-
-      ×
-
-    </button>
+<!-- JULEBIL -->
 
 
-    <span
-      class="badge"
-      id="modalType">
-    </span>
+<div class="truck">
+
+<div class="truck-box"></div>
+
+<div class="truck-cab"></div>
+
+<div class="wheel w1"></div>
+
+<div class="wheel w2"></div>
+
+<div class="wheel w3"></div>
+
+<div class="headlight"></div>
+
+</div>
 
 
-    <h2 id="modalTitle">
-    </h2>
+</header>
 
 
-    <div id="modalBody">
-    </div>
+<div class="garland"></div>
 
 
-    <div class="editnote">
-
-      🎄 Innholdet i denne luka
-      kan endres i
-      <b>CALENDAR_CONTENT</b>
-      nederst i index.html.
-
-    </div>
+<!-- ======================================================
+     KALENDER
+======================================================= -->
 
 
-  </article>
+<section class="calendar-section">
+
+
+<div class="section-head">
+
+
+<span>
+
+Desember i Kommersiell
+
+</span>
+
+
+<h2>
+
+24 luker.
+24 små overraskelser.
+
+</h2>
+
+
+<p>
+
+Trykk på en åpen luke.
+
+Tidligere luker kan besøkes igjen,
+mens resten må vente på sin dag.
+
+</p>
+
+
+</div>
+
+
+<div
+class="calendar"
+id="calendar">
+</div>
+
+
+</section>
+
+
+<!-- ======================================================
+     STEMNINGSSEKSJON
+======================================================= -->
+
+
+<section class="scene-break">
+
+
+<div class="scene-copy">
+
+
+<div class="cross-pattern">
+
+✚ ✚ ✚
+
+</div>
+
+
+<h3>
+
+Vår kunnskap.<br>
+Vår julepause.
+
+</h3>
+
+
+<p>
+
+Midt mellom kampanjer,
+kategorier, møter, marginer,
+produktdata og alle tingene
+som «bare burde være ganske enkle»,
+tar vi oss tid til litt førjulskos sammen.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+<div class="garland"></div>
+
+
+<!-- ======================================================
+     FOOTER
+======================================================= -->
+
+
+<footer class="footer">
+
+
+<div class="footer-logo">
+
+✚ APOTEK<b>1</b>
+
+</div>
+
+
+<p>
+
+Vår kunnskap – din trygghet
+· og i desember:
+litt ekstra julestemning ✨
+
+</p>
+
+
+<small>
+
+Test hele kalenderen ved å legge
+
+<b>?preview=24</b>
+
+bak adressen.
+
+</small>
+
+
+</footer>
+
+
+<!-- ======================================================
+     POPUP
+======================================================= -->
+
+
+<div
+class="modal"
+id="modal">
+
+
+<article
+class="card"
+id="card">
+
+
+<button
+class="close"
+id="close">
+
+×
+
+</button>
+
+
+<span
+class="type"
+id="modalType">
+</span>
+
+
+<h2 id="modalTitle">
+</h2>
+
+
+<div id="modalBody">
+</div>
+
+
+</article>
+
 
 </div>
 
@@ -945,15 +1922,18 @@ body:before{
 /*
 ============================================================
 
-   HER REDIGERER DU LUKENE
+        REDIGER LUKENE HER
 
-   For hver luke kan du enkelt endre:
+Du trenger stort sett bare å redigere denne delen.
 
-   type  = hvilken type luke det er
-   title = overskriften
-   html  = innholdet
+type:
+Den lille kategorien på luka.
 
-   Du trenger ikke endre resten av nettsiden.
+title:
+Overskriften når luka åpnes.
+
+html:
+Selve innholdet i luka.
 
 ============================================================
 */
@@ -962,9 +1942,7 @@ body:before{
 const CALENDAR_CONTENT = {
 
 
-/* =========================
-   LUKE 1
-========================= */
+/* LUKE 1 */
 
 1:{
 
@@ -978,9 +1956,11 @@ html:`
 
 Velkommen til Kommersiells julekalender.
 
-Bak de neste 24 lukene gjemmer det seg
-gullkorn, quiz, kolleger,
-små konkurranser og førjulskos.
+Bak de neste 24 lukene
+gjemmer det seg gullkorn,
+quiz, kolleger,
+små konkurranser
+og førjulskos.
 
 </p>
 
@@ -999,9 +1979,7 @@ og rikelig med jul.
 },
 
 
-/* =========================
-   LUKE 2
-========================= */
+/* LUKE 2 */
 
 2:{
 
@@ -1013,15 +1991,17 @@ html:`
 
 <p class="quote">
 
-«Dette burde egentlig være
-ganske enkelt.»
+«Dette burde egentlig
+være ganske enkelt.»
 
 </p>
 
 <p>
 
 Sagt omtrent 14 minutter
-før alt ble veldig komplisert. 😅
+før alt ble veldig komplisert.
+
+😅
 
 </p>
 
@@ -1030,9 +2010,7 @@ før alt ble veldig komplisert. 😅
 },
 
 
-/* =========================
-   LUKE 3
-========================= */
+/* LUKE 3 */
 
 3:{
 
@@ -1061,9 +2039,7 @@ Driving Home for Christmas.
 },
 
 
-/* =========================
-   LUKE 4
-========================= */
+/* LUKE 4 */
 
 4:{
 
@@ -1093,25 +2069,12 @@ Svar på dagens konkurranse
 
 </p>
 
-<p>
-
-<small>
-
-Bytt lenken med dagens
-Microsoft Forms-lenke.
-
-</small>
-
-</p>
-
 `
 
 },
 
 
-/* =========================
-   LUKE 5
-========================= */
+/* LUKE 5 */
 
 5:{
 
@@ -1123,10 +2086,15 @@ html:`
 
 <p>
 
-Takk til alle som håndterer årets
-mange «kan vi bare …»-forespørsler
-med både faglighet, fart
-og godt humør. 💚
+Takk til alle som håndterer
+årets mange
+
+«kan vi bare …»
+
+-forespørsler med både
+faglighet, fart og godt humør.
+
+💚
 
 </p>
 
@@ -1135,9 +2103,7 @@ og godt humør. 💚
 },
 
 
-/* =========================
-   LUKE 6
-========================= */
+/* LUKE 6 */
 
 6:{
 
@@ -1150,8 +2116,10 @@ html:`
 <p>
 
 Hva får du hvis du kombinerer
-farmasifag, granbar,
-kaffe og desember?
+farmasifag,
+granbar,
+kaffe
+og desember?
 
 </p>
 
@@ -1171,9 +2139,7 @@ i Kommersiell.
 },
 
 
-/* =========================
-   LUKE 7
-========================= */
+/* LUKE 7 */
 
 7:{
 
@@ -1186,7 +2152,8 @@ html:`
 <p>
 
 Her kan dere legge inn
-et ekte fun fact om avdelingen.
+et ekte fun fact
+om avdelingen.
 
 Gjerne noe overraskende
 fra året som gikk.
@@ -1198,9 +2165,7 @@ fra året som gikk.
 },
 
 
-/* =========================
-   LUKE 8
-========================= */
+/* LUKE 8 */
 
 8:{
 
@@ -1222,7 +2187,8 @@ html:`
 Hvem i Kommersiell
 kunne sagt dette?
 
-Legg inn 3–4 svaralternativer her.
+Legg inn 3–4
+svaralternativer her.
 
 </p>
 
@@ -1231,9 +2197,7 @@ Legg inn 3–4 svaralternativer her.
 },
 
 
-/* =========================
-   LUKE 9
-========================= */
+/* LUKE 9 */
 
 9:{
 
@@ -1246,8 +2210,8 @@ html:`
 <p>
 
 En julegave blir 17 % bedre
-hvis den pakkes inn med
-overdrevent mye sløyfe.
+hvis den pakkes inn
+med overdrevent mye sløyfe.
 
 </p>
 
@@ -1266,9 +2230,7 @@ Julemessig helt korrekt.
 },
 
 
-/* =========================
-   LUKE 10
-========================= */
+/* LUKE 10 */
 
 10:{
 
@@ -1284,9 +2246,9 @@ En liten nisse har gjemt seg
 et sted på siden.
 
 Første person som finner den
-og sender screenshot til
-sosialkomiteen vinner
-dagens lille premie.
+og sender screenshot
+til sosialkomiteen
+vinner dagens lille premie.
 
 </p>
 
@@ -1295,9 +2257,7 @@ dagens lille premie.
 },
 
 
-/* =========================
-   LUKE 11
-========================= */
+/* LUKE 11 */
 
 11:{
 
@@ -1309,9 +2269,11 @@ html:`
 
 <p>
 
-Legg inn et morsomt eller hyggelig
-bilde fra Kommersiell her,
-med en kort bildetekst.
+Legg inn et morsomt
+eller hyggelig bilde
+fra Kommersiell her.
+
+Gjerne med en kort bildetekst.
 
 </p>
 
@@ -1320,9 +2282,7 @@ med en kort bildetekst.
 },
 
 
-/* =========================
-   LUKE 12
-========================= */
+/* LUKE 12 */
 
 12:{
 
@@ -1334,15 +2294,15 @@ html:`
 
 <p>
 
-☕ Kaffe er en sentral del
-av arbeidsflyten.
+☕ Kaffe er en sentral
+del av arbeidsflyten.
 
-<br>
+<br><br>
 
 📊 Har sterke meninger
 om Excel.
 
-<br>
+<br><br>
 
 🎄 Har allerede julemusikk
 på spillelisten.
@@ -1360,9 +2320,7 @@ Hvem tror du det er?
 },
 
 
-/* =========================
-   LUKE 13
-========================= */
+/* LUKE 13 */
 
 13:{
 
@@ -1381,7 +2339,8 @@ dette inn i PK?»
 
 <p>
 
-Et spørsmål med uendelig mange
+Et spørsmål
+med uendelig mange
 mulige konsekvenser.
 
 </p>
@@ -1391,9 +2350,7 @@ mulige konsekvenser.
 },
 
 
-/* =========================
-   LUKE 14
-========================= */
+/* LUKE 14 */
 
 14:{
 
@@ -1419,9 +2376,7 @@ dagens betydningsfulle mysterium.
 },
 
 
-/* =========================
-   LUKE 15
-========================= */
+/* LUKE 15 */
 
 15:{
 
@@ -1437,9 +2392,15 @@ Fyll luka med én ting
 avdelingen kan være
 skikkelig stolt av fra 2026.
 
-Kort, konkret og med applaus:
+Kort,
+konkret
+og med applaus:
 
-👏👏👏
+</p>
+
+<p>
+
+👏 👏 👏
 
 </p>
 
@@ -1448,9 +2409,7 @@ Kort, konkret og med applaus:
 },
 
 
-/* =========================
-   LUKE 16
-========================= */
+/* LUKE 16 */
 
 16:{
 
@@ -1470,7 +2429,8 @@ html:`
 
 <b>Forslag:</b>
 
-Omnikanal med litt ekstra fart.
+Omnikanal
+med litt ekstra fart.
 
 </p>
 
@@ -1479,9 +2439,7 @@ Omnikanal med litt ekstra fart.
 },
 
 
-/* =========================
-   LUKE 17
-========================= */
+/* LUKE 17 */
 
 17:{
 
@@ -1493,7 +2451,9 @@ html:`
 
 <p>
 
-🎁 Dagens hemmelige kodeord er
+🎁
+
+Dagens hemmelige kodeord er
 
 <b>GLØGG</b>.
 
@@ -1502,7 +2462,8 @@ html:`
 <p>
 
 Si det til riktig person
-før kl. 14 for å bli med
+før kl. 14
+for å bli med
 i trekningen.
 
 </p>
@@ -1512,9 +2473,7 @@ i trekningen.
 },
 
 
-/* =========================
-   LUKE 18
-========================= */
+/* LUKE 18 */
 
 18:{
 
@@ -1533,8 +2492,9 @@ en fot i bakken.»
 
 <p>
 
-Her kan dere kåre den faktiske
-vinneren etter en høyst
+Her kan dere kåre
+den faktiske vinneren
+etter en høyst
 uhøytidelig avstemning.
 
 </p>
@@ -1544,9 +2504,7 @@ uhøytidelig avstemning.
 },
 
 
-/* =========================
-   LUKE 19
-========================= */
+/* LUKE 19 */
 
 19:{
 
@@ -1575,9 +2533,7 @@ og fasit.
 },
 
 
-/* =========================
-   LUKE 20
-========================= */
+/* LUKE 20 */
 
 20:{
 
@@ -1589,12 +2545,12 @@ html:`
 
 <p>
 
-En liten påminnelse om
-at god stemning også
+En liten påminnelse om at
+god stemning også
 er et leveranseområde.
 
-Takk for innsatsen så langt
-i desember.
+Takk for innsatsen
+så langt i desember.
 
 </p>
 
@@ -1603,9 +2559,7 @@ i desember.
 },
 
 
-/* =========================
-   LUKE 21
-========================= */
+/* LUKE 21 */
 
 21:{
 
@@ -1633,9 +2587,7 @@ Hvilken?
 },
 
 
-/* =========================
-   LUKE 22
-========================= */
+/* LUKE 22 */
 
 22:{
 
@@ -1647,10 +2599,13 @@ html:`
 
 <p>
 
-Et bilde,
-en seier,
-en tabbe vi kan le av,
-eller et øyeblikk
+Et bilde.
+
+En seier.
+
+En tabbe vi kan le av.
+
+Eller et øyeblikk
 vi vil huske fra 2026.
 
 </p>
@@ -1660,9 +2615,7 @@ vi vil huske fra 2026.
 },
 
 
-/* =========================
-   LUKE 23
-========================= */
+/* LUKE 23 */
 
 23:{
 
@@ -1697,9 +2650,7 @@ Se dagens konkurranse
 },
 
 
-/* =========================
-   LUKE 24
-========================= */
+/* LUKE 24 */
 
 24:{
 
@@ -1738,257 +2689,508 @@ fra sosialkomiteen!
 
 /*
 ============================================================
-   HERFRA TRENGER DU NORMALT IKKE ENDRE NOE
+
+        KALENDERLOGIKK
+
+Herfra trenger du normalt
+ikke endre noe.
+
 ============================================================
 */
 
 
 const qs =
-  new URLSearchParams(
-    location.search
-  );
+new URLSearchParams(
+location.search
+);
 
 
 const preview =
-  Math.max(
-    0,
-    Math.min(
-      24,
-      Number(
-        qs.get('preview')
-      ) || 0
-    )
-  );
+Math.max(
+0,
+Math.min(
+24,
+Number(
+qs.get('preview')
+) || 0
+)
+);
 
 
 const now =
-  new Date();
+new Date();
 
 
 const current =
-  (
-    now.getMonth() === 11
-      ? now.getDate()
-      : 0
-  );
+now.getMonth() === 11
+? now.getDate()
+: 0;
 
 
 const unlocked =
-  preview || current;
+preview || current;
 
 
 const cal =
-  document.getElementById(
-    'calendar'
-  );
+document.getElementById(
+'calendar'
+);
 
 
-/* BYGG DE 24 LUKENE */
+/*
+============================================================
+        BYGG ALLE 24 LUKENE
+============================================================
+*/
 
 
 for(
-  let d = 1;
-  d <= 24;
-  d++
+let d = 1;
+d <= 24;
+d++
 ){
 
-  const item =
-    CALENDAR_CONTENT[d];
+const x =
+CALENDAR_CONTENT[d];
 
 
-  const open =
-    d <= unlocked;
+const open =
+d <= unlocked;
 
 
-  const b =
-    document.createElement(
-      'button'
-    );
+const wrap =
+document.createElement(
+'div'
+);
 
 
-  b.type =
-    'button';
+wrap.className =
+'door ' +
+(!open ? 'locked ' : '') +
+(d === current
+? 'today'
+: '');
 
 
-  b.className =
-    'door ' +
-    (!open ? 'locked ' : '') +
-    (d === current ? 'today' : '');
+wrap.innerHTML = `
+
+<div class="door-frame">
 
 
-  b.setAttribute(
-    'aria-label',
-    open
-      ? `Åpne luke ${d}`
-      : `Luke ${d} er låst`
-  );
+<div class="inside">
 
 
-  b.innerHTML = `
+<span class="gift">
 
-    <span class="num">
-      ${d}
-    </span>
+${d === 24
+? '❤️'
+: '🎁'}
 
-    <span class="label">
-
-      ${
-        open
-          ? item.type
-          : 'Ikke ennå'
-      }
-
-    </span>
-
-  `;
+</span>
 
 
-  if(open){
+<strong>
 
-    b.addEventListener(
-      'click',
-      () => showDoor(d)
-    );
+${x.title}
 
-  }
+</strong>
 
 
-  cal.appendChild(b);
+</div>
+
+
+<button
+
+type="button"
+
+class="door-panel"
+
+aria-label="
+${open
+? 'Åpne'
+: 'Låst'}
+luke ${d}
+">
+
+
+<span class="door-num">
+
+${d}
+
+</span>
+
+
+<span class="door-type">
+
+${open
+? x.type
+: 'Ikke ennå'}
+
+</span>
+
+
+<span class="knob">
+</span>
+
+
+</button>
+
+
+</div>
+
+`;
+
+
+/* KUN ÅPNE TILGJENGELIGE LUKER */
+
+if(open){
+
+wrap
+.querySelector('button')
+.addEventListener(
+'click',
+() => openDoor(
+d,
+wrap
+)
+);
 
 }
 
 
-/* STATUSMELDING */
+cal.appendChild(
+wrap
+);
+
+}
+
+
+/*
+============================================================
+        STATUS PÅ TOPPEN
+============================================================
+*/
 
 
 const status =
-  document.getElementById(
-    'status'
-  );
+document.getElementById(
+'status'
+);
 
 
-if(preview){
+status.textContent =
 
-  status.textContent =
-    `🧪 Testmodus: luke 1–${preview} er åpne`;
+preview
 
-}
+?
 
-else if(
-  current >= 1 &&
-  current <= 24
-){
+`🧪 Testmodus · luke 1–${preview} er åpne`
 
-  status.textContent =
-    `✨ Dagens luke er nummer ${current}`;
+:
 
-}
+current >= 1 &&
+current <= 24
 
-else{
+?
 
-  status.textContent =
-    '🎄 Kalenderen åpner 1. desember';
+`✨ Dagens luke er nummer ${current}`
 
-}
+:
+
+'🎄 Kalenderen åpner 1. desember';
 
 
-/* POPUP */
+/*
+============================================================
+        ÅPNE LUKE
+============================================================
+*/
 
 
 const modal =
-  document.getElementById(
-    'modal'
-  );
+document.getElementById(
+'modal'
+);
 
 
-function showDoor(d){
-
-  const x =
-    CALENDAR_CONTENT[d];
-
-
-  document.getElementById(
-    'modalType'
-  ).textContent =
-    `Luke ${d} · ${x.type}`;
+const card =
+document.getElementById(
+'card'
+);
 
 
-  document.getElementById(
-    'modalTitle'
-  ).textContent =
-    x.title;
+function openDoor(
+d,
+door
+){
+
+/*
+Fysisk åpning av døren
+*/
+
+door.classList.add(
+'open'
+);
 
 
-  document.getElementById(
-    'modalBody'
-  ).innerHTML =
-    x.html;
+/*
+Juleeksplosjon
+*/
+
+celebrate(
+door
+);
 
 
-  modal.classList.add(
-    'show'
-  );
+/*
+Vent litt slik at man faktisk
+ser døren åpne seg
+*/
+
+setTimeout(
+()=>{
+
+
+const x =
+CALENDAR_CONTENT[d];
+
+
+document.getElementById(
+'modalType'
+).textContent =
+
+`Luke ${d} · ${x.type}`;
+
+
+document.getElementById(
+'modalTitle'
+).textContent =
+
+x.title;
+
+
+document.getElementById(
+'modalBody'
+).innerHTML =
+
+x.html;
+
+
+/*
+Restart popup-animasjonen
+*/
+
+card.classList.remove(
+'pop'
+);
+
+
+void card.offsetWidth;
+
+
+card.classList.add(
+'pop'
+);
+
+
+modal.classList.add(
+'show'
+);
+
+
+},
+720
+);
 
 }
+
+
+/*
+============================================================
+        JULEPARTIKLER
+============================================================
+*/
+
+
+function celebrate(
+el
+){
+
+const r =
+el.getBoundingClientRect();
+
+
+const icons = [
+
+'✦',
+'❄',
+'✚',
+'★',
+'🎄'
+
+];
+
+
+for(
+let i = 0;
+i < 16;
+i++
+){
+
+const s =
+document.createElement(
+'span'
+);
+
+
+s.className =
+'spark';
+
+
+s.textContent =
+icons[
+i % icons.length
+];
+
+
+s.style.left =
+
+(
+r.left +
+r.width / 2
+) + 'px';
+
+
+s.style.top =
+
+(
+r.top +
+r.height / 2
+) + 'px';
+
+
+s.style.color =
+
+i % 3 === 0
+
+? '#3aaa35'
+
+:
+
+i % 3 === 1
+
+? '#f8d574'
+
+:
+
+'#fff';
+
+
+s.style.setProperty(
+
+'--x',
+
+(
+Math.random() * 280
+- 140
+) + 'px'
+
+);
+
+
+s.style.setProperty(
+
+'--y',
+
+(
+Math.random() * 240
+- 160
+) + 'px'
+
+);
+
+
+document.body.appendChild(
+s
+);
+
+
+setTimeout(
+()=> s.remove(),
+1300
+);
+
+}
+
+}
+
+
+/*
+============================================================
+        LUKK POPUP
+============================================================
+*/
 
 
 function closeModal(){
 
-  modal.classList.remove(
-    'show'
-  );
+modal.classList.remove(
+'show'
+);
 
 }
 
 
-/* LUKK MED X */
+/* X-KNAPP */
 
 
 document.getElementById(
-  'close'
+'close'
 ).onclick =
-  closeModal;
+closeModal;
 
 
-/* LUKK VED KLIKK UTENFOR */
+/* KLIKK UTENFOR */
 
 
 modal.addEventListener(
-  'click',
-  e => {
+'click',
+e=>{
 
-    if(
-      e.target === modal
-    ){
+if(
+e.target === modal
+){
 
-      closeModal();
+closeModal();
 
-    }
+}
 
-  }
+}
 );
 
 
-/* LUKK MED ESC */
+/* ESC */
 
 
 document.addEventListener(
-  'keydown',
-  e => {
+'keydown',
+e=>{
 
-    if(
-      e.key === 'Escape'
-    ){
+if(
+e.key === 'Escape'
+){
 
-      closeModal();
+closeModal();
 
-    }
+}
 
-  }
+}
 );
 
 
 </script>
 
+
 </body>
+
 </html>
