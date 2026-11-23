@@ -143,11 +143,6 @@ a{
 }
 
 
-/*
-Kun en lett skygge over bildene.
-Bildene skal få dominere.
-*/
-
 .image-section::before{
 
   content:"";
@@ -187,15 +182,10 @@ Bildene skal få dominere.
   justify-content:center;
 
   padding:
-
     70px 24px;
 
 }
 
-
-/* ======================================================
-   HERO-KORT
-====================================================== */
 
 .hero-card{
 
@@ -204,20 +194,17 @@ Bildene skal få dominere.
   z-index:2;
 
   width:
-
     min(
       850px,
       100%
     );
 
   padding:
-
     40px 30px;
 
   text-align:center;
 
   background:
-
     rgba(
       5,
       29,
@@ -226,7 +213,6 @@ Bildene skal få dominere.
     );
 
   border:
-
     1px solid
     rgba(
       255,
@@ -236,15 +222,12 @@ Bildene skal få dominere.
     );
 
   border-radius:
-
     30px;
 
   backdrop-filter:
-
     blur(8px);
 
   box-shadow:
-
     0 30px 80px
     rgba(
       0,
@@ -269,13 +252,11 @@ Bildene skal få dominere.
   gap:14px;
 
   padding:
-
     12px 19px;
 
   background:white;
 
   border-radius:
-
     17px;
 
 }
@@ -290,11 +271,9 @@ Bildene skal få dominere.
   position:relative;
 
   background:
-
     var(--green);
 
   border-radius:
-
     11px;
 
 }
@@ -361,7 +340,7 @@ Bildene skal få dominere.
 
 
 /* ======================================================
-   HERO-TYPOGRAFI
+   HERO TYPOGRAFI
 ====================================================== */
 
 .eyebrow{
@@ -386,20 +365,16 @@ Bildene skal få dominere.
 .hero h1{
 
   margin:
-
     12px 0 0;
 
   color:
-
     #fff8e8;
 
   font-family:
-
     Georgia,
     serif;
 
   font-size:
-
     clamp(
       50px,
       8vw,
@@ -429,13 +404,11 @@ Bildene skal få dominere.
   max-width:660px;
 
   margin:
-
     22px auto 0;
 
   color:#fff2d7;
 
   font:
-
     20px/1.6
     Georgia,
     serif;
@@ -444,7 +417,7 @@ Bildene skal få dominere.
 
 
 /* ======================================================
-   HERO TAGS
+   TAGS
 ====================================================== */
 
 .tags{
@@ -465,21 +438,17 @@ Bildene skal få dominere.
 .tag{
 
   padding:
-
     8px 13px;
 
   border-radius:
-
     30px;
 
   background:white;
 
   color:
-
     var(--blue);
 
   font-size:
-
     11px;
 
   font-weight:900;
@@ -490,7 +459,6 @@ Bildene skal få dominere.
 .tag.green{
 
   background:
-
     var(--green);
 
   color:white;
@@ -509,11 +477,9 @@ Bildene skal få dominere.
   margin-top:22px;
 
   padding:
-
     10px 17px;
 
   border:
-
     1px solid
     rgba(
       255,
@@ -525,7 +491,6 @@ Bildene skal få dominere.
   border-radius:30px;
 
   background:
-
     rgba(
       0,
       15,
@@ -570,20 +535,18 @@ Bildene skal få dominere.
   align-items:center;
 
   padding:
-
     13px 20px;
 
   border:
-
     2px solid
     var(--gold);
 
-  border-radius:11px;
+  border-radius:
+    11px;
 
   color:white;
 
   background:
-
     var(--red);
 
   text-decoration:none;
@@ -593,7 +556,6 @@ Bildene skal få dominere.
   cursor:pointer;
 
   box-shadow:
-
     0 8px 22px
     rgba(
       0,
@@ -602,20 +564,34 @@ Bildene skal få dominere.
       .3
     );
 
+  transition:
+    transform .2s ease,
+    filter .2s ease;
+
+}
+
+
+.button:hover{
+
+  transform:
+    translateY(-2px);
+
+  filter:
+    brightness(1.08);
+
 }
 
 
 .button.green{
 
   background:
-
     var(--green);
 
 }
 
 
 /* ======================================================
-   GRANBAR-SEPARATOR
+   GRANBAR
 ====================================================== */
 
 .garland{
@@ -641,12 +617,10 @@ Bildene skal få dominere.
     );
 
   border-top:
-
     4px solid
     var(--gold);
 
   border-bottom:
-
     4px solid
     var(--gold);
 
@@ -656,13 +630,11 @@ Bildene skal få dominere.
 .garland::after{
 
   content:
-
   "● ✦ ● ✦ ● ✦ ● ✦ ● ✦ ● ✦ ● ✦ ● ✦ ● ✦ ●";
 
   position:absolute;
 
   inset:
-
     17px 0;
 
   text-align:center;
@@ -677,7 +649,7 @@ Bildene skal få dominere.
 
 
 /* ======================================================
-   FELLES SEKSJONSOVERSKRIFT
+   SEKSJONSOVERSKRIFTER
 ====================================================== */
 
 .section-title{
@@ -687,14 +659,12 @@ Bildene skal få dominere.
   z-index:2;
 
   width:
-
     min(
       850px,
       100%
     );
 
   margin:
-
     0 auto 45px;
 
   text-align:center;
@@ -705,7 +675,6 @@ Bildene skal få dominere.
 .section-title small{
 
   color:
-
     var(--light-gold);
 
   font-size:12px;
@@ -715,7 +684,6 @@ Bildene skal få dominere.
   letter-spacing:4px;
 
   text-transform:
-
     uppercase;
 
 }
@@ -724,13 +692,12 @@ Bildene skal få dominere.
 .section-title h2{
 
   margin:
-
     11px 0;
 
-  color:#fff8e8;
+  color:
+    #fff8e8;
 
   font:
-
     700
     clamp(
       38px,
@@ -741,7 +708,6 @@ Bildene skal få dominere.
     serif;
 
   text-shadow:
-
     0 3px 15px
     rgba(
       0,
@@ -754,7 +720,7 @@ Bildene skal få dominere.
 
 
 /* ======================================================
-   DESEMBERAKTIVITETER
+   AKTIVITETER
 ====================================================== */
 
 .activities{
@@ -766,7 +732,6 @@ Bildene skal få dominere.
     );
 
   padding:
-
     90px 22px;
 
 }
@@ -779,7 +744,6 @@ Bildene skal få dominere.
   z-index:2;
 
   width:
-
     min(
       1150px,
       100%
@@ -790,7 +754,6 @@ Bildene skal få dominere.
   display:grid;
 
   grid-template-columns:
-
     repeat(
       3,
       1fr
@@ -808,7 +771,6 @@ Bildene skal få dominere.
   padding:28px;
 
   border:
-
     1px solid
     rgba(
       255,
@@ -820,7 +782,6 @@ Bildene skal få dominere.
   border-radius:22px;
 
   background:
-
     rgba(
       90,
       12,
@@ -829,11 +790,9 @@ Bildene skal få dominere.
     );
 
   backdrop-filter:
-
     blur(7px);
 
   box-shadow:
-
     0 20px 40px
     rgba(
       0,
@@ -848,7 +807,6 @@ Bildene skal få dominere.
 .event:nth-child(2){
 
   background:
-
     rgba(
       7,
       79,
@@ -862,7 +820,6 @@ Bildene skal få dominere.
 .event:nth-child(3){
 
   background:
-
     rgba(
       9,
       46,
@@ -878,7 +835,6 @@ Bildene skal få dominere.
   display:inline-block;
 
   padding:
-
     7px 11px;
 
   border-radius:20px;
@@ -911,7 +867,6 @@ Bildene skal få dominere.
   color:#fff7e3;
 
   font:
-
     700
     27px
     Georgia,
@@ -922,9 +877,7 @@ Bildene skal få dominere.
 
 .event p{
 
-  color:
-
-    #fff0d4;
+  color:#fff0d4;
 
   line-height:1.6;
 
@@ -932,7 +885,7 @@ Bildene skal få dominere.
 
 
 /* ======================================================
-   KALENDERBAKGRUNN
+   KALENDER
 ====================================================== */
 
 .calendar-section{
@@ -944,20 +897,14 @@ Bildene skal få dominere.
     );
 
   background-position:
-
     center top;
 
   padding:
-
     90px 20px
     120px;
 
 }
 
-
-/* ======================================================
-   KALENDER GRID
-====================================================== */
 
 .calendar{
 
@@ -966,7 +913,6 @@ Bildene skal få dominere.
   z-index:2;
 
   width:
-
     min(
       1280px,
       100%
@@ -977,7 +923,6 @@ Bildene skal få dominere.
   display:grid;
 
   grid-template-columns:
-
     repeat(
       4,
       1fr
@@ -1001,7 +946,6 @@ Bildene skal få dominere.
   perspective:1200px;
 
   scroll-margin-top:
-
     50px;
 
 }
@@ -1016,21 +960,18 @@ Bildene skal få dominere.
   overflow:hidden;
 
   border:
-
     6px solid
     var(--gold);
 
   border-radius:21px;
 
   background:
-
     linear-gradient(
       #fffbe9,
       #e8d098
     );
 
   box-shadow:
-
     0 20px 40px
     rgba(
       0,
@@ -1081,7 +1022,6 @@ Bildene skal få dominere.
     var(--red);
 
   font:
-
     700
     21px
     Georgia,
@@ -1098,8 +1038,6 @@ Bildene skal få dominere.
 
 }
 
-
-/* DØREN */
 
 .door-panel{
 
@@ -1120,7 +1058,6 @@ Bildene skal få dominere.
   transform-origin:left center;
 
   transition:
-
     transform
     1.05s
     cubic-bezier(
@@ -1131,15 +1068,10 @@ Bildene skal få dominere.
     );
 
   background:
-
     linear-gradient(
-
       145deg,
-
       #c21c2d,
-
       #72101a
-
     );
 
 }
@@ -1149,15 +1081,10 @@ Bildene skal få dominere.
 .door-panel{
 
   background:
-
     linear-gradient(
-
       145deg,
-
       #14724c,
-
       #06392d
-
     );
 
 }
@@ -1167,15 +1094,10 @@ Bildene skal få dominere.
 .door-panel{
 
   background:
-
     linear-gradient(
-
       145deg,
-
       #174b94,
-
       #071f55
-
     );
 
 }
@@ -1190,7 +1112,6 @@ Bildene skal få dominere.
   inset:14px;
 
   border:
-
     2px solid
     rgba(
       255,
@@ -1215,7 +1136,6 @@ Bildene skal få dominere.
   color:white;
 
   font:
-
     900
     78px
     Georgia,
@@ -1235,13 +1155,11 @@ Bildene skal få dominere.
   margin-top:5px;
 
   padding:
-
     6px 11px;
 
   border-radius:30px;
 
   background:
-
     rgba(
       0,
       0,
@@ -1265,7 +1183,6 @@ Bildene skal få dominere.
 .door-panel{
 
   transform:
-
     rotateY(
       -112deg
     );
@@ -1279,7 +1196,6 @@ Bildene skal få dominere.
   cursor:not-allowed;
 
   filter:
-
     grayscale(.4)
     brightness(.6);
 
@@ -1301,7 +1217,6 @@ Bildene skal få dominere.
 .prizes{
 
   background-image:
-
     url(
       "./images/Juleverksted og gaver.png"
     );
@@ -1315,7 +1230,6 @@ Bildene skal få dominere.
   justify-content:center;
 
   padding:
-
     80px 24px;
 
 }
@@ -1328,7 +1242,6 @@ Bildene skal få dominere.
   z-index:2;
 
   width:
-
     min(
       760px,
       100%
@@ -1339,7 +1252,6 @@ Bildene skal få dominere.
   text-align:center;
 
   border:
-
     1px solid
     rgba(
       255,
@@ -1351,7 +1263,6 @@ Bildene skal få dominere.
   border-radius:26px;
 
   background:
-
     rgba(
       4,
       46,
@@ -1360,7 +1271,6 @@ Bildene skal få dominere.
     );
 
   backdrop-filter:
-
     blur(7px);
 
 }
@@ -1371,7 +1281,6 @@ Bildene skal få dominere.
   color:#fff7e5;
 
   font:
-
     700
     clamp(
       38px,
@@ -1389,7 +1298,6 @@ Bildene skal få dominere.
   color:#fff0d3;
 
   font:
-
     18px/1.6
     Georgia,
     serif;
@@ -1404,7 +1312,6 @@ Bildene skal få dominere.
 .final{
 
   background-image:
-
     url(
       "./images/Julekveld og finale.png"
     );
@@ -1416,7 +1323,6 @@ Bildene skal få dominere.
   justify-content:center;
 
   padding:
-
     80px 24px;
 
 }
@@ -1429,7 +1335,6 @@ Bildene skal få dominere.
   z-index:2;
 
   width:
-
     min(
       720px,
       100%
@@ -1440,7 +1345,6 @@ Bildene skal få dominere.
   text-align:center;
 
   background:
-
     rgba(
       3,
       25,
@@ -1449,7 +1353,6 @@ Bildene skal få dominere.
     );
 
   border:
-
     1px solid
     rgba(
       255,
@@ -1461,7 +1364,6 @@ Bildene skal få dominere.
   border-radius:26px;
 
   backdrop-filter:
-
     blur(7px);
 
 }
@@ -1472,7 +1374,6 @@ Bildene skal få dominere.
   color:white;
 
   font:
-
     700
     clamp(
       40px,
@@ -1504,7 +1405,6 @@ Bildene skal få dominere.
   padding:24px;
 
   background:
-
     rgba(
       0,
       7,
@@ -1527,7 +1427,6 @@ Bildene skal få dominere.
   position:relative;
 
   width:
-
     min(
       1050px,
       100%
@@ -1538,7 +1437,6 @@ Bildene skal få dominere.
   overflow:auto;
 
   padding:
-
     40px 35px;
 
   text-align:center;
@@ -1547,17 +1445,12 @@ Bildene skal få dominere.
     var(--blue);
 
   background:
-
     linear-gradient(
-
       #fffdf5,
-
       #f2dfb5
-
     );
 
   border:
-
     7px solid
     var(--gold);
 
@@ -1599,7 +1492,6 @@ Bildene skal få dominere.
   display:inline-block;
 
   padding:
-
     7px 12px;
 
   border-radius:30px;
@@ -1625,7 +1517,6 @@ Bildene skal få dominere.
     var(--red);
 
   font:
-
     700
     39px
     Georgia,
@@ -1637,7 +1528,6 @@ Bildene skal få dominere.
 .modal p{
 
   font:
-
     18px/1.6
     Georgia,
     serif;
@@ -1654,7 +1544,6 @@ Bildene skal få dominere.
   background:white;
 
   border-left:
-
     6px solid
     var(--green);
 
@@ -1675,7 +1564,6 @@ Bildene skal få dominere.
   margin:10px 0;
 
   padding:
-
     9px 14px;
 
   border-radius:30px;
@@ -1704,18 +1592,15 @@ Bildene skal få dominere.
   height:auto;
 
   margin:
-
     22px auto;
 
   border:
-
     5px solid
     var(--gold);
 
   border-radius:18px;
 
   box-shadow:
-
     0 14px 30px
     rgba(
       0,
@@ -1727,17 +1612,183 @@ Bildene skal få dominere.
 }
 
 
+/* ======================================================
+   KONKURRANSEKNAPPER
+====================================================== */
+
+.challenge-button{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
+
+  margin:
+    14px auto 12px;
+
+  padding:
+    15px 23px;
+
+  border:
+    2px solid
+    var(--gold);
+
+  border-radius:12px;
+
+  background:
+    var(--green);
+
+  color:white;
+
+  text-decoration:none;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-weight:900;
+
+  box-shadow:
+    0 8px 22px
+    rgba(
+      0,
+      0,
+      0,
+      .20
+    );
+
+  transition:
+    transform .2s ease,
+    filter .2s ease;
+
+}
+
+
+.challenge-button:hover{
+
+  transform:
+    translateY(-2px);
+
+  filter:
+    brightness(1.08);
+
+}
+
+
+/* ======================================================
+   STEG I KRYSSORDLUKA
+====================================================== */
+
+.steps{
+
+  max-width:800px;
+
+  margin:
+    25px auto;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  gap:12px;
+
+}
+
+
+.step{
+
+  padding:
+    18px 13px;
+
+  border:
+    1px solid
+    #dcc487;
+
+  border-radius:15px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      .55
+    );
+
+}
+
+
+.step-number{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  width:34px;
+
+  height:34px;
+
+  margin:
+    0 auto 10px;
+
+  border-radius:50%;
+
+  background:
+    var(--green);
+
+  color:white;
+
+  font-weight:900;
+
+}
+
+
+.step strong{
+
+  display:block;
+
+  color:
+    var(--red);
+
+  margin-bottom:5px;
+
+}
+
+
+.step span{
+
+  color:
+    #4b5365;
+
+  font-size:14px;
+
+  line-height:1.45;
+
+}
+
+
+/* ======================================================
+   FORMS
+====================================================== */
+
 .forms-title{
 
-  margin-top:32px;
+  margin-top:34px;
 
   color:
     var(--red);
 
   font:
-
     700
-    27px
+    28px
     Georgia,
     serif;
 
@@ -1753,13 +1804,21 @@ Bildene skal få dominere.
   overflow:hidden;
 
   border:
-
     4px solid
     var(--gold);
 
   border-radius:18px;
 
   background:white;
+
+  box-shadow:
+    0 12px 32px
+    rgba(
+      0,
+      0,
+      0,
+      .16
+    );
 
 }
 
@@ -1792,7 +1851,6 @@ Bildene skal få dominere.
   .calendar{
 
     grid-template-columns:
-
       repeat(
         3,
         1fr
@@ -1808,7 +1866,6 @@ Bildene skal få dominere.
   .calendar{
 
     grid-template-columns:
-
       repeat(
         2,
         1fr
@@ -1825,6 +1882,12 @@ Bildene skal få dominere.
   .hero-buttons{
 
     flex-direction:column;
+
+  }
+
+  .steps{
+
+    grid-template-columns:1fr;
 
   }
 
@@ -1868,12 +1931,9 @@ Bildene skal få dominere.
      FORSIDE
 ====================================================== -->
 
-
 <section class="hero image-section">
 
-
 <div class="hero-card">
-
 
 <div class="logo">
 
@@ -1966,9 +2026,7 @@ Se julekalenderen 🎁
 
 </div>
 
-
 </div>
-
 
 </section>
 
@@ -1979,7 +2037,6 @@ Se julekalenderen 🎁
 <!-- ======================================================
      HVA SKJER
 ====================================================== -->
-
 
 <section
 class="activities image-section"
@@ -2007,21 +2064,15 @@ Dette skjer i desember
 <div class="event">
 
 <span class="event-date">
-
 3. DESEMBER
-
 </span>
 
 <span class="event-icon">
-
 🥂
-
 </span>
 
 <h3>
-
 Julebordsvors og julebord
-
 </h3>
 
 <p>
@@ -2044,21 +2095,15 @@ ligger i møteinnkallingen.
 <div class="event">
 
 <span class="event-date">
-
 10. DESEMBER
-
 </span>
 
 <span class="event-icon">
-
 🍽️
-
 </span>
 
 <h3>
-
 Felles julelunsj
-
 </h3>
 
 <p>
@@ -2078,21 +2123,15 @@ Menyen blir en overraskelse.
 <div class="event">
 
 <span class="event-date">
-
 DATO KOMMER
-
 </span>
 
 <span class="event-icon">
-
 🍪
-
 </span>
 
 <h3>
-
 Julekaker ved EMV
-
 </h3>
 
 <p>
@@ -2108,7 +2147,6 @@ og ta en liten førjulspause.
 
 </div>
 
-
 </section>
 
 
@@ -2119,7 +2157,6 @@ og ta en liten førjulspause.
      KALENDER
 ====================================================== -->
 
-
 <section
 class="calendar-section image-section"
 id="kalender">
@@ -2128,9 +2165,7 @@ id="kalender">
 <div class="section-title">
 
 <small>
-
 Desember i Kommersiell
-
 </small>
 
 <h2>
@@ -2159,21 +2194,16 @@ id="calendar">
      PREMIER
 ====================================================== -->
 
-
 <section class="prizes image-section">
 
 <div class="prize-box">
 
 <div style="font-size:55px">
-
 🎁
-
 </div>
 
 <h2>
-
 Det lønner seg å delta
-
 </h2>
 
 <p>
@@ -2197,18 +2227,15 @@ og andre små overraskelser.
 
 
 <!-- ======================================================
-     AVSLUTNING
+     FINALE
 ====================================================== -->
-
 
 <section class="final image-section">
 
 <div class="final-box">
 
 <h2>
-
 Vi teller ned sammen
-
 </h2>
 
 <p>
@@ -2232,9 +2259,8 @@ Tilbake til kalenderen ↑
 
 
 <!-- ======================================================
-     POPUP
+     MODAL
 ====================================================== -->
-
 
 <div
 class="modal"
@@ -2246,7 +2272,8 @@ id="modal">
 
 <button
 class="close"
-id="closeButton">
+id="closeButton"
+aria-label="Lukk">
 
 ×
 
@@ -2386,8 +2413,7 @@ for praktisk informasjon.
 
 
 /* ======================================================
-   LUKE 4
-   FINN FEM FEIL
+   LUKE 4 – FINN FEM FEIL
 ====================================================== */
 
 
@@ -2455,13 +2481,21 @@ og send inn svaret under.
 <div class="forms-container">
 
 <iframe
+
 src="https://forms.cloud.microsoft/e/4Lbht3TTJY?embed=true"
+
 width="100%"
+
 height="650"
+
 frameborder="0"
+
 marginwidth="0"
+
 marginheight="0"
+
 allowfullscreen>
+
 </iframe>
 
 </div>
@@ -2527,28 +2561,164 @@ riktig sted vinner.
 },
 
 
+/* ======================================================
+   LUKE 7 – JULEKRYSSORD
+====================================================== */
+
 7:{
 
 type:"Julekryssord",
 
-title:"Kommersiells julekryssord",
+title:"Kommersiells julekryssord ✏️",
 
 icon:"✏️",
 
-teaser:"Finn løsningsordet",
+teaser:"Løs kryssordet og send det inn",
 
 content:`
 
 <p>
 
-Løs dagens julekryssord.
+I dag skal julehjernen
+få litt å bryne seg på.
 
 </p>
 
+
+<p class="quote">
+
+Løs Kommersiells julekryssord,
+ta et skjermbilde når du er ferdig
+og send det inn under.
+
+</p>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+1
+</div>
+
+<strong>
+Åpne
+</strong>
+
+<span>
+
+Åpne julekryssordet
+i en ny fane.
+
+</span>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+2
+</div>
+
+<strong>
+Løs
+</strong>
+
+<span>
+
+Fyll ut hele kryssordet
+og ta et skjermbilde.
+
+</span>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+3
+</div>
+
+<strong>
+Send inn
+</strong>
+
+<span>
+
+Gå tilbake hit
+og last opp skjermbildet
+i skjemaet under.
+
+</span>
+
+</div>
+
+
+</div>
+
+
+<a
+
+class="challenge-button"
+
+href="https://puzzel.org/no/crossword/play?p=-P77VjK57us-xStksc-q"
+
+target="_blank"
+
+rel="noopener noreferrer">
+
+✏️ Åpne julekryssordet ↗
+
+</a>
+
+
 <div class="prize-label">
 
-Riktig løsningsord
-gir lodd i trekningen.
+🎁 Alle med riktig løst kryssord
+er med i trekningen
+av dagens premie
+
+</div>
+
+
+<div class="forms-title">
+
+Ferdig med kryssordet?
+
+</div>
+
+
+<p>
+
+Last opp skjermbildet
+av det ferdig utfylte kryssordet her.
+
+</p>
+
+
+<div class="forms-container">
+
+<iframe
+
+src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=i6R4GNZjEk2pAAfUJn9nYmR0R-Hg1u9PhYQvAFNX-INUQUU3SFhIVTY4QTJGN1ZCVzZDTEtLVFdETC4u&embed=true"
+
+width="100%"
+
+height="650"
+
+frameborder="0"
+
+marginwidth="0"
+
+marginheight="0"
+
+allowfullscreen>
+
+</iframe>
 
 </div>
 
@@ -2724,7 +2894,8 @@ content:`
 <p>
 
 Tre raske spørsmål
-om jul og juletradisjoner.
+om jul
+og juletradisjoner.
 
 </p>
 
@@ -3339,7 +3510,7 @@ block:"center"
 
 
 /* ======================================================
-   POPUP
+   ÅPNE LUKE
 ====================================================== */
 
 
