@@ -2310,38 +2310,295 @@ id="modalLabel">
 
 const doorsContent = {
 
-
 1:{
 
-type:"Velkommen",
+type:"Melding fra Sos.kom",
 
-title:"Nå er vi i gang! 🎄",
+title:"🚨 OPERASJON JUL ER I GANG 🚨",
 
-icon:"🎄",
+icon:"🚨",
 
-teaser:"Desember starter her",
+teaser:"Sos.kom har kontroll. Foreløpig.",
 
 content:`
 
 <p>
 
-Velkommen til
-Kommersiells julekalender.
+Etter en grundig strategiprosess
+på omtrent <strong>11 minutter</strong>
+har Sos.kom kommet frem til følgende:
 
 </p>
 
-<p>
 
-Her venter konkurranser,
-aktiviteter,
-premier
-og små førjulspauser.
+<p class="quote">
+
+<strong>
+JULESTEMNINGEN I KOMMERSIELL
+ER FOR LAV.
+</strong>
+
+<br><br>
+
+Situasjonen vurderes som alvorlig.
+
+</p>
+
+
+<img
+
+src="./images/sos-kommandosentralen.png"
+
+alt="Sosialkomiteens julekommandosentral"
+
+class="competition-image"
+
+>
+
+
+<div style="
+max-width:780px;
+margin:28px auto;
+padding:28px;
+background:#fffdf5;
+border:4px solid #edc56c;
+border-radius:18px;
+color:#071f5b;
+text-align:left;
+box-shadow:0 14px 35px rgba(0,0,0,.2);
+">
+
+
+<div style="
+text-align:center;
+margin-bottom:23px;
+">
+
+<div style="
+font-size:13px;
+font-weight:900;
+letter-spacing:3px;
+color:#a71926;
+">
+
+SOSIALKOMITEEN
+
+</div>
+
+
+<div style="
+font-family:Georgia,serif;
+font-size:28px;
+font-weight:900;
+margin-top:5px;
+">
+
+VEDTAK 01/2026
+
+</div>
+
+
+<div style="
+margin-top:5px;
+font-size:13px;
+color:#75684b;
+">
+
+Ekstraordinære tiltak
+for desember
+
+</div>
+
+</div>
+
+
+<p style="
+font-family:Arial,sans-serif;
+line-height:1.75;
+">
+
+Som følge av kritisk lave nivåer
+av julestemning har Sos.kom,
+med umiddelbar virkning,
+vedtatt følgende tiltak:
+
+</p>
+
+
+<ul style="
+font-family:Arial,sans-serif;
+font-size:16px;
+line-height:2;
+padding-left:24px;
+">
+
+<li>
+🎄 <strong>24 juleluker</strong>
+</li>
+
+<li>
+🎁 <strong>Premier</strong>
+</li>
+
+<li>
+🍪 <strong>Mat og snacks</strong>
+</li>
+
+<li>
+🥂 <strong>Sosiale tiltak</strong>
+</li>
+
+<li>
+🧝 <strong>Rampestreker</strong>
+</li>
+
+<li>
+💬 <strong>Tvilsomt gode julequotes</strong>
+</li>
+
+<li>
+🤖 <strong>Uforholdsmessig mye AI</strong>
+</li>
+
+</ul>
+
+
+<p style="
+font-family:Arial,sans-serif;
+line-height:1.7;
+">
+
+Vedtaket gjelder fra
+<strong>1. desember</strong>
+og frem til julestemningen
+har nådd tilfredsstillende nivå.
+
+</p>
+
+
+<div style="
+margin-top:22px;
+padding-top:18px;
+border-top:1px solid #ddcfaa;
+text-align:center;
+font-family:Arial,sans-serif;
+">
+
+<strong>
+Enstemmig vedtatt av Sos.kom.
+</strong>
+
+<br>
+
+<span style="
+font-size:13px;
+color:#837351;
+">
+
+Ingen høringsrunde gjennomført.
+
+</span>
+
+</div>
+
+
+</div>
+
+
+<p class="quote">
+
+<strong>Og vi begynner NÅ.</strong>
+
+<br><br>
+
+Velkommen til
+Kommersiells julekalender 2026.
+
+</p>
+
+
+<div style="
+max-width:680px;
+margin:24px auto;
+padding:22px;
+border-radius:18px;
+background:#ecf7e9;
+border:3px solid #3aaa35;
+color:#071f5b;
+">
+
+<div style="
+font-size:34px;
+margin-bottom:8px;
+">
+
+🎄
+
+</div>
+
+
+<strong style="
+font-size:20px;
+color:#267c2c;
+">
+
+DIN OPPGAVE I DESEMBER
+
+</strong>
+
+
+<p style="
+font-family:Arial,sans-serif;
+line-height:1.7;
+margin-bottom:0;
+">
+
+Åpne dagens luke.
+
+Delta når du vil.
+
+Ha det litt morsommere
+på jobb i desember.
+
+<br><br>
+
+<strong>
+Sos.kom tar seg av resten.
+</strong>
+
+</p>
+
+
+</div>
+
+
+<div class="prize-label">
+
+🎄 OPERASJON JUL ER OFFISIELT I GANG
+
+</div>
+
+
+<p style="
+margin-top:27px !important;
+font-family:Arial,sans-serif !important;
+font-size:13px !important;
+color:#776d58;
+">
+
+<strong>Status:</strong>
+Sos.kom har kontroll.
+
+<br>
+
+<em>Foreløpig.</em>
 
 </p>
 
 `
 
 },
+
 
 2:{
 
@@ -4017,6 +4274,75 @@ door
 
 }
 
+/* ======================================================
+   EGET DESIGN FOR LUKE 1
+====================================================== */
+
+const firstDoor =
+document.getElementById(
+"door-1"
+);
+
+if(firstDoor){
+
+const firstPanel =
+firstDoor.querySelector(
+".door-panel"
+);
+
+const firstNumber =
+firstDoor.querySelector(
+".door-number"
+);
+
+const firstLabel =
+firstDoor.querySelector(
+".door-label"
+);
+
+
+if(firstPanel){
+
+firstPanel.style.background =
+"linear-gradient(145deg,#a71926,#5f0813)";
+
+firstPanel.style.boxShadow =
+"inset 0 0 0 3px rgba(255,225,145,.55), 0 0 30px rgba(255,196,76,.45)";
+
+}
+
+
+if(firstNumber){
+
+firstNumber.innerHTML =
+"🚨<br>1";
+
+firstNumber.style.fontSize =
+"57px";
+
+firstNumber.style.lineHeight =
+"1.05";
+
+}
+
+
+if(firstLabel){
+
+firstLabel.textContent =
+"START OPERASJON JUL";
+
+firstLabel.style.background =
+"#edc56c";
+
+firstLabel.style.color =
+"#071f5b";
+
+firstLabel.style.padding =
+"9px 14px";
+
+}
+
+}
 
 /* ======================================================
    STATUS
